@@ -1,24 +1,31 @@
-# README
+# Master
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# サイト概要
+誰もがお酒の情報共有気軽にをできるサイト
 
-Things you may want to cover:
+### サイトテーマ
+自分で作ったカクテルを投稿したり、検索できます。
 
-* Ruby version
+### テーマを選んだ内容
+コロナ禍で居酒屋に気軽に行けない時期があり、自分でお酒を混ぜてカクテルを作っていた。
+その際に、もっとレパートリーを増やしたいと感じ、お酒の情報を共有できたらいいと思いこのサイトを作ろうと思った。
+また居酒屋で初めて聞くようなお酒を簡単に調べられ、詳細を知ることができたらいいなと思った。
 
-* System dependencies
+### ターゲットユーザー
+・お酒を作ろうと思っている人
+・どんなお酒か調べたい人
 
-* Configuration
+### 主な利用シーン
+・お酒の組み合わせを共有したい時
+・お酒の詳細が知りたい時
 
-* Database creation
+### 設計書
+製作中
 
-* Database initialization
+###　開発環境
+・OS：Linux(CentOS)
+・言語：HTML,CSS,JavaScript,Ruby,SQL
+・フレームワーク：Ruby on Rails
+・JSライブラリ：jQuery
+・IDE：Cloud9
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
