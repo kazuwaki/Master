@@ -21,7 +21,7 @@
 ・晩酌をしたい時
 
 ### 設計書
-製作中
+ <img width="640" alt="img-1" src="https://user-images.githubusercontent.com/104773179/180707732-7334099b-a999-4bec-b3f4-989be4a0a969.png">
 
 ### 開発環境
 ・OS：Linux(CentOS)
