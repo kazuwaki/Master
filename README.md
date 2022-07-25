@@ -21,7 +21,11 @@
 ・晩酌をしたい時
 
 ### 設計書
+- 機能一覧
  <img width="640" alt="スクリーンショット 2022-07-25 18 05 59" src="https://user-images.githubusercontent.com/104773179/180740618-c65021f9-9df6-4bf7-8c63-0274e1a24712.png">
+- テーブル定義書
+[ポートフォリオ テーブル定義書.pdf](https://github.com/kazuwaki/Master/files/9181508/default.pdf)
+
 
 ### 開発環境
 ・OS：Linux(CentOS)
