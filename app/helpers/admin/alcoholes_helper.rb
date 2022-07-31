@@ -1,0 +1,2 @@
+module Admin::AlcoholesHelper
+end

@@ -1,0 +1,11 @@
+<%= form_with model:[:admin, @type] do |f| %>
+<div class="form">
+  <%= f.label "タイプ種類を作成" %>
+  <%= f.text_field :name %>
+</div>
+
+<div class="form">
+  <%= f.submit "更新内容を保存" %>
+</div>
+
+<% end %>

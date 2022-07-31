@@ -10,11 +10,11 @@
   </div>
   <div class="form">
     <%= f.label "type" %>
-    <%= f.collection_select(:type_id, Type.all, id, name, prompt: "選択してください" ) %>
+    <%= f.collection_select(:type_id, Type.all, :id, :name, prompt: "選択してください" ) %>
   </div>
   <div class="form">
     <%= f.label "alcohol" %>
-    <%= f.collection_select(:alcohol_id, Alcohol.all, id, name, prompt: "選択してください" ) %>
+    <%= f.collection_select(:alcohol_id, Alcohol.all, :id, :name, prompt: "選択してください" ) %>
   </div>
   <div class="form">
     <%= f.submit "新規登録" %>
