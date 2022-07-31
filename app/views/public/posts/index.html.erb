@@ -1,0 +1,9 @@
+<h1>Posts#index</h1>
+<div class="card">
+  <% @posts.each do |post| %>
+  <%= post.name %>
+  <%= post.body %>
+  <%= post.type.name %>
+  <%= post.alcohol.name %>
+  <% end %>
+</div>
