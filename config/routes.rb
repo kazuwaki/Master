@@ -4,10 +4,13 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
 
-  # 管理者用
-  # URL /admin/sign_in ...
+
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
+
+  scope module: :public do
+    resources :posts, only: [:index, :new, :edit, :update, :create, :destroy]
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
