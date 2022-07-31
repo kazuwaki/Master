@@ -1,0 +1,9 @@
+<%= form_with model: [:admin, @alcohol] do |f| %>
+  <div class="form">
+    <%= f.label "アルコール濃度" %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="form">
+    <%= f.submit "新規登録" %>
+  </div>
+<% end %>

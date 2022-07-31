@@ -1,0 +1,29 @@
+<%= form_with model: [:admin, @alcohol] do |f| %>
+  <div class="form">
+    <%= f.label "アルコール濃度" %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="form">
+    <%= f.submit "新規登録" %>
+  </div>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <td>id</td>
+      <td>名前</td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @alcohols.each do |alcohol| %>
+      <tr>
+        <th><%= alcohol.id %></th>
+        <th><%= alcohol.name %></th>
+        <th><%= link_to "編集", edit_admin_alcohol_path(alcohol) %></th>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
