@@ -1,9 +1,11 @@
 <h1>Posts#index</h1>
 <div class="card">
   <% @posts.each do |post| %>
-  <%= post.name %>
-  <%= post.body %>
-  <%= post.type.name %>
-  <%= post.alcohol.name %>
+    <%= image_tag post.get_image(200,200) %>
+    <%= post.name %>
+    <%= post.body %>
+    <%= post.type.name %>
+    <%= post.alcohol.name %>
+    <%= link_to "編集", edit_post_path(post) %>
   <% end %>
 </div>

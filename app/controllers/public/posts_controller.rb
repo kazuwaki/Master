@@ -1,7 +1,6 @@
 class Public::PostsController < ApplicationController
   def index
     @posts = Post.all
-    @types = Type.all
   end
 
   def create
@@ -18,8 +17,14 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def update
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+    redirect_to posts_path
+  end
+
   private
   def post_params
-    params.require(:post).permit(:name, :body, :image, :type_id, :alcohol_id)
+    params.require(:post).permit(:name, :body, :image, :type_id, :alcohol_id, :customer_id)
   end
 end

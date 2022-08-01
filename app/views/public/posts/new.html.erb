@@ -1,6 +1,10 @@
 <h1>Posts#new</h1>
 <%= form_with model: @post do |f| %>
   <div class="form">
+    <%= f.label "画像" %>
+    <%= f.file_field :image, placeholder: "お酒の画像", accept: "image/*" %>
+  </div>
+  <div class="form">
     <%= f.label "お酒の名前" %>
     <%= f.text_field :name %>
   </div>
