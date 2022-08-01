@@ -1,2 +1,5 @@
-<h1>Public::Customers#show</h1>
-<p>Find me in app/views/public/customers/show.html.erb</p>
+<%= image_tag @customer.get_profile_image(300,300) %>
+<%= @customer.name %>
+<%= @customer.introduction %>
+
+<%= link_to "編集", information_edit_customers_path %>
