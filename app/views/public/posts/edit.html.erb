@@ -1,2 +1,28 @@
 <h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<%= form_with model: @post, url: post_path  do |f| %>
+  <div class="form">
+    <%= f.label "画像" %>
+    <%= f.file_field :image, placeholder: "お酒の画像", accept: "image/*" %>
+  </div>
+  <div class="form">
+    <%= f.label "お酒の名前" %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="form">
+    <%= f.label "材料・作り方" %>
+    <%= f.text_field :body %>
+  </div>
+  <div class="form">
+    <%= f.label "type" %>
+    <%= f.collection_select(:type_id, Type.all, :id, :name, prompt: "選択してください" ) %>
+  </div>
+  <div class="form">
+    <%= f.label "alcohol" %>
+    <%= f.collection_select(:alcohol_id, Alcohol.all, :id, :name, prompt: "選択してください" ) %>
+  </div>
+  <div class="form">
+    <%= f.submit "新規登録" %>
+  </div>
+
+  <% end %>
+
