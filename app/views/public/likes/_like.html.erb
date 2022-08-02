@@ -1,0 +1,13 @@
+<% if post.liked_by?(current_customer) %>
+  <p>
+    <%= link_to post_likes_path(post), method: :delete, remote: true do %>
+      <i class="fas fa-beer"></i><%= post.likes.count %> いいね
+    <% end %>
+  </p>
+<% else %>
+  <p>
+    <%= link_to post_likes_path(post), method: :post, remote: true do %>
+      <i class="fal fa-beer"></i><%= post.likes.count %> いいね
+    <% end %>
+  </p>
+<% end %>
