@@ -2,18 +2,13 @@
 <table>
   <thead>
     <tr>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>image</th>
+      <th>name</th>
+      <th>introduction</th>
+      <th>follow</th>
     </tr>
   </thead>
-  <tbody>
-    <% @customers.each do |customer| %>
-      <tr>
-        <td><%= image_tag customer.get_profile_image(300,300) %></td>
-        <td><%= customer.name %></td>
-        <td><%= customer.introduction %></td>
-      </tr>
-    <% end %>
+  <tbody class="follow">
+    <%= render 'public/relationships/index', customers: @customers %>
   </tbody>
 </table>

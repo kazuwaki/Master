@@ -13,13 +13,11 @@ Rails.application.routes.draw do
     root to: "homes#top"
     get '/about' => 'homes#about'
     resources :posts, only: [:index, :new, :edit, :show, :update, :create, :destroy]
-    resource :customers do
-      get '/my_page' => 'customers#show'
-      get '/customers' => 'customers#index'
-      get '/information/edit' => 'customers#edit'
-      patch  '/information' => 'customers#update'
-    end
-
+    resources :customers, only: [:show, :index, :edit, :update] do
+      resource :relationships, only: [:create, :destroy]
+        get 'followings' => 'relationships#followings', as: 'followings'
+        get 'followers' => 'relationships#followers', as: 'followers'
+      end
   end
 
 
