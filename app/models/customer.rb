@@ -5,6 +5,25 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :profile_image
+  has_many :relationships
+  has_many :followings, through: :relationships, source: :follow
+  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "follow_id"
+  has_many :followers, through: :reverse_of_relationships, source: :customer
+
+  def follow(other_customer)
+    unless self == other_customer
+      relationships.find_or_create_by(follow_id: other_customer.id)
+    end
+  end
+
+  def unfollow(other_customer)
+    relationship = relationships.find_by(follow_id: other_customer.id)
+    relationship.destroy if relationship
+  end
+
+  def following?(other_customer)
+    followings.include?(other_customer)
+  end
 
   def get_profile_image(width, height)
     unless profile_image.attached?
