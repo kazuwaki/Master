@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: "homes#top"
     get '/about' => 'homes#about'
-    resources :posts, only: [:index, :new, :edit, :update, :create, :destroy]
+    resources :posts, only: [:index, :new, :edit, :show, :update, :create, :destroy]
     resource :customers do
       get '/my_page' => 'customers#show'
       get '/customers' => 'customers#index'

@@ -1,0 +1,17 @@
+<div classs="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-6 text-center">
+            <%= image_tag @post.get_image(500,500), class: "item-image" %>
+        </div>
+        <div class="col-4">
+            <div class="post-show">
+                <%= @post.name %>
+                <%= @post.body %>
+                <%= @post.type.name %>
+                <%= @post.alcohol.name %>
+            </div>
+        </div>
+    </div>
+</div>
+

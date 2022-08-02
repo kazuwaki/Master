@@ -1,11 +1,21 @@
 <h1>Posts#index</h1>
-<div class="card">
-  <% @posts.each do |post| %>
-    <%= image_tag post.get_image(200,200) %>
-    <%= post.name %>
-    <%= post.body %>
-    <%= post.type.name %>
-    <%= post.alcohol.name %>
-    <%= link_to "編集", edit_post_path(post) %>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-10">
+      <div class="d-flex flex-wrap justify-content-around">
+          <% @posts.each do |post| %>
+          <div class="reference-position">
+            <%= link_to post_path(post.id), class: "mb-3 card item-card", style: "padding: 0;" do %>
+              <%= image_tag post.get_image(200,200), class: "card-img-top",  style: "height:250px; width:auto; object-fit: cover" %>
+              <div class="card-body">
+                <h5 class="card-title"><%= post.name %></h5>
+              </div>
+            <% end %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
