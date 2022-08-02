@@ -1,7 +1,12 @@
 class Post < ApplicationRecord
   belongs_to :type
   belongs_to :alcohol
+  has_many :likes, dependent: :destroy
   has_one_attached :image
+
+  def liked_by?(customer)
+    likes.exists?(customer_id: customer.id)
+  end
 
   def get_image(width, height)
     unless image.attached?
