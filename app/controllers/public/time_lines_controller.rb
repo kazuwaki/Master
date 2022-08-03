@@ -6,7 +6,7 @@ class Public::TimeLinesController < ApplicationController
   end
 
   def create
-    @time_line = TimeLine.new(time_line_params)
+    @time_line = current_customer.time_lines.new(time_line_params)
     @time_line.save
     redirect_to request.referer
   end
@@ -24,6 +24,6 @@ class Public::TimeLinesController < ApplicationController
   private
 
   def time_line_params
-    params.require(:time_line).permit(:title, :body, :customer_id)
+    params.require(:time_line).permit(:title, :body)
   end
 end

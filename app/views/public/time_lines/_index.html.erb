@@ -1,0 +1,14 @@
+<% time_lines.each do |time_line| %>
+  <div class="time-line-index">
+    <%= time_line.title %>
+    <%= time_line.body %>
+    <%= time_line.customer.name %>
+    <%= link_to "削除",time_line , method: :delete %>
+    <div class="time-line-comment-index">
+      <%= render 'public/time_line_comments/index', time_line: time_line %>
+    </div>
+    <div class="time-line-comment-form">
+      <%= render 'public/time_line_comments/form', time_line: time_line, time_line_comment: @time_line_comment %>
+    </div>
+  </div>
+<% end %>
