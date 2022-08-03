@@ -21,6 +21,9 @@ Rails.application.routes.draw do
         get 'followings' => 'relationships#followings', as: 'followings'
         get 'followers' => 'relationships#followers', as: 'followers'
       end
+    resources :time_lines, only: [:create, :destory, :update, :index] do
+      resources :time_line_comments, only: [:create, :destroy]
+    end
   end
 
 
