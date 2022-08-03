@@ -4,13 +4,11 @@ class Public::TimeLineCommentsController < ApplicationController
     @comment = current_customer.time_line_comments.new(time_line_comment_params)
     @comment.time_line_id = @time_line.id
     @comment.save
-    redirect_to request.referer
   end
 
   def destroy
     @comment = TimeLineComment.find(params[:id])
     @comment.destroy
-    redirect_to request.referer
   end
 
   private

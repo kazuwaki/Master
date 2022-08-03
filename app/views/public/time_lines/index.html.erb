@@ -2,7 +2,9 @@
 <div class="container">
   <div class="row">
     <div class="col-8 offset-2">
-      <%= render 'public/time_lines/index', time_lines: @time_lines %>
+      <div class="time-line-index">
+        <%= render 'public/time_lines/index', time_lines: @time_lines %>
+      </div>
       <div class="time-line-form">
         <%= render 'public/time_lines/form', time_line: @time_line %>
       </div>

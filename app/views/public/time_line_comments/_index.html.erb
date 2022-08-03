@@ -2,6 +2,6 @@
   <div class="index">
     <%= time_line_comment.comment %>
     <%= time_line_comment.customer.name %>
-    <%= link_to "削除", time_line_time_line_comment_path(time_line_comment.time_line, time_line_comment), method: :delete %>
+    <%= link_to "削除", time_line_time_line_comment_path(time_line_comment.time_line, time_line_comment), method: :delete, remote: true %>
   </div>
 <% end %>
