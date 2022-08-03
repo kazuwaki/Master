@@ -1,0 +1,13 @@
+<%= form_with model: time_line do |f| %>
+  <div class="field">
+    <%= f.label "タイトル" %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label "内容" %>
+    <%= f.text_field :body %>
+  </div>
+  <div class="field">
+    <%= f.submit "投稿" %>
+  </div>
+<% end %>

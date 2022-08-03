@@ -2,40 +2,9 @@
 <div class="container">
   <div class="row">
     <div class="col-8 offset-2">
-      <% @time_lines.each do |time_line| %>
-        <div class="index">
-          <%= time_line.title %>
-          <%= time_line.body %>
-          <%= link_to "削除",time_line , method: :delete %>
-          <div class="index">
-            <% time_line.time_line_comments.each do |time_line_comment| %>
-              <%= time_line_comment.comment %>
-              <%= time_line_comment.customer.name %>
-              <%= link_to "削除", time_line_time_line_comment_path(time_line_comment.time_line, time_line_comment), method: :delete %>
-            <% end %>
-          </div>
-          <div class="form">
-            <%= form_with model: [time_line, @time_line_comment] do |f| %>
-              <%= f.text_field :comment %>
-              <%= f.submit "送信" %>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-      <div class="form">
-        <%= form_with model: @time_line do |f| %>
-          <div class="field">
-            <%= f.label "タイトル" %>
-            <%= f.text_field :title %>
-          </div>
-          <div class="field">
-            <%= f.label "内容" %>
-            <%= f.text_field :body %>
-          </div>
-          <div class="field">
-            <%= f.submit "投稿" %>
-          </div>
-        <% end %>
+      <%= render 'public/time_lines/index', time_lines: @time_lines %>
+      <div class="time-line-form">
+        <%= render 'public/time_lines/form', time_line: @time_line %>
       </div>
     </div>
   </div>
