@@ -1,2 +1,29 @@
 <h1>Public::TimeLines#index</h1>
-<p>Find me in app/views/public/time_lines/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <% @time_lines.each do |time_line| %>
+        <div class="index">
+          <%= time_line.title %>
+          <%= time_line.body %>
+
+        </div>
+      <% end %>
+      <div class="form">
+        <%= form_with model: @time_line do |f| %>
+          <div class="field">
+            <%= f.label "タイトル" %>
+            <%= f.text_field :title %>
+          </div>
+          <div class="field">
+            <%= f.label "内容" %>
+            <%= f.text_field :body %>
+          </div>
+          <div class="field">
+            <%= f.submit "投稿" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
