@@ -2,6 +2,7 @@ class Public::TimeLinesController < ApplicationController
   def index
     @time_line = TimeLine.new
     @time_lines = TimeLine.all
+    @time_line_comment = TimeLineComment.new
   end
 
   def create
