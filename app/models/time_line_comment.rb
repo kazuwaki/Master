@@ -1,4 +1,4 @@
 class TimeLineComment < ApplicationRecord
-  belongs_to :customer
-  belongs_to :time_line
+  belongs_to :customer, optional: true
+  belongs_to :time_line, optional: true
 end

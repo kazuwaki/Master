@@ -1,22 +1,28 @@
 class Public::TimeLinesController < ApplicationController
   def index
+    @time_line = TimeLine.new
+    @time_lines = TimeLine.all
   end
-  
+
   def create
-  
-  end 
-  
+    @time_line = TimeLine.new(time_line_params)
+    @time_line.save
+    redirect_to request.referer
+  end
+
   def destroy
-    
-  end 
-  
+    @time_line = TimeLine.find(params[:id])
+    @time_line.destroy
+    redirect_to request.referer
+  end
+
   def update
-    
-  end 
-  
+
+  end
+
   private
-  
-  def 
-    
-  end 
+
+  def time_line_params
+    params.require(:time_line).permit(:title, :body, :customer_id)
+  end
 end
