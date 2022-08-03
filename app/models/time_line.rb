@@ -1,4 +1,4 @@
 class TimeLine < ApplicationRecord
   belongs_to :customer
-  belongs_to :time_line
+  has_many :time_line_comments, dependent: :destroy
 end
