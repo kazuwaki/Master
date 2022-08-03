@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :type
   belongs_to :alcohol
+  has_many :post_comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_one_attached :image
 
