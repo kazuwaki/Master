@@ -1,9 +1,9 @@
 <% time_lines.each do |time_line| %>
-  <div class="time-line-index">
-    <%= time_line.title %>
-    <%= time_line.body %>
+  <div>
+    <p><%= time_line.title %>
     <%= time_line.customer.name %>
-    <%= link_to "削除",time_line , method: :delete %>
+    <%= link_to "削除",time_line , method: :delete, remote: true %></p>
+    <p><%= time_line.body %></p>
     <div class="time-line-comment-index">
       <%= render 'public/time_line_comments/index', time_line: time_line %>
     </div>
