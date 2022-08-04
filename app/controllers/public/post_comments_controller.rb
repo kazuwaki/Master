@@ -3,7 +3,9 @@ class Public::PostCommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = current_customer.post_comments.new(post_comment_params)
     @comment.post_id = @post.id
-    @comment.save
+    unless @comment.save
+      render :index
+    end
   end
 
   def destroy
