@@ -4,6 +4,7 @@
     <%= form_with url: post_search_posts_path, local: true, method: :get do |f| %>
       <%= f.text_field :word %>
       <%= f.hidden_field :model, model: "post" %>
+      <%= f.hidden_field :model, model: "post" %>
       <%= f.submit "検索", class: "btn btn-primary" %>
     <% end %>
   </div>
@@ -23,13 +24,26 @@
           <%= link_to type.name, post_search_posts_path(type_id: type.id, model: "type" ) %>
         <% end %>
       </div>
+
+      <div class="alcohol mt-5">
+        <h6>アルコール度数</h6>
+        <% @alcohols.each do |alcohol| %>
+          <%= link_to alcohol.name, post_search_posts_path(alcohol_id: alcohol.id, model: "alcohol" ) %>
+        <% end %>
+      </div>
+      <div class="type mt-5">
+        <h6>カクテルタイプ</h6>
+        <% @types.each do |type| %>
+          <%= link_to type.name, post_search_posts_path(type_id: type.id, model: "type" ) %>
+        <% end %>
+      </div>
     </div>
     <div class="col-10">
-      <div class="d-flex flex-wrap justify-content-around">
+      <div class="d-flex flex-wrap justify-content-around w-100">
           <% @posts.each do |post| %>
-          <div class="reference-position">
+          <div class="reference-position w-25">
             <%= link_to post_path(post.id), class: "mb-3 card item-card", style: "padding: 0;" do %>
-              <%= image_tag post.get_image(200,200), class: "card-img-top",  style: "height:250px; width:auto; object-fit: cover" %>
+              <%= image_tag post.get_image(200,200), class: "card-img-top",  style: "height:250px object-fit: cover" %>
               <div class="card-body">
                 <h5 class="card-title"><%= post.name %></h5>
               </div>
