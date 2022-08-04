@@ -8,6 +8,9 @@
       <div class="time-line-comment-index">
           <%= render 'public/time_line_comments/index', time_line: @time_line %>
       </div>
+      <div class="error-comment">
+        <%= render "layouts/errors", obj: @time_line_comment %>
+      </div>
       <div class="time-line-comment-form">
         <%= render 'public/time_line_comments/form', time_line: @time_line, time_line_comment: @time_line_comment %>
       </div>

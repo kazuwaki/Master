@@ -1,4 +1,5 @@
 <div classs="container">
+    <%= render "layouts/errors", obj: @post_comment %>
     <div class="row">
         <div class="col-2"></div>
         <div class="col-6 text-center">
@@ -16,6 +17,9 @@
             </div>
             <div class="comment-index">
                 <%= render 'public/post_comments/index', post: @post %>
+            </div>
+            <div class="error-comment">
+                <%= render 'layouts/errors', obj: @post_comment %>
             </div>
             <div class="comment-form">
                <%= render "public/post_comments/form", post: @post, post_comment: @post_comment %>

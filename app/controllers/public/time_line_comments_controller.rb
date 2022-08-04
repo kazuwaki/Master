@@ -4,8 +4,9 @@ class Public::TimeLineCommentsController < ApplicationController
     @comment = current_customer.time_line_comments.new(time_line_comment_params)
     @comment.time_line_id = @time_line.id
     unless @comment.save
-      render :index
+      render 'error'
     end
+    @comment_new = TimeLineComment.new
   end
 
   def destroy
