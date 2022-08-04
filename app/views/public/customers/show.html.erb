@@ -1,5 +1,36 @@
-<%= image_tag @customer.get_profile_image(300,300) %>
-<%= @customer.name %>
-<%= @customer.introduction %>
-
-<%= link_to "編集", edit_customer_path(@customer) %>
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2 mt-5">
+      <div class="customer-show  d-flex flex-row ">
+        <div class="customer-image">
+          <%= image_tag @customer.get_profile_image(200,200) %>
+        </div>
+        <div class="customer-top">
+          <div class="customer-info d-flex flex-column ml-5">
+            <div class="mt-4">
+              <%= @customer.name %>
+              <%= link_to "編集", edit_customer_path(@customer), class: "ml-5" %>
+            </div>
+            <div class="mt-4">
+              投稿数<%= @customer.posts.count %>
+              フォロー<%= @customer.followings.count%>人
+              フォロワー<%= @customer.followers.count%>人
+            </div>
+            <div class="mt-4">
+              <%= @customer.introduction %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8 offset-2">
+      <div class="customer-post w-100">
+        <% @posts.each do |post| %>
+          <%= image_tag post.get_image(300,300), class: "w-25" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

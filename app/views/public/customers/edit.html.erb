@@ -1,5 +1,5 @@
 <h1>Public::Customers#edit</h1>
-<%= form_with model: @customer, url: edit_customer_path do |f| %>
+<%= form_with model: @customer do |f| %>
   <div class="feild">
     <%= f.label "プロフィール画像" %>
     <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
