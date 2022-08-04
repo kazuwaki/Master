@@ -1,10 +1,17 @@
 <% time_lines.each do |time_line| %>
   <div>
-    <%= link_to time_line_path(time_line) do %>
-      <p><%= time_line.title %>
-      <%= time_line.customer.name %>
-      <%= link_to "削除",time_line , method: :delete, remote: true %></p>
-      <p><%= time_line.body %></p>
-    <% end %>
+    <div class="timeline-customer d-flex flex-row ">
+      <div class="customer-info">
+        <div class="customer-images">
+          <%= image_tag time_line.customer.get_profile_image(100,100) %>
+        </div>
+        <%= time_line.customer.name %>
+      </div>
+      <div class="timeline ml-5 mt-3">
+        <p><%= time_line.title %><%= link_to "show", time_line_path(time_line), class: "ml-5" %></p>
+        <p><%= time_line.body %></p>
+      </div>
+    </div>
+
   </div>
 <% end %>

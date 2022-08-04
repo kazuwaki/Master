@@ -21,7 +21,7 @@ class Public::TimeLinesController < ApplicationController
   def destroy
     @time_line = TimeLine.find(params[:id])
     @time_line.destroy
-    redirect_to request.referer
+    redirect_to time_lines_path
   end
 
   private
