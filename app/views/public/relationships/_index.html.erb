@@ -1,6 +1,6 @@
   <% customers.each do |customer| %>
     <tr>
-      <td><%= image_tag customer.get_profile_image(300,300) %></td>
+      <td class=" text-center"><%= image_tag customer.get_profile_image(100,100) %></td>
       <td><%= customer.name %></td>
       <td><%= customer.introduction %></td>
       <td><%= render 'public/relationships/follow_button', customer: customer %></td>

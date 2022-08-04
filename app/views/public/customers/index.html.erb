@@ -1,22 +1,21 @@
-<h1>Public::Customers#index</h1>
 <div class="container">
   <div class="row">
     <div class="col-10 offset-1">
-<table class="table">
-  <thead>
-    <tr>
-      <th>image</th>
-      <th>name</th>
-      <th>introduction</th>
-      <th>follow</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody class="follow">
-    <%= render 'public/relationships/index', customers: @customers %>
-  </tbody>
-</table>
-</div>
-</div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>トプ画</th>
+            <th>ユーザー名</th>
+            <th>自己紹介</th>
+            <th>follow</th>
+            <th colspan="3"></th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody class="follow">
+          <%= render 'public/relationships/index', customers: @customers %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
