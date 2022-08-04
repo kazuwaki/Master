@@ -6,8 +6,11 @@ class Admin::TypesController < ApplicationController
 
   def create
     @type = Type.new(type_params)
-    @type.save
-    redirect_to request.referer
+    if @type.save
+      redirect_to request.referer
+    else
+      render :index
+    end
   end
 
   def edit
@@ -16,8 +19,11 @@ class Admin::TypesController < ApplicationController
 
   def update
     @type = Type.find(params[:id])
-    @type.update(type_params)
-    redirect_to admin_types_path
+    if @type.update(type_params)
+      redirect_to admin_types_path
+    else
+      render :edit
+    end
   end
 
   private
