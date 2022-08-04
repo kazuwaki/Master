@@ -1,2 +1,3 @@
 $('.time-line-comment-index').html( '<%= j(render "public/time_line_comments/index", time_line: @comment.time_line ) %> ');
 $('.comment-area').val("")
+$('.error-comment').html( '<%= j(render 'layouts/errors', obj: @comment_new) %>')

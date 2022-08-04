@@ -4,8 +4,9 @@ class Public::PostCommentsController < ApplicationController
     @comment = current_customer.post_comments.new(post_comment_params)
     @comment.post_id = @post.id
     unless @comment.save
-      render :index
+      render 'error'
     end
+    @comment_new = PostComment.new
   end
 
   def destroy
