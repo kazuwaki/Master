@@ -20,8 +20,11 @@ class Admin::AlcoholsController < ApplicationController
 
   def update
     @alcohol = Alcohol.find(params[:id])
-    @alcohol.update(alcohol_params)
-    redirect_to admin_alcohols_path
+    if @alcohol.update(alcohol_params)
+      redirect_to admin_alcohols_path
+    else
+      render :edit
+    end
   end
 
   private
