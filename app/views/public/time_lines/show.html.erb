@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <div class="timeline-show">
+        <p><%= @time_line.title %><%= @time_line.customer.name %><%= link_to "削除", @time_line , method: :delete, remote: true %></p>
+        <p><%= @time_line.body %></p>
+      </div>
+      <div class="time-line-comment-index">
+          <%= render 'public/time_line_comments/index', time_line: @time_line %>
+      </div>
+      <div class="time-line-comment-form">
+        <%= render 'public/time_line_comments/form', time_line: @time_line, time_line_comment: @time_line_comment %>
+      </div>
+    </div>
+  </div>
+</div>
