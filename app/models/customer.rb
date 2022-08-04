@@ -16,7 +16,6 @@ class Customer < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :customer
   
   validates :name, presence: true
-  
 
   def follow(other_customer)
     unless self == other_customer

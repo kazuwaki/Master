@@ -6,6 +6,11 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_one_attached :image
 
+  validates :name, presence: true
+  validates :body, presence: true
+  validates :type, presence: true
+  validates :alcohol, presence: true
+
   def liked_by?(customer)
     likes.exists?(customer_id: customer.id)
   end
