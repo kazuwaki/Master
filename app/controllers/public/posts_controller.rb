@@ -1,6 +1,8 @@
 class Public::PostsController < ApplicationController
   def index
     @posts = Post.all
+    @types = Type.all
+    @alcohols = Alcohol.all
   end
 
   def create
@@ -29,8 +31,21 @@ class Public::PostsController < ApplicationController
   end
 
   def post_search
-    @word = params[:word]
-    @posts = Post.looks(@word)
+    @model = params[:model]
+    if @model == "item"
+      @word = params[:word]
+      @posts = Post.looks(@model, @word)
+    elsif  @model == "type"
+      @types = Type.all
+      @word = params[:type_id]
+      @posts = Post.looks(@model, @word)
+      @type_name = Type.find(@word).name
+    else
+      @alcohols = Alcohol.all
+      @word = params[:alcohol_id]
+      @posts = Post.looks(@model, @word)
+      @alcohol_name = Alcohol.find(@word).name
+    end
   end
 
   private

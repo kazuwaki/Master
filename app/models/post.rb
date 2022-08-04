@@ -10,9 +10,16 @@ class Post < ApplicationRecord
     likes.exists?(customer_id: customer.id)
   end
 
-  def self.looks(word)
-    @post = Post.where("name LIKE?","%#{word}%")
+  def self.looks(model, word)
+    if model == "post"
+      @post = Post.where("name LIKE?","%#{word}%")
+    elsif model == "type"
+      @post = Post.where(type_id: word)
+    else
+      @post = Post.where(alcohol_id: word)
+    end
   end
+
 
   def get_image(width, height)
     unless image.attached?
