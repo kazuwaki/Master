@@ -28,6 +28,11 @@ class Public::PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  def post_search
+    @word = params[:word]
+    @posts = Post.looks(@word)
+  end
+
   private
   def post_params
     params.require(:post).permit(:name, :body, :image, :type_id, :alcohol_id, :customer_id)

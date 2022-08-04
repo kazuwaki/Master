@@ -10,6 +10,10 @@ class Post < ApplicationRecord
     likes.exists?(customer_id: customer.id)
   end
 
+  def self.looks(word)
+    @post = Post.where("name LIKE?","%#{word}%")
+  end
+
   def get_image(width, height)
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpeg')
