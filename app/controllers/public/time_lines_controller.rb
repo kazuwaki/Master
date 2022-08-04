@@ -3,7 +3,9 @@ class Public::TimeLinesController < ApplicationController
     @time_line = TimeLine.new
     @time_lines = TimeLine.all
     @time_line_comment = TimeLineComment.new
-    @time_lines = TimeLine.all
+    unless @time_lines = TimeLine.all
+      render :index
+    end
   end
 
   def create
