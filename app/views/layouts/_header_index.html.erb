@@ -2,20 +2,36 @@
   <nav class="navbar navbar-expand-lg shadow-sm">
     <div class="navbar-brand col-1">
       <% if customer_signed_in? %>
-        <%= link_to "投稿一覧", posts_path %>
-        <%= link_to "マイページ", customer_path(current_customer) %>
-        <%= link_to "ユーザー一覧",customers_path %>
-        <%= link_to "タイムライン", time_lines_path %>
-        <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+        <%= link_to posts_path, class: "btn btn-outline-light" do %>
+        <i class="fas fa-glass-cheers"></i>投稿一覧
+        <% end %>
+        <%= link_to customer_path(current_customer), class: "btn btn-outline-light" do %>
+        <i class="fas fa-user"></i>マイページ
+        <% end %>
+        <%= link_to customers_path, class: "btn btn-outline-light" do %>
+        <i class="fas fa-users"></i>ユーザー
+        <% end %>
+        <%= link_to time_lines_path, class: "btn btn-outline-light" do %>
+        <i class="fas fa-mail-bulk"></i>タイムライン
+        <% end %>
+        <%= link_to destroy_customer_session_path, method: :delete , class: "btn btn-outline-light" do %>
+        <i class="fas fa-sign-out-alt"></i>ログアウト
+        <% end %>
         <%= form_with url: post_search_posts_path, local: true, method: :get do |f| %>
           <%= f.text_field :word %>
           <%= f.hidden_field :model, value: "post" %>
           <%= f.submit "検索", class: "btn btn-primary" %>
         <% end %>
       <% else %>
-        <%= link_to "投稿一覧", posts_path %>
-        <%= link_to "ユーザー一覧",customers_path %>
-        <%= link_to "タイムライン", time_lines_path %>
+        <%= link_to posts_path, class: "btn btn-outline-light" do %>
+        <i class="fas fa-glass-cheers"></i>投稿一覧
+        <% end %>
+        <%= link_to customers_path, class: "btn btn-outline-light" do %>
+        <i class="fas fa-users"></i>ユーザー
+        <% end %>
+        <%= link_to time_lines_path, class: "btn btn-outline-light" do %>
+        <i class="fas fa-mail-bulk"></i>タイムライン
+        <% end %>
       <% end %>
   </nav>
 </header>
