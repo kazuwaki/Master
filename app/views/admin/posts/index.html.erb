@@ -18,7 +18,7 @@
               <td><%= post.name %></td>
               <td><%= post.body %></td>
               <td><%= post.customer.name %></td>
-              <td><%= link_to "削除", "/admin/posts/#{post.id}", method: :delete %></td>
+              <td><%= link_to "show",admin_post_path(post) %></td>
             </tr>
           <% end %>
         </tbody>
