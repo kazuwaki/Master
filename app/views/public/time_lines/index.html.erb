@@ -6,7 +6,11 @@
         <%= render 'public/time_lines/index', time_lines: @time_lines %>
       </div>
       <div class="time-line-form">
-        <%= render 'public/time_lines/form', time_line: @time_line %>
+        <% if customer_signed_in? %>
+          <%= render 'public/time_lines/form', time_line: @time_line %>
+        <% else %>
+          <p>新規登録かログイン後に投稿できます。</p>
+        <% end %>
       </div>
     </div>
   </div>
