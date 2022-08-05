@@ -1,4 +1,5 @@
 <h1>Posts#new</h1>
+<%= render "layouts/errors", obj: @post %>
 <%= form_with model: @post do |f| %>
   <div class="form">
     <%= f.label "画像" %>

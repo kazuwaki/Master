@@ -1,4 +1,5 @@
-<%= form_with model: time_line, local: false do |f| %>
+<%= render "layouts/errors", obj: time_line %>
+<%= form_with model: time_line do |f| %>
   <table class="table">
     <tbody>
       <tr>

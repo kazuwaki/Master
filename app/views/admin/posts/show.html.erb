@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <div class="post d-flex flex-row">
+                <div class="post-image">
+                    <%= image_tag @post.get_image(300,300) %>
+                </div>
+                <div class="post-show">
+                    <p><%= @post.name %></p>
+                    <p><%= @post.body %></p>
+
+                </div>
+                <div class="post-genre">
+                    <p><%= @post.type.name %></p>
+                    <p><%= @post.alcohol.name %></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <div class="comment">
+                <% @post.post_comments.each do |post_comment| %>
+                    <%= post_comment.comment %>
+                    <%= link_to "削除", admin_post_post_comment_path(post_comment.post, post_comment), method: :delete %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

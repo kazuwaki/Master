@@ -9,6 +9,7 @@ class Public::TimeLinesController < ApplicationController
     if @time_line.save
       redirect_to request.referer
     else
+      @time_lines = TimeLine.all
       render :index
     end
   end

@@ -1,0 +1,21 @@
+<header>
+  <nav class="navbar navbar-expand-lg shadow-sm">
+    <div class="navbar-brand col-1">
+      <% if customer_signed_in? %>
+        <%= link_to "投稿一覧", posts_path %>
+        <%= link_to "マイページ", customer_path(current_customer) %>
+        <%= link_to "ユーザー一覧",customers_path %>
+        <%= link_to "タイムライン", time_lines_path %>
+        <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+        <%= form_with url: post_search_posts_path, local: true, method: :get do |f| %>
+          <%= f.text_field :word %>
+          <%= f.hidden_field :model, model: "post" %>
+          <%= f.submit "検索", class: "btn btn-primary" %>
+        <% end %>
+      <% else %>
+        <%= link_to "投稿一覧", posts_path %>
+        <%= link_to "ユーザー一覧",customers_path %>
+        <%= link_to "タイムライン", time_lines_path %>
+      <% end %>
+  </nav>
+</header>

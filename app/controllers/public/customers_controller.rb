@@ -1,4 +1,5 @@
 class Public::CustomersController < ApplicationController
+  before_action :authenticate_customer!, only: [:edit, :update]
   def index
     @customers = Customer.all
   end

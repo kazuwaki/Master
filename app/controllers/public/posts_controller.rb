@@ -1,4 +1,5 @@
 class Public::PostsController < ApplicationController
+  before_action :authenticate_customer!, only: [:new, :edit]
   def index
     @posts = Post.all
     @types = Type.all
@@ -30,6 +31,7 @@ class Public::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    @post.customer_id = current_customer.id
     if @post.update(post_params)
       redirect_to posts_path
     else

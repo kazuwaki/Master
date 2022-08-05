@@ -1,30 +1,6 @@
-<h1>Posts#index</h1>
-<% if customer_signed_in? %>
-  <div class="search_form">
-    <%= form_with url: post_search_posts_path, local: true, method: :get do |f| %>
-      <%= f.text_field :word %>
-      <%= f.hidden_field :model, model: "post" %>
-      <%= f.hidden_field :model, model: "post" %>
-      <%= f.submit "検索", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-<% end %>
 <div class="container">
   <div class="row">
     <div class="col-2">
-      <div class="alcohol mt-5">
-        <h6>アルコール度数</h6>
-        <% @alcohols.each do |alcohol| %>
-          <%= link_to alcohol.name, post_search_posts_path(alcohol_id: alcohol.id, model: "alcohol" ) %>
-        <% end %>
-      </div>
-      <div class="type mt-5">
-        <h6>カクテルタイプ</h6>
-        <% @types.each do |type| %>
-          <%= link_to type.name, post_search_posts_path(type_id: type.id, model: "type" ) %>
-        <% end %>
-      </div>
-
       <div class="alcohol mt-5">
         <h6>アルコール度数</h6>
         <% @alcohols.each do |alcohol| %>
