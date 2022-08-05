@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <% @time_lines.each do |time_line| %>
+        <div>
+          <div class="timeline-customer d-flex flex-row ">
+            <div class="customer-info">
+              <div class="customer-images">
+                <%= image_tag time_line.customer.get_profile_image(100,100) %>
+              </div>
+              <%= time_line.customer.name %>
+            </div>
+            <div class="timeline ml-5 mt-3">
+              <p>
+                <%= time_line.title %>
+                <%= link_to "show", admin_time_line_path(time_line), class: "ml-5" %>
+                <%= link_to "delete", @time_line, method: :delete %>
+              </p>
+              <p><%= time_line.body %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

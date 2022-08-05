@@ -34,6 +34,9 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :show, :destroy] do
       resources :post_comments, only: [:destroy]
     end
+    resources :time_lines, only: [:index, :show, :destroy] do
+      resources :time_line_comments, only: [:destroy]
+    end
     resources :types, only: [:index, :create, :edit, :update]
     resources :alcohols, only: [:index, :create, :edit, :update]
   end

@@ -3,6 +3,7 @@
     <div class="navbar-brand col-1">
       <% if admin_signed_in? %>
         <%= link_to "投稿一覧", admin_posts_path %>
+        <%= link_to "タイムライン", admin_time_lines_path %>
         <%= link_to "Type", admin_types_path %>
         <%= link_to "Alcohol", admin_alcohols_path %>
         <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
