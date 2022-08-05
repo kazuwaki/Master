@@ -1,4 +1,5 @@
 class Public::PostsController < ApplicationController
+  before_action :authenticate_customer!, only: [:new, :edit]
   def index
     @posts = Post.all
     @types = Type.all
