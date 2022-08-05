@@ -12,7 +12,11 @@
         <%= render "layouts/errors", obj: @time_line_comment %>
       </div>
       <div class="time-line-comment-form">
-        <%= render 'public/time_line_comments/form', time_line: @time_line, time_line_comment: @time_line_comment %>
+        <% if customer_signed_in? %>
+          <%= render 'public/time_line_comments/form', time_line: @time_line, time_line_comment: @time_line_comment %>
+        <% else %>
+          <p>新規登録、ログイン後に投稿できます</p>
+        <% end %>
       </div>
     </div>
   </div>
