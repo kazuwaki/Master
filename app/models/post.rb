@@ -25,7 +25,6 @@ class Post < ApplicationRecord
     end
   end
 
-
   def get_image(width, height)
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
@@ -33,4 +32,9 @@ class Post < ApplicationRecord
     end
     image.variant(resize_to_limit: [width, height]).processed
   end
+  
+  
+  
+  
+  
 end
