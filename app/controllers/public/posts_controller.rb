@@ -41,19 +41,21 @@ class Public::PostsController < ApplicationController
 
   def post_search
     @model = params[:model]
-    if @model == "item"
+    if @model == "post"
       @word = params[:word]
-      @posts = Post.looks(@model, @word)
-    elsif  @model == "type"
-      @types = Type.all
-      @word = params[:type_id]
-      @posts = Post.looks(@model, @word)
-      @type_name = Type.find(@word).name
+      @posts = Post.search_for(@model, @word)
     else
-      @alcohols = Alcohol.all
-      @word = params[:alcohol_id]
-      @posts = Post.looks(@model, @word)
-      @alcohol_name = Alcohol.find(@word).name
+      if  @model == "type"
+        @types = Type.all
+        @word = params[:type_id]
+        @posts = Post.search_for(@model, @word)
+        @type_name = Type.find(@word).name
+      else
+        @alcohols = Alcohol.all
+        @word = params[:alcohol_id]
+        @posts = Post.search_for(@model, @word)
+        @alcohol_name = Alcohol.find(@word).name
+      end
     end
   end
 

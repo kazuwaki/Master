@@ -15,7 +15,7 @@ class Post < ApplicationRecord
     likes.exists?(customer_id: customer.id)
   end
 
-  def self.looks(model, word)
+  def self.search_for(model, word)
     if model == "post"
       @post = Post.where("name LIKE?","%#{word}%")
     elsif model == "type"
