@@ -24,19 +24,6 @@
           <%= link_to type.name, post_search_posts_path(type_id: type.id, model: "type" ) %>
         <% end %>
       </div>
-
-      <div class="alcohol mt-5">
-        <h6>アルコール度数</h6>
-        <% @alcohols.each do |alcohol| %>
-          <%= link_to alcohol.name, post_search_posts_path(alcohol_id: alcohol.id, model: "alcohol" ) %>
-        <% end %>
-      </div>
-      <div class="type mt-5">
-        <h6>カクテルタイプ</h6>
-        <% @types.each do |type| %>
-          <%= link_to type.name, post_search_posts_path(type_id: type.id, model: "type" ) %>
-        <% end %>
-      </div>
     </div>
     <div class="col-10">
       <div class="d-flex flex-wrap justify-content-around w-100">
