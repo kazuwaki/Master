@@ -1,14 +1,16 @@
 <% time_lines.each do |time_line| %>
   <div>
-    <div class="timeline-customer d-flex flex-row ">
+    <div class="timeline-customer d-flex flex-row card p-2">
       <div class="customer-info">
         <div class="customer-images">
           <%= image_tag time_line.customer.get_profile_image(100,100) %>
         </div>
-        <%= time_line.customer.name %>
+        <div class="post-name text-center">
+          <%= time_line.customer.name %>
+        </div>
       </div>
       <div class="timeline ml-5 mt-3">
-        <p><%= time_line.title %><%= link_to "show", time_line_path(time_line), class: "ml-5" %></p>
+        <p><%= time_line.title %><%= link_to "show", time_line_path(time_line), class: "btn btn-outline-secondary ml-5" %></p>
         <p><%= time_line.body %></p>
       </div>
     </div>
