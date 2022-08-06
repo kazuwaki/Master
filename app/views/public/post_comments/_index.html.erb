@@ -1,6 +1,14 @@
 <% post.post_comments.each do |post_comment| %>
-  <%= post_comment.comment %>
-  <%= post_comment.customer.name %>
-  <%= post_comment.created_at.strftime('%Y/%m/%d' )%>
-  <%= link_to "削除", post_post_comment_path(post_comment.post,post_comment), method: :delete, remote: true %>
+  <div class="comment-info d-flex flex-row">
+    <p><%= image_tag post_comment.customer.get_profile_image(50,50), class: "customers-images  mt-3 mr-2 ml-2" %></p>
+    <p class="mr-5 mt-4"><%= post_comment.customer.name %></p>
+    <p class="mt-4"><%= post_comment.created_at.strftime('%Y/%m/%d' )%>
+        <%= link_to post_post_comment_path(post_comment.post,post_comment), method: :delete, remote: true do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+    </p>
+  </div>
+  <div class="comment ml-3 p-2">
+    <%= post_comment.comment %>
+  </div>
 <% end %>

@@ -3,28 +3,42 @@
     <div class="row">
         <div class="col-2"></div>
         <div class="col-6 text-center">
-            <%= image_tag @post.get_image(500,500), class: "item-image" %>
+            <%= image_tag @post.get_image(500,500), class: "item-image mt-2" %>
         </div>
         <div class="col-4">
-            <div class="post-show">
-                <%= @post.name %>
-                <%= @post.body %>
-                <%= @post.type.name %>
-                <%= @post.alcohol.name %>
-                <div class="like-btn">
-                    <%= render 'public/likes/like', post: @post %>
+            <div class="col-10">
+                <div class="post-show mt-5 pl-2 card">
+                    <div class="post-customer border-bottom p-2">
+                        <%= image_tag @post.customer.get_profile_image(100,100), class: "customer-images mr-3" %>
+                        <%= @post.customer.name %>
+                    </div>
+                    <div class="post-show mt-2">
+                        <div class="post-name card-title">
+                            <p>お酒の名前:　<%= @post.name %></p>
+                        </div>
+                        <div class="post-body card-text">
+                            <p>材料・作り方:　<%= @post.body %></p>
+                        </div>
+                        <div class="post-genre">
+                            <p>Type:　<%= link_to @post.type.name, post_search_posts_path(type_id: @post.type.id, model: "type" ) %></p>
+                            <p>Alcohol:　<%= link_to @post.alcohol.name, post_search_posts_path(alcohol_id: @post.alcohol.id, model: "alcohol" ) %></p>
+                        </div>
+                        <div class="like-btn">
+                            <%= render 'public/likes/like', post: @post %>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="comment-index">
-                <%= render 'public/post_comments/index', post: @post %>
-            </div>
-            <div class="error-comment">
-                <%= render 'layouts/errors', obj: @post_comment %>
-            </div>
-            <div class="comment-form">
-                <% if current_customer.name != "guestuser" %>
-                    <%= render "public/post_comments/form", post: @post, post_comment: @post_comment %>
-                <% end %>
+                <div class="comment-index border ">
+                    <%= render 'public/post_comments/index', post: @post %>
+                </div>
+                <div class="error-comment">
+                    <%= render 'layouts/errors', obj: @post_comment %>
+                </div>
+                <div class="comment-form mt-2">
+                    <% if current_customer.name != "guestuser" %>
+                        <%= render "public/post_comments/form", post: @post, post_comment: @post_comment %>
+                    <% end %>
+                </div>
             </div>
         </div>
     </div>
