@@ -6,6 +6,8 @@
       <%= link_to 'Follow', customer_relationships_path(customer.id), class: 'btn btn-success', method: :post, remote: true %>
     <% end %>
   <% else %>
-    <%= link_to 'Edit',edit_customer_path(customer),class: "btn btn-secondary" %>
+    <% if customer.name =! "guestuser" %>
+      <%= link_to 'Edit',edit_customer_path(customer),class: "btn btn-secondary" %>
+    <% end %>
   <% end %>
 </div>
