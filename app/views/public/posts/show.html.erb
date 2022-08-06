@@ -1,7 +1,17 @@
 <div classs="container">
     <%= render "layouts/errors", obj: @post_comment %>
     <div class="row">
-        <div class="col-2"></div>
+        <div class="col-2 mt-5">
+            <h6>いいねが多いラインキング</h6>
+            <% @posts.each do |post| %>
+                <table class="table table-borderless">
+                    <tbody>
+                        <th><%= image_tag post.get_image(50,50) %></th>
+                        <th><%= post.name %></th>
+                    </tbody>
+                </table>
+            <% end %>
+        </div>
         <div class="col-6 text-center">
             <%= image_tag @post.get_image(500,500), class: "item-image mt-2" %>
         </div>
