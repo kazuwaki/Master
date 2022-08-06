@@ -2,15 +2,20 @@
   <nav class="navbar navbar-expand-lg shadow-sm">
     <div class="navbar-brand col-1">
       <% if admin_signed_in? %>
-        <%= link_to  admin_posts_path do %>
+        <%= link_to  admin_posts_path, class: "btn btn-outline-light" do %>
+          <i class="fas fa-glass-cheers"></i>投稿一覧
         <% end %>
-        <%= link_to admin_time_lines_path do %>
+        <%= link_to admin_time_lines_path, class: "btn btn-outline-light" do %>
+          <i class="fas fa-mail-bulk"></i>タイムライン
         <% end %>
-        <%= link_to admin_types_path do %>
+        <%= link_to admin_types_path, class: "btn btn-outline-light" do %>
+          <i class="fas fa-stream"></i>タイプ
         <% end %>
-        <%= link_to admin_alcohols_path do %>
+        <%= link_to admin_alcohols_path, class: "btn btn-outline-light" do %>
+          <i class="fas fa-wine-bottle"></i>アルコール
         <% end %>
-        <%= link_to destroy_admin_session_path, method: :delete do %>
+        <%= link_to destroy_admin_session_path, method: :delete, class: "btn btn-outline-light" do %>
+          <i class="fas fa-sign-out-alt"></i>ログアウト
         <% end %>
       <% elsif customer_signed_in? %>
         <%= link_to posts_path, class: "btn btn-outline-light" do %>
