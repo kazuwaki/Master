@@ -18,8 +18,8 @@
               <td><%= link_to "新規登録", new_customer_registration_path, class: "btn btn-secondary" %></td>
             </tr>
             <tr>
-              <th></th>
-              <td></td>
+              <th>ゲストログイン(閲覧用)</th>
+              <td><%= link_to "ゲストログイン", customers_guest_sign_in_path, class: "btn btn-secondary", method: :post %></td>
             </tr>
           </table>
         <% end %>

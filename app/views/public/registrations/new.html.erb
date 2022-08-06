@@ -27,6 +27,10 @@
               <th>登録済の方はこちらからログイン</th>
               <td><%= link_to "ログイン", new_customer_session_path, class: "btn btn-secondary" %></td>
             </tr>
+            <tr>
+              <th>ゲストログイン(閲覧用)</th>
+              <td><%= link_to "ゲストログイン", customers_guest_sign_in_path, class: "btn btn-secondary", method: :post %></td>
+            </tr>
           </table>
         <% end %>
       </div>
