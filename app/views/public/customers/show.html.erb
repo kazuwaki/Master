@@ -28,7 +28,9 @@
     <div class="col-8 offset-2">
       <div class="customer-post w-100">
         <% @posts.each do |post| %>
-          <%= image_tag post.get_image(300,300), class: "w-25" %>
+          <%= link_to post_path(post.id) do %>
+            <%= image_tag post.get_image(300,300), class: "w-25" %>
+          <% end %>
         <% end %>
       </div>
     </div>
