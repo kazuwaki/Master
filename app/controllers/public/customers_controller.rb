@@ -1,5 +1,6 @@
 class Public::CustomersController < ApplicationController
   before_action :authenticate_customer!, only: [:edit, :update]
+  before_action :ensure_guest_user, only: [:edit]
   def index
     @customers = Customer.all
   end
@@ -26,5 +27,13 @@ class Public::CustomersController < ApplicationController
   def customer_params
     params.require(:customer).permit(:name, :introduction, :profile_image)
   end
+
+  def ensure_guest_user
+    @customer = Customer.find(params[:id])
+    if @customer.name == "guestuser"
+      redirect_to customer_path(current_customer)
+    end
+  end
+
 
 end
