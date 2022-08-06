@@ -1,15 +1,17 @@
 <div class="container">
   <div class="row text">
     <div class="col-8 offset-2">
-      <div class="timeline-show d-flex flex-row border">
+      <div class="timeline-show d-flex flex-row border mt-2 p-2">
         <div class="customer-info">
           <div class="customer-image">
             <%= image_tag @time_line.customer.get_profile_image(200,200) %>
           </div>
-          <%= @time_line.customer.name %>
+          <div class="customer-name text-center">
+            <%= @time_line.customer.name %>
+          </div>
         </div>
         <div class="timeline ml-5 mt-5">
-          <p><%= @time_line.title %><%= link_to "show", time_line_path(@time_line), class: "ml-5" %></p>
+          <p><%= @time_line.title %><%= link_to "show", time_line_path(@time_line), class: "ml-5 btn btn-outline-secondary" %></p>
           <p class="mt-5"><%= @time_line.body %></p>
         </div>
       </div>

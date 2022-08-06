@@ -1,6 +1,6 @@
 <%= render "layouts/errors", obj: time_line %>
 <%= form_with model: time_line do |f| %>
-  <table class="table">
+  <table class="table table-borderless">
     <tbody>
       <tr>
         <th><%= f.label "タイトル" %></th>
@@ -8,7 +8,7 @@
       </tr>
       <tr>
         <th><%= f.label "内容" %></th>
-        <td><%= f.text_field :body, class: "text_area" %><%= f.submit "投稿" %></td>
+        <td><%= f.text_field :body, class: "text_area mr-2 w-75" %><%= f.submit "投稿", class: "btn btn-outline-success" %></td>
       </tr>
     </tbody>
   </table>

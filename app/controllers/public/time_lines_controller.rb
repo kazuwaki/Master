@@ -1,7 +1,7 @@
 class Public::TimeLinesController < ApplicationController
   def index
     @time_line = TimeLine.new
-    @time_lines = TimeLine.all
+    @time_lines = TimeLine.all.order(created_at: :desc)
   end
 
   def create
