@@ -10,6 +10,7 @@ class Customer < ApplicationRecord
   has_many :time_line_comments, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :liked_posts, through: :likes, source: :post
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "follow_id"

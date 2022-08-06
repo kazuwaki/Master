@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   belongs_to :alcohol
   has_many :post_comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :liked_customers, through: :likes, source: :customer
   has_one_attached :image
 
   validates :name, presence: true
@@ -32,9 +33,9 @@ class Post < ApplicationRecord
     end
     image.variant(resize_to_limit: [width, height]).processed
   end
-  
-  
-  
-  
-  
+
+
+
+
+
 end
