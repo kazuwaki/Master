@@ -15,8 +15,8 @@ class Public::TimeLineCommentsController < ApplicationController
   end
 
   private
+  
   def time_line_comment_params
     params.require(:time_line_comment).permit(:comment)
   end
-
 end
