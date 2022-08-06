@@ -15,7 +15,10 @@
       </div>
     </div>
     <div class="col-10">
-      <h2 class="text-center">投稿一覧</h2><%= link_to "投稿作成", new_post_path %>
+      <h2 class="text-center">投稿一覧</h2>
+      <% if current_customer.name != "guestuser" %>
+        <%= link_to "投稿作成", new_post_path %>
+      <% end %>
       <div class="d-flex flex-wrap justify-content-around w-100">
           <% @posts.each do |post| %>
           <div class="reference-position w-25">
