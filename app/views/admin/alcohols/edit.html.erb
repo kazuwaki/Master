@@ -1,9 +1,9 @@
-<%= form_with model: [:admin, @alcohol] do |f| %>
-  <div class="form">
-    <%= f.label "アルコール濃度" %>
-    <%= f.text_field :name %>
-  </div>
-  <div class="form">
-    <%= f.submit "新規登録" %>
-  </div>
-<% end %>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-6 offset-3">
+      <%= form_with model: [:admin, @alcohol] do |f| %>
+        <div class="form">
+          <%= f.label "アルコール濃度",class: "mr-4" %>
+          <%= f.text_field :name,class: "mr-4" %><%= f.submit "新規登録", class: "btn btn-outline-success" %>
+        </div>
+      <% end %>
