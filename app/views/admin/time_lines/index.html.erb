@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-8 offset-2">
+    <div class="col-8 offset-2 mt-5">
       <% @time_lines.each do |time_line| %>
         <div>
           <div class="timeline-customer d-flex flex-row ">
@@ -13,8 +13,8 @@
             <div class="timeline ml-5 mt-3">
               <p>
                 <%= time_line.title %>
-                <%= link_to "show", admin_time_line_path(time_line), class: "ml-5" %>
-                <%= link_to "delete", @time_line, method: :delete %>
+                <%= link_to "show", admin_time_line_path(time_line), class: "btn btn-outline-secondary ml-5" %>
+                <%= link_to "delete", @time_line, method: :delete, class: "btn btn-outline-danger" %>
               </p>
               <p><%= time_line.body %></p>
             </div>
