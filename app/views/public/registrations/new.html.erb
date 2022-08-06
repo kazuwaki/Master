@@ -2,8 +2,7 @@
   <div class="row">
     <div class="col-8 offset-2">
       <div class="card mt-5">
-        <h2 class="mt-2 ml-5">新規登録</h2>
-
+        <div class="card-title border-bottom mb-3"><h2 class="mt-2 ml-5">新規登録</h2></div>
         <%= form_with model: @customer, url: customer_registration_path do |f| %>
           <%= render "public/shared/error_messages", resource: resource %>
           <table class="table table-borderless">

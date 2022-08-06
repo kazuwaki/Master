@@ -9,7 +9,9 @@
           <div class="customer-info d-flex flex-column ml-5">
             <div class="mt-4">
               <%= @customer.name %>
-              <%= link_to "編集", edit_customer_path(@customer), class: "ml-5" %>
+              <% if @customer.name != "guestuser" %>
+                <%= link_to "編集", edit_customer_path(@customer), class: "ml-5 btn btn-outline-secondary" %>
+              <% end %>
             </div>
             <div class="mt-4">
               投稿数<%= @customer.posts.count %>
