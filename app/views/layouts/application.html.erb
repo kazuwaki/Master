@@ -12,11 +12,7 @@
   </head>
 
   <body>
-    <% if request.path == posts_path %>
-      <%= render "layouts/header_index" %>
-    <% else %>
-      <%= render "layouts/header" %>
-    <% end %>
+    <%= render "layouts/header" %>
     <%= yield %>
   </body>
 </html>
