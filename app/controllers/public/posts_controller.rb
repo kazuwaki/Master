@@ -47,7 +47,12 @@ class Public::PostsController < ApplicationController
     @model = params[:model]
     if @model == "post"
       @word = params[:word]
-      @posts = Post.search_for(@model, @word)
+      if @word = ""
+        flash[:danger] = "検索を入力してください"
+        redirect_to posts_path
+      else
+        @posts = Post.search_for(@model, @word)
+      end
     else
       if  @model == "type"
         @types = Type.all
