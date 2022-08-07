@@ -1,5 +1,5 @@
 class Public::PostsController < ApplicationController
-  before_action :authenticate_customer!, only: [:new, :edit]
+  before_action :authenticate_customer!, only: [:new, :edit, :update, :show]
   before_action :ensure_guest_user, only: [:edit, :new, :update]
   before_action :correct_user, only: [:edit, :update]
 

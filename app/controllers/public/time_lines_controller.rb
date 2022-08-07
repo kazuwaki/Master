@@ -1,4 +1,7 @@
 class Public::TimeLinesController < ApplicationController
+  before_action :authenticate_customer!, only: [:create, :destrouy, :show]
+  before_action :ensure_guest_user, only: [:create, :destroy]
+  before_action :correct_user, only: [:edit, :update]
   def index
     @time_line = TimeLine.new
     @time_lines = TimeLine.all.order(created_at: :desc)

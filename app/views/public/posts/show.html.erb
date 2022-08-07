@@ -39,7 +39,9 @@
                             <p>Alcohol:　<%= link_to @post.alcohol.name, post_search_posts_path(alcohol_id: @post.alcohol.id, model: "alcohol" ), class: "btn btn-outline-secondary col-4" %></p>
                         </div>
                         <div class="like-btn">
-                            <%= render 'public/likes/like', post: @post %>
+                            <% if current_customer.name != 'guestuser' %>
+                                <%= render 'public/likes/like', post: @post %>
+                            <% end %>
                         </div>
                     </div>
                 </div>

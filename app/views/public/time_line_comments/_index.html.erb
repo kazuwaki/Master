@@ -10,7 +10,9 @@
     </div>
     <div class="comment-show mt-5 ml-5">
       <%= time_line_comment.comment %>
-      <%= link_to "削除", time_line_time_line_comment_path(time_line_comment.time_line, time_line_comment), method: :delete, remote: true, class: "btn btn-outline-danger" %>
+      <% if time_line_comment.customer.id == current_customer.id %>
+        <%= link_to "削除", time_line_time_line_comment_path(time_line_comment.time_line, time_line_comment), method: :delete, remote: true, class: "btn btn-outline-danger" %>
+      <% end %>
     </div>
   </div>
 <% end %>
