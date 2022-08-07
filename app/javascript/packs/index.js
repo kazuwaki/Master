@@ -13,3 +13,12 @@ console.log(1)
 		  })
 		}
 	});
+
+
+  $(function(){
+    ScrollReveal().reveal('.box', {
+      duration: 2000,
+      scale: 4,
+      reset: false
+    });
+  });
