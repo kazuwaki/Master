@@ -9,7 +9,9 @@
   <tbody>
    <% customers.each do |customer| %>
     <tr>
-     <td><%= image_tag customer.get_profile_image(200,200) %></td>
+     <td><%= link_to customer_path(customer.id) do %>
+      <%= image_tag customer.get_profile_image(200,200) %><% end %>
+     </td>
      <td><%= customer.name %></td>
      <td>フォロー数: <%= customer.followings.count%></td>
      <td>フォロワー数: <%= customer.followers.count%></td>
