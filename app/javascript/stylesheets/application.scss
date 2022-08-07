@@ -204,4 +204,19 @@ ul, li {
 .post-card {
   width: 220px;
   height: 300px;
+  box-shadow: 0 4px 0 #999999;
+}
+
+.post-card:hover {
+  transform: translateY(4px);
+  box-shadow: none;
+}
+
+.card-title {
+  color: black;
+}
+
+.post-card:hover{
+  color: black;
+  text-decoration: none;
 }

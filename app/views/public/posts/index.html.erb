@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="row">
+  <div class="row mt-5">
     <div class="col-2">
-      <div class="type mt-5">
+      <div class="type">
         <h6>カクテルタイプ</h6>
         <% @types.each do |type| %>
           <div class="typ-name">
@@ -9,8 +9,8 @@
           </div>
         <% end %>
       </div>
-      <div class="alcohol mt-5">
-        <h6>アルコール度数</h6>
+      <div class="alcohol">
+        <h6 class="mt-3">アルコール度数</h6>
         <% @alcohols.each do |alcohol| %>
           <div class="alcohol-name">
             <%= link_to alcohol.name, post_search_posts_path(alcohol_id: alcohol.id, model: "alcohol" ), class: "btn btn-outline-secondary col-10 mt-2" %>
@@ -21,7 +21,7 @@
     <div class="col-10">
       <h2 class="text-center">投稿一覧</h2>
       <% if current_customer.name != "guestuser" %>
-        <%= link_to "投稿作成", new_post_path %>
+        <p><%= link_to "投稿作成", new_post_path, class: "btn btn-outline-success" %></p>
       <% end %>
       <%= render "public/posts/index", posts: @posts %>
       </div>

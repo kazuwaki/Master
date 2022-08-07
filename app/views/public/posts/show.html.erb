@@ -23,15 +23,15 @@
                         <%= @post.customer.name %>
                     </div>
                     <div class="post-show mt-2">
-                        <div class="post-name card-title">
+                        <div class="card-name">
                             <p>お酒の名前:　<%= @post.name %></p>
                         </div>
-                        <div class="post-body card-text">
+                        <div class="card-text">
                             <p>材料・作り方:　<%= @post.body %></p>
                         </div>
                         <div class="post-genre">
-                            <p>Type:　<%= link_to @post.type.name, post_search_posts_path(type_id: @post.type.id, model: "type" ) %></p>
-                            <p>Alcohol:　<%= link_to @post.alcohol.name, post_search_posts_path(alcohol_id: @post.alcohol.id, model: "alcohol" ) %></p>
+                            <p>Type:　<%= link_to @post.type.name, post_search_posts_path(type_id: @post.type.id, model: "type" ), class: "btn btn-outline-secondary col-4" %></p>
+                            <p>Alcohol:　<%= link_to @post.alcohol.name, post_search_posts_path(alcohol_id: @post.alcohol.id, model: "alcohol" ), class: "btn btn-outline-secondary col-4" %></p>
                         </div>
                         <div class="like-btn">
                             <%= render 'public/likes/like', post: @post %>
