@@ -2,29 +2,35 @@
   <div class="row mt-5">
     <div class="col-8 offset-2">
       <%= render "layouts/errors", obj: @post %>
-      <div class="form">
-        <h2>新規投稿</h2>
+      <div class="card">
+        <div class="card-title border-bottom mb-3"><h2 class="mt-2 ml-5">新規変更</h2></div>
         <%= form_with model: @post do |f| %>
-          <div class="form mt-2">
-            <%= f.label "画像", class: "col-4" %>
-            <%= f.file_field :image, placeholder: "お酒の画像", accept: "image/*" %>
-          </div>
-          <div class="form mt-2">
-            <%= f.label "お酒の名前", class: "col-4" %>
-            <%= f.text_field :name %>
-          </div>
-          <div class="form mt-2">
-            <%= f.label "材料・作り方", class: "col-4" %>
-            <%= f.text_field :body, class: "w-50" %>
-          </div>
-          <div class="form mt-2">
-            <%= f.label "type", class: "col-4" %>
-            <%= f.collection_select(:type_id, Type.all, :id, :name, prompt: "選択してください" ) %>
-          </div>
-          <div class="form mt-2">
-            <%= f.label "alcohol", class: "col-4" %>
-            <%= f.collection_select(:alcohol_id, Alcohol.all, :id, :name, prompt: "選択してください" ) %><%= f.submit "新規登録", class: "ml-5" %>
-          </div>
+          <table class="table table-borderless">
+              <tr>
+                <th><%= f.label "画像" %></th>
+                <td><%= f.file_field :image, placeholder: "お酒の画像", accept: "image/*" %></td>
+              </tr>
+              <tr>
+                <th><%= f.label "お酒の名前" %></th>
+                <td><%= f.text_field :name %></td>
+              </tr>
+              <tr>
+                <th><%= f.label "材料・作り方" %></th>
+                <td><%= f.text_field :body %></td>
+              </tr>
+              <tr>
+                <th><%= f.label "type" %></th>
+                <td><%= f.collection_select(:type_id, Type.all, :id, :name, prompt: "選択してください" ) %></td>
+              </tr>
+              <tr>
+                <th><%= f.label "alcohol" %></th>
+                <td><%= f.collection_select(:alcohol_id, Alcohol.all, :id, :name, prompt: "選択してください" ) %></td>
+              </tr>
+              <tr>
+                <th></th>
+                <td><%= f.submit "内容を保存", class: "btn btn-outline-success" %></td>
+              </tr>
+            </table>
         <% end %>
       </div>
     </div>

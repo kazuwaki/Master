@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row mt-5">
     <div class="col-8 offset-2">
-      <div class="card mt-5">
+      <%= render "layouts/errors", obj: @post %>
+      <div class="card">
         <div class="card-title border-bottom mb-3"><h2 class="mt-2 ml-5">登録変更</h2></div>
           <%= form_with model: @post, url: post_path  do |f| %>
             <table class="table table-borderless">
