@@ -51,14 +51,14 @@ class Public::PostsController < ApplicationController
     else
       if  @model == "type"
         @types = Type.all
-        @word = params[:type_id]
-        @posts = Post.search_for(@model, @word)
-        @type_name = Type.find(@word).name
+        @type_name = params[:type_id]
+        @posts = Post.search_for(@model, @type_name)
+        @word = Type.find(@type_name).name
       else
         @alcohols = Alcohol.all
-        @word = params[:alcohol_id]
-        @posts = Post.search_for(@model, @word)
-        @alcohol_name = Alcohol.find(@word).name
+        @alcohol_name = params[:alcohol_id]
+        @posts = Post.search_for(@model, @alcohol_name)
+        @word = Alcohol.find(@alcohol_name).name
       end
     end
   end
