@@ -1,4 +1,5 @@
 /* global $*/
+$(document).on('turbolinks:load', function() {
 console.log(1)
 	$(function () {
     const buttons = document.querySelectorAll(".btn")
@@ -22,3 +23,4 @@ console.log(1)
       reset: false
     });
   });
+});
