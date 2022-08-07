@@ -1,14 +1,13 @@
-<h1>Posts#index</h1>
 <div class="container">
-  <div class="row">
-    <div class="col-2"></div>
-      <div class="col-10">
+  <div class="row mt-5">
+     <div class="col-10 offset-1">
         <% if @posts.size == 0 %>
-          <h2><%= @word %>の検索結果はありません</h2>
+          <h2 class="text-center">「<%= @word %>」の検索結果はありません</h2>
         <% else %>
+          <h2 class="text-center mb-5">「<%= @word %>」の検索結果です</h2>
           <%= render "public/posts/index", posts: @posts %>
         <% end %>
-      </div>
+
     </div>
   </div>
 </div>
