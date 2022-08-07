@@ -1,0 +1,12 @@
+<div class="d-flex flex-wrap justify-content-around">
+  <% posts.each do |post| %>
+    <div class="reference-position">
+      <%= link_to post_path(post.id), class: "mb-3 card post-card", style: "padding: 0;" do %>
+        <%= image_tag post.get_image(200,200), class: "card-img-top",  style: "height:250px object-fit: cover" %>
+        <div class="card-body">
+            <h5 class="card-title"><%= post.name %></h5>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
