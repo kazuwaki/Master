@@ -15,6 +15,9 @@ console.log(1)
 		}
 	});
 
+  $(function() {
+    $('.flash').fadeOut(3500);
+  });
 
   $(function(){
     ScrollReveal().reveal('.box', {
