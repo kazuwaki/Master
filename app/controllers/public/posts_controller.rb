@@ -1,6 +1,8 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_customer!, only: [:new, :edit]
-  before_action :ensure_guest_user, only: [:edit, :new]
+  before_action :ensure_guest_user, only: [:edit, :new, :update]
+  before_action :correct_user, only: [:edit, :update]
+
   def index
     @posts = Post.all
     @types = Type.all
@@ -72,5 +74,11 @@ class Public::PostsController < ApplicationController
     if @customer.name == "guestuser"
       redirect_to posts_path
     end
+  end
+
+  def correct_user
+    @post = Post.find(params[:id])
+    @customer = @post.customer
+    redirect_to(posts_path) unless @customer == current_customer
   end
 end
