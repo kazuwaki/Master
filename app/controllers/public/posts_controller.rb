@@ -4,7 +4,7 @@ class Public::PostsController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
     @types = Type.all
     @alcohols = Alcohol.all
   end

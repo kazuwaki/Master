@@ -12,6 +12,7 @@
       <div class="timeline ml-5 mt-3">
         <p><%= time_line.title %><%= link_to "show", time_line_path(time_line), class: "btn btn-outline-secondary ml-5" %></p>
         <p><%= time_line.body %></p>
+        <p><%= time_line.created_at.strftime('%Y/%m/%d %H:%M:%S') %></p>
       </div>
     </div>
   </div>
