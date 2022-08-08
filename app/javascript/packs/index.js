@@ -1,6 +1,7 @@
 /* global $*/
+//診断機能
 $(document).on('turbolinks:load', function() {
-console.log(1)
+  if(document.URL.match(/about/)){
 	$(function () {
     const buttons = document.querySelectorAll(".btn")
     for(const button of buttons) {
@@ -14,11 +15,8 @@ console.log(1)
 		  })
 		}
 	});
-
-  $(function() {
-    $('.flash').fadeOut(3500);
-  });
-
+}
+//topページのアニメーション
   $(function(){
     ScrollReveal().reveal('.box', {
       duration: 2000,
