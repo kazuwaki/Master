@@ -33,4 +33,17 @@ class Public::TimeLinesController < ApplicationController
   def time_line_params
     params.require(:time_line).permit(:title, :body)
   end
+
+  def ensure_guest_user
+    @customer = current_customer
+    if @customer.name == "guestuser"
+      redirect_to posts_path
+    end
+  end
+
+  def correct_user
+    @time_line = TimeLine.find(params[:id])
+    @customer = @time_line.customer
+    redirect_to(posts_path) unless @customer == current_customer
+  end
 end
