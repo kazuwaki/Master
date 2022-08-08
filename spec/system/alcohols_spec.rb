@@ -36,7 +36,7 @@ describe 'alcohol投稿のテスト' do
       end
       context '更新処理に関するテスト' do
         it '更新後のリダイレクト先は正しいか' do
-          fill_in 'type[name]', with: Faker::Lorem.characters(number:5)
+          fill_in 'alcohol[name]', with: Faker::Lorem.characters(number:5)
           click_button '更新内容を保存'
           expect(page).to have_current_path admin_alcohols_path
         end
