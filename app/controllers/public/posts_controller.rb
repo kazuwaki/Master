@@ -47,7 +47,7 @@ class Public::PostsController < ApplicationController
     @model = params[:model]
     if @model == "post"
       @word = params[:word]
-      if @word = ""
+      if @word == ""
         flash[:danger] = "検索を入力してください"
         redirect_to posts_path
       else
