@@ -5,6 +5,10 @@ body {
   font-family: 'Kaiti SC',sans-serif;
 }
 
+main {
+  min-height: 85vh;
+}
+
 .item-image{
   height: 500px;
   width: 500px;
@@ -190,8 +194,13 @@ h4 {
 
 //headerのレイアウト
 
-.top-header {
+.top-header, footer{
   background-color: #CD853F;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
 }
 
 ul, li {
