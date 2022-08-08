@@ -13,17 +13,20 @@
 
   <body>
     <%= render "layouts/header" %>
-    <div id="flash">
-      <% if flash[:notice] %>
-        <div class="text-center position-absolute w-100 bg-primary text-white flash">
-          <span><%= flash[:notice] %></span>
-        </div>
-      <% elsif flash[:danger] %>
-        <div class="text-center position-absolute w-100 bg-danger text-white flash">
-          <span><%= flash[:danger] %></span>
-        </div>
-      <% end %>
-    </div>
-    <%= yield %>
+    <main>
+      <div id="flash">
+        <% if flash[:notice] %>
+          <div class="text-center position-absolute w-100 bg-primary text-white flash">
+            <span><%= flash[:notice] %></span>
+          </div>
+        <% elsif flash[:danger] %>
+          <div class="text-center position-absolute w-100 bg-danger text-white flash">
+            <span><%= flash[:danger] %></span>
+          </div>
+        <% end %>
+      </div>
+      <%= yield %>
+    </main>
+    <%= render "layouts/footer" %>
   </body>
 </html>
