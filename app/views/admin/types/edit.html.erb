@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-6 offset-3">
+      <%= form_with model:[:admin, @type] do |f| %>
+        <div class="form">
+          <%= f.label "タイプ種類を作成",class: "mr-4" %>
+          <%= f.text_field :name, class: "mr-4" %><%= f.submit "更新内容を保存", class: "btn btn-outline-success" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

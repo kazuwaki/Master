@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-4 offset-2">
+      <%= form_with model:[:admin, @type] do |f| %>
+        <div class="form">
+          <%= f.label "タイプ種類を作成" %><br>
+          <%= f.text_field :name %><%= f.submit "登録", class: "btn btn-outline-success " %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-6">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>名前</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @types.each do |type| %>
+            <tr>
+              <td><%= type.id %></td>
+              <td><%= type.name %></td>
+              <td><%= link_to "編集", edit_admin_type_path(type), class: "btn btn-outline-secondary" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

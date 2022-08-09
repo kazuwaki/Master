@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2 mt-5">
+      <div class="customer-show  d-flex flex-row ">
+        <div class="customer-image">
+          <%= image_tag @customer.get_profile_image(200,200), class: "customer-show-image" %>
+        </div>
+        <div class="customer-top">
+          <div class="customer-info d-flex flex-column ml-5">
+            <div class="d-flex flex-ro mt-4">
+              <p class="info-name"><%= @customer.name %></p>
+              <% if @customer.name != "guestuser" %>
+                <p><%= link_to "編集", edit_customer_path(@customer), class: "ml-5 btn btn-outline-secondary" %></p>
+              <% end %>
+            </div>
+            <div class="mt-4 d-flex flex-row">
+              <p class="mr-5">投稿数： <%= @customer.posts.count %></p>
+              <p class="mr-5">
+                <%= link_to customer_followings_path(@customer.id), class: "follow-count" do %>フォロー： <%= @customer.followings.count %>人<% end %>
+              </p>
+              <p class="mr-5">
+                <%= link_to customer_followers_path(@customer.id), class: "follow-count" do %>フォロワー： <%=@customer.followers.count %>人<% end %>
+              </p>
+            </div>
+            <div class="mt-4">
+              <%= @customer.introduction %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-10 offset-1 mt-3">
+      <%= render "public/posts/index", posts: @posts %>
+    </div>
+  </div>
+</div>

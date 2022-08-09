@@ -1,0 +1,8 @@
+ <%= form_with model: [post, post_comment], local: false do |f| %>
+  <div class="field">
+   <%= f.text_area :comment, class: "comment-area w-100" %>
+  </div>
+  <div class="field">
+   <%= f.submit "投稿",class: "btn btn-secondary" %>
+  </div>
+ <% end %>

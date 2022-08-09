@@ -1,0 +1,32 @@
+<div class="main">
+  <div class="main-top">
+    <%= image_tag "bar.jpg", class: "main-top-image" %>
+    <p class="main-top-text">Masterへようこそ</p>
+  </div>
+  <div class="page">
+    <div class="home-area">
+      <div class="box">
+        <%= image_tag "post.jpg", class: "post-image" %>
+        <h2 class="post-title">宅飲みをもっと美味しく</h2>
+        <div class="post-body">
+          <p>美味しいお酒を自由に投稿</p>
+          <p>自分の好きなお酒を見つける</p>
+          <p><%= link_to "投稿一覧", posts_path, class: "btn btn-outline-primary w-75" %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page">
+    <div class="home-area">
+      <div class="box">
+        <%= image_tag "home.jpg", class: "home-image" %>
+        <h2 class="home-title">誰かと飲みたいときは</h2>
+        <div class="home-body">
+          <p>タイムラインでいつでも飲み友を募集</p>
+          <p>昼からでも、深夜でも気軽に誰かを誘うことができる</p>
+          <p><%= link_to "タイムライン", time_lines_path, class: "btn btn-outline-primary w-75" %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

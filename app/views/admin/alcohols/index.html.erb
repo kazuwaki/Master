@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-4 offset-2">
+      <%= form_with model: [:admin, @alcohol] do |f| %>
+        <div class="form">
+          <%= f.label "アルコール濃度" %><br>
+          <%= f.text_field :name %><%= f.submit "新規登録", class: "btn btn-outline-success ml-2" %>
+        </div>
+      <% end %>
+      </div>
+      <div class="col-6">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>名前</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @alcohols.each do |alcohol| %>
+            <tr>
+              <td><%= alcohol.id %></td>
+              <td><%= alcohol.name %></td>
+              <td><%= link_to "編集", edit_admin_alcohol_path(alcohol), class: "btn btn-outline-secondary" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

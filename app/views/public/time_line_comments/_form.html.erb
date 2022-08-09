@@ -1,0 +1,5 @@
+ <%= form_with model: [time_line, time_line_comment], local: false do |f| %>
+  <div class="field mt-2">
+   <%= f.text_field :comment, class: "comment-area w-75 mr-2" %><%= f.submit "送信", class: "btn btn-outline-success" %>
+  </div>
+ <% end %>

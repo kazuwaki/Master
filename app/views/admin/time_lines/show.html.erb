@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2 mt-5">
+      <div class="timeline-show">
+        <p><%= @time_line.title %><%= @time_line.customer.name %></p>
+        <p><%= @time_line.body %></p>
+      </div>
+      <div class="time-line-comment-index">
+          <% @time_line.time_line_comments.each do |time_line_comment| %>
+            <div class="index d-flex flex-row border p-2">
+              <div class="comment-show">
+                <div class="info-image">
+                  <%= image_tag time_line_comment.customer.get_profile_image(100,100), class: "customer-images" %>
+                </div>
+                <div class="customer-name text-center">
+                  <%= time_line_comment.customer.name %>
+                </div>
+              </div>
+              <div class="comment-show mt-5 ml-5">
+                <%= time_line_comment.comment %>
+                <%= link_to "削除", time_line_time_line_comment_path(time_line_comment.time_line, time_line_comment), method: :delete, remote: true, class: "btn btn-outline-danger" %>
+              </div>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
