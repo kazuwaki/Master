@@ -41,4 +41,66 @@ describe '[STEP2] ユーザログイン後のテスト' do
       #end
     end
   end
+  describe 'ユーザ一覧画面のテスト' do
+    before do
+      visit customers_path
+    end
+
+    context '表示内容の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/customers'
+      end
+      it '自分と他人の名前がそれぞれ表示される' do
+        expect(page).to have_content customer.name
+        expect(page).to have_content other_customer.name
+      end
+      it '自分と他人の名前がそれぞれ表示される' do
+        expect(page).to have_content customer.introduction
+        expect(page).to have_content other_customer.introduction
+      end
+    end
+  end
+  describe 'ユーザー詳細ページのテスト' do
+    before do
+      visit customer_path(customer)
+    end
+
+    context '表示内容の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/customers/'  + customer.id.to_s
+      end
+      it '自分の名前と自己紹介がそれぞれ表示される' do
+        expect(page).to have_content customer.name
+        expect(page).to have_content customer.introduction
+      end
+      it '「編集」が表示されている' do
+        expect(page).to have_content '編集'
+      end
+    end
+  end
+  describe 'ユーザー編集ページのテスト' do
+    before do
+      visit edit_customer_path(customer)
+    end
+    context '表示内容の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/customers/'  + customer.id.to_s + '/edit'
+      end
+      it '編集前のnameとintroductionが表示(セット)されている' do
+        expect(page).to have_field 'customer[name]', with: customer.name
+        expect(page).to have_field 'customer[introduction]', with: customer.introduction
+      end
+      it '更新内容を内容を保存が表示される' do
+        expect(page).to have_button '内容を保存'
+      end
+      context '更新処理に関するテスト' do
+        it '更新後のリダイレクト先は正しいか' do
+          fill_in 'customer[name]', with: Faker::Lorem.characters(number:5)
+          fill_in 'customer[introduction]', with: Faker::Lorem.characters(number:20)
+          click_button '内容を保存'
+          expect(page).to have_current_path customer_path(customer)
+        end
+      end
+    end
+  end
 end
