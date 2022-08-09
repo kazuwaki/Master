@@ -1,0 +1,32 @@
+ja:
+  activerecord:
+    models:
+      customer: "ユーザー"
+      admin: "管理者"
+      post: "投稿"
+      post_comment: "投稿コメント"
+      time_line: "タイムライン"
+      time_line_comment: "タイムラインコメント"
+      type: "タイプ"
+      alcohol: "アルコール"
+    attributes:
+      customer:
+        email: "メールアドレス"
+        password: "パスワード"
+        name: "名前"
+      post:
+        name: "お酒の名前"
+        body: "材料名・作り方"
+        type: "タイプ"
+        alcohol: "アルコールの強度"
+      post_comment:
+        comment: "投稿コメント"
+      time_line:
+        title: "タイトル"
+        body: "内容"
+      time_line_comment:
+        comment: "コメント"
+      type:
+        name: "タイプ名"
+      alcohol:
+        name: "アルコール強度"
