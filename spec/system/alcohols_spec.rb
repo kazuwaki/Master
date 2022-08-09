@@ -15,7 +15,7 @@ describe 'alcohol投稿のテスト' do
       it 'admin_alcohols_pathが"/admin/alcohols"であるか' do
         expect(current_path).to eq('/admin/alcohols')
       end
-       it '「編集」が表示されている' do
+      it '「編集」が表示されている' do
         expect(page).to have_content '編集'
       end
       it '「新規登録」が表示されている' do
