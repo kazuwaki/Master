@@ -1,6 +1,9 @@
 <div class="container">
   <div class="row mt-5">
     <div class="col-6 offset-3">
+      <div class="error-comment">
+        <%= render "layouts/errors", obj: @type %>
+      </div>
       <%= form_with model:[:admin, @type] do |f| %>
         <div class="form">
           <%= f.label "タイプ種類を作成",class: "mr-4" %>
