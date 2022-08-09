@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row mt-5">
     <div class="col-4 offset-2">
+      <%= render "layouts/errors", obj: @alcohol %>
       <%= form_with model: [:admin, @alcohol] do |f| %>
         <div class="form">
           <%= f.label "アルコール濃度" %><br>

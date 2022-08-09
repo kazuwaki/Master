@@ -247,3 +247,13 @@ ul, li {
 .info-name {
   font-size: 40px;
 }
+
+.error-messages {
+  border: 2px solid red;
+  background-color: #ffcccc;
+  >ul {
+    >li {
+      list-style: square;
+    }
+  }
+}
