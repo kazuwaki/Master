@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     resources :time_lines, only: [:create, :destroy, :show, :index] do
       resources :time_line_comments, only: [:create, :destroy]
     end
+    resources :chats, only: [:create, :show]
   end
 
 
