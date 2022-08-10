@@ -13,7 +13,7 @@
                 <p><%= link_to "編集", edit_customer_path(@customer), class: "ml-5 btn btn-outline-secondary" %></p>
               <% end %>
               <% if current_customer != @customer && current_customer.following?(@customer) && @customer.following?(current_customer) %>
-                <%= link_to 'chatを始める', chat_path(@customer.id), class: "ml-3" %>
+                <p><%= link_to 'chatを始める', chat_path(@customer.id), class: "ml-5 btn btn-outline-success" %></p>
               <% end %>
             </div>
             <div class="mt-4 d-flex flex-row">
