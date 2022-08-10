@@ -3,7 +3,7 @@
     <div class="col-10 offset-1 mt-5">
       <div class="choose_box">
           <div id="q_01" class="fit">
-            <p>一つ選んでください</p>
+            <p class="text-center">一つ選んでください</p>
             <ul class="flexbox fw">
               <li class="even"><span class="btn" href="#q_02">ガンガン酔いたい！</span></li>
               <li class="odd"><span class="btn" href="#q_03">ほどよい弱さで！</span></li>
@@ -14,7 +14,7 @@
 
 
           <div id="q_02" style="display: none;">
-            <p>一つ選んでください！</p>
+            <p class="text-center">一つ選んでください！</p>
               <ul class="flexbox fw">
               <li class="even"><span class="btn" href="#q_06">最強ロング！</span></li>
               <li class="odd"><span class="btn" href="#q_07">最強ショート！</span></li>
@@ -23,10 +23,10 @@
 
 
           <div id="q_03" style="display: none;">
-            <p>一つ選んでください！</p>
+            <p class="text-center">一つ選んでください！</p>
               <ul class="flexbox fw">
               <li class="even"><span class="btn" href="#q_08">ピーチ</span></li>
-              <li class="odd"><span class="btn" href="#q_9">グレープフルーツ</span></li>
+              <li class="odd"><span class="btn" href="#q_09">グレープフルーツ</span></li>
               <li class="odd"><span class="btn" href="#q_10">オレンジ</span></li>
               <li class="odd"><span class="btn" href="#q_11">とにかく甘いのがいい！</span></li>
             </ul>
@@ -34,7 +34,7 @@
 
 
           <div id="q_04" style="display: none;">
-            <p>一つ選んでください！</p>
+            <p class="text-center">一つ選んでください！</p>
             <ul class="flexbox fw">
               <li class="even"><span class="btn" href="#q_12">ジンベース</span></li>
               <li class="odd"><span class="btn" href="#q_13">ラムベース</span></li>
@@ -45,7 +45,7 @@
 
 
           <div id="q_05" style="display: none;">
-            <p>一つ選んでください！</p>
+            <p class="text-center">一つ選んでください！</p>
             <ul class="flexbox fw">
               <li class="even"><span class="btn" href="#q_16">刺激の強さ『微弱』</span></li>
               <li class="odd"><span class="btn" href="#q_17">刺激の強さ『弱』</span></li>
@@ -57,52 +57,313 @@
 
 
           <div id="q_06" style="display: none;">
-            <p>あなたにおすすめなのは…</p>
+            <p class="text-center">あなたにおすすめなのは…</p>
             <h4>『ゴットファーザー』です！！</h4>
+            <dvi class="d-flex flex-row mt-5 mb-5">
+              <div class="sindan-image">
+                <%= image_tag "q06.jpg", class: "check-image" %>
+              </div>
+              <div class="sindan-image ml-5">
+                <div class="make-check">
+                  <p>作り方</p>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>材料名</th>
+                        <th>分量</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>バランタイン　ファイネスト</td>
+                        <td>3/4</td>
+                      </tr>
+                      <tr>
+                        <th>アマレット</th>
+                        <th>1/4</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="introduction-check">
+                  <p>このカクテルは小説『ゴッドファーザー』をイメージして作られた。
+                    多くのカクテルの中でも、大人向け、上級者向けのカクテルで
+                    一般的なゴッドファーザーのアルコール度数は25～30度程度です。
+                    甘いカクテルに飽きた方は、ゴッドファーザーのような少し大人なカクテルを、
+                    その香りや風味を楽しみながらゆっくりとたしなむのがおすすめです。
+                  </p>
+                </div>
+              </div>
+            </dvi>
             <span><span class="btn" href="#q_01">もどる</span></span>
           </div>
 
-
-
           <div id="q_07" style="display: none;">
-            <p>あなたにおすすめなのは…</p>
+            <p class="text-center">あなたにおすすめなのは…</p>
             <h4>『ギムレット』です！！</h4>
+            <dvi class="d-flex flex-row mt-5 mb-5">
+              <div class="sindan-image">
+                <%= image_tag "q07.jpg", class: "check-image" %>
+              </div>
+              <div class="sindan-image ml-5">
+                <div class="make-check">
+                  <p>作り方</p>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>材料名</th>
+                        <th>分量</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>シップスミス　ロンドンドライジン</td>
+                        <td>3/4</td>
+                      </tr>
+                      <tr>
+                        <th>ライムジュース</th>
+                        <th>1/4</th>
+                      </tr>
+                      <tr>
+                        <th>砂糖</th>
+                        <th>1tsp.</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="introduction-check">
+                  <p>蒸留酒のジンとライムジュースをシェイクしたショートカクテルです。
+                    ギムレットの度数は、ライムジュースの割合によっても変わりますが、29〜35度ほどです。
+                    味わいは辛口で、すっきりキレがあることが特徴です。
+                    氷が入っていないので、時間をかけて飲んでも味が薄まりません。
+                    ゆったりできるひとりの夜にどうぞ
+                  </p>
+                </div>
+              </div>
+            </dvi>
             <span><span class="btn" href="#q_01">もどる</span></span>
           </div>
 
           <div id="q_08" style="display: none;">
-            <p>あなたにおすすめなのは…</p>
+            <p class="text-center">あなたにおすすめなのは…</p>
             <h4>『ベリーニ』です！！</h4>
+            <dvi class="d-flex flex-row mt-5 mb-5">
+              <div class="sindan-image">
+                <%= image_tag "q08.jpg", class: "check-image" %>
+              </div>
+              <div class="sindan-image ml-5">
+                <div class="make-check">
+                  <p>作り方</p>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>材料名</th>
+                        <th>分量</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>フレッシュ　白桃（缶詰め）</td>
+                        <td>1/2</td>
+                      </tr>
+                      <tr>
+                        <th>ジャパニーズクラフトリキュール奏</th>
+                        <th>15ml</th>
+                      </tr>
+                      <tr>
+                        <th>グレナデンシロップ</th>
+                        <th>1tsp.</th>
+                      </tr>
+                      <tr>
+                        <th>スパークリングワイン</th>
+                        <th>適量</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="introduction-check">
+                  <p>フレッシュな桃のピューレとスパークリングワインを合わせる、爽やかな飲み口のカクテルです。
+                  アルコール度数は5度と低め。お酒が苦手な人やアルコールがあまり強くない人も気分よく楽しめる
+                  やさしい飲み口で女性に大人気でアルコール度数が低く簡単に作れるので、ちょっとおしゃれに家飲みしたいときにぴったり。
+                  </p>
+                </div>
+              </div>
+            </dvi>
             <span><span class="btn" href="#q_01">もどる</span></span>
           </div>
 
           <div id="q_09" style="display: none;">
-            <p>あなたにおすすめなのは…</p>
+            <p class="text-center">あなたにおすすめなのは…</p>
             <h4>『チャイナブルー』です！！</h4>
+            <dvi class="d-flex flex-row mt-5 mb-5">
+              <div class="sindan-image">
+                <%= image_tag "q09.jpg", class: "check-image" %>
+              </div>
+              <div class="sindan-image ml-5">
+                <div class="make-check">
+                  <p>作り方</p>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>材料名</th>
+                        <th>分量</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>パライソ・ライチ・リキュール</td>
+                        <td>30ml</td>
+                      </tr>
+                      <tr>
+                        <th>ザ・ブルー（ブルーキュラソー）奏</th>
+                        <th>10ml</th>
+                      </tr>
+                      <tr>
+                        <th>グレープフルーツジュース</th>
+                        <th>90ml</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="introduction-check">
+                  <p>ライチリキュールをベースにしたフルーティーなカクテルです。
+                  その名前のイメージどおり澄み切った青空のような清々しさが最大の特徴です。
+                  ライチの持つ優しい甘さとすっきりとしたさわやかさが魅力で、
+                  度数も高くないことからお酒に弱い人でも飲みやすいカクテルです。
+                  </p>
+                </div>
+              </div>
+            </dvi>
             <span><span class="btn" href="#q_01">もどる</span></span>
           </div>
 
           <div id="q_10" style="display: none;">
-            <p>あなたにおすすめなのは…</p>
-            <h4>『もも』です！！</h4>
+            <p class="text-center">あなたにおすすめなのは…</p>
+            <h4>『ファジーネーブル』です！！</h4>
+            <dvi class="d-flex flex-row mt-5 mb-5">
+              <div class="sindan-image">
+                <%= image_tag "q10.jpg", class: "check-image" %>
+              </div>
+              <div class="sindan-image ml-5">
+                <div class="make-check">
+                  <p>作り方</p>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>材料名</th>
+                        <th>分量</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>ジャパニーズクラフトリキュール奏</td>
+                        <td>45ml</td>
+                      </tr>
+                      <tr>
+                        <th>オレンジジュース</th>
+                        <th>適量</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="introduction-check">
+                  <p>ピーチリキュールとオレンジジュースを混ぜたシンプルなカクテルです。
+                  アルコール度数は3～7度程度と低いため、アルコール感をあまり感じずフルーティーな味わいなのです。
+                  お酒を飲み始めたばかりの方や女性に人気のカクテルの1つです。
+                  お好みでフルーツなどを飾り付けすると、見た目がオシャレになります。
+                  </p>
+                </div>
+              </div>
+            </dvi>
             <span><span class="btn" href="#q_01">もどる</span></span>
           </div>
 
           <div id="q_11" style="display: none;">
             <p>あなたにおすすめなのは…</p>
-            <h4>『お酒』です！！</h4>
+            <h4>『カルアミルク』です！！</h4>
+            <dvi class="d-flex flex-row mt-5 mb-5">
+              <div class="sindan-image">
+                <%= image_tag "q11.jpg", class: "check-image" %>
+              </div>
+              <div class="sindan-image ml-5">
+                <div class="make-check">
+                  <p>作り方</p>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>材料名</th>
+                        <th>分量</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>カルーアリキュール</td>
+                        <td>1/4</td>
+                      </tr>
+                      <tr>
+                        <th>牛乳</th>
+                        <th>3/4</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="introduction-check">
+                  <p>カルーアミルクの口当たりは、よくコーヒー牛乳やアイスコーヒーにたとえられ、
+                  「大人のカフェオレ」とも言われたり。アルコール度数はビールと同じくらいで、
+                  けっして低いわけではありません。コーヒーが原料ですが、気になるカフェインは微量。
+                  イーツ感覚で飲みやすいので、ついついグラスがすすんでしまうので要注意。
+                  </p>
+                </div>
+              </div>
+            </dvi>
             <span><span class="btn" href="#q_01">もどる</span></span>
           </div>
 
           <div id="q_12" style="display: none;">
             <p>あなたにおすすめなのは…</p>
-            <h4>『いちじく』です！！</h4>
+            <h4>『ジントニック』です！！</h4>
             <span><span class="btn" href="#q_01">もどる</span></span>
           </div>
 
           <div id="q_13" style="display: none;">
             <p>あなたにおすすめなのは…</p>
-            <h4>『banana』です！！</h4>
+            <h4>『モヒート』です！！</h4>
+            <span><span class="btn" href="#q_01">もどる</span></span>
+          </div>
+
+          <div id="q_14" style="display: none;">
+            <p>あなたにおすすめなのは…</p>
+            <h4>『モスコミュール』です！！</h4>
+            <span><span class="btn" href="#q_01">もどる</span></span>
+          </div>
+
+          <div id="q_15" style="display: none;">
+            <p>あなたにおすすめなのは…</p>
+            <h4>『マルガリータ』です！！</h4>
+            <span><span class="btn" href="#q_01">もどる</span></span>
+          </div>
+
+          <div id="q_16" style="display: none;">
+            <p>あなたにおすすめなのは…</p>
+            <h4>『チチ』です！！</h4>
+            <span><span class="btn" href="#q_01">もどる</span></span>
+          </div>
+
+          <div id="q_17" style="display: none;">
+            <p>あなたにおすすめなのは…</p>
+            <h4>『エクスタシー』です！！</h4>
+            <span><span class="btn" href="#q_01">もどる</span></span>
+          </div>
+
+          <div id="q_18" style="display: none;">
+            <p>あなたにおすすめなのは…</p>
+            <h4>『オーガズム』です！！</h4>
+            <span><span class="btn" href="#q_01">もどる</span></span>
+          </div>
+
+          <div id="q_19" style="display: none;">
+            <p>あなたにおすすめなのは…</p>
+            <h4>『セックス・オン・ザ・ビーチ』です！！</h4>
             <span><span class="btn" href="#q_01">もどる</span></span>
           </div>
       </div>
