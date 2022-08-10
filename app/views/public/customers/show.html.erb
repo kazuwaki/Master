@@ -7,7 +7,7 @@
         </div>
         <div class="customer-top">
           <div class="customer-info d-flex flex-column ml-5">
-            <div class="d-flex flex-ro mt-4">
+            <div class="d-flex flex-row mt-4">
               <p class="info-name"><%= @customer.name %></p>
               <% if @customer.name != "guestuser" %>
                 <p><%= link_to "編集", edit_customer_path(@customer), class: "ml-5 btn btn-outline-secondary" %></p>

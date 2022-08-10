@@ -16,14 +16,13 @@ main {
 
 .choose_box {
   position: relative;
-  height: 50vw;
+  height: 70vw;
   width: 100%;
 
   p {
     font-size: 24px;
     display: block;
     font-weight: 600;
-    text-align: center;
   }
 
   ul {
@@ -38,6 +37,7 @@ main {
       margin-right: 20px;
       margin-bottom: 20px;
       list-style: none;
+      border: solid;
 
       &:nth-child(2n) {
         margin-right: 0;
@@ -90,15 +90,14 @@ h4 {
   width: 100%;
 }
 
-#q_06 span, #q_07 span {
+#q_06 span, #q_07 span, #q_08 span, #q_09 span, #q_10 span, #q_11 span, #q_12 span, #q_13 span, #q_14 span, #q_15 span, #q_16 span, #q_17 span, #q_18 span, #q_19 span {
   display: block;
   width: 100%;
 }
 
-#q_06 a, #q_07 a {
+#q_06 a, #q_07 a, #q_08 a, #q_09 a, #q_10 a, #q_11 a, #q_12 a, #q_13 a, #q_14 a, #q_15 a, #q_16 a, #q_17 a, #q_18 a, #q_19 a {
   display: block;
   width: 100%;
-  text-align: center;
 }
 
 .customer-show-image {
@@ -341,4 +340,12 @@ ul, li {
     margin: 0;
     padding: 0;
   }
+}
+
+
+//診断機能
+.check-image {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
 }
