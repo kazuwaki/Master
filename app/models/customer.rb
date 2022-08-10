@@ -16,6 +16,10 @@ class Customer < ApplicationRecord
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "follow_id"
   has_many :followers, through: :reverse_of_relationships, source: :customer
 
+  has_many :customer_rooms
+  has_many :chats
+  has_many :rooms, through: :customer_rooms
+
   validates :name, presence: true
 
   def self.guest
