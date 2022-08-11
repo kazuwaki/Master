@@ -14,9 +14,10 @@ main {
   width: 500px;
   }
 
+//診断機能のscss
 .choose_box {
   position: relative;
-  height: 70vw;
+  height: 60vw;
   width: 100%;
 
   p {
@@ -90,9 +91,18 @@ h4 {
   width: 100%;
 }
 
-#q_06 span, #q_07 span, #q_08 span, #q_09 span, #q_10 span, #q_11 span, #q_12 span, #q_13 span, #q_14 span, #q_15 span, #q_16 span, #q_17 span, #q_18 span, #q_19 span {
+#q_06 span, #q_07 span, #q_08 span, #q_09 span, #q_10 span, #q_11 span, #q_12 span, #q_13 span, #q_14 span, #q_15 span, #q_16 span, #q_17 span {
+  width: 50%;
+  clear: both;
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  background-color: #C00003;
   display: block;
-  width: 100%;
 }
 
 #q_06 a, #q_07 a, #q_08 a, #q_09 a, #q_10 a, #q_11 a, #q_12 a, #q_13 a, #q_14 a, #q_15 a, #q_16 a, #q_17 a, #q_18 a, #q_19 a {
