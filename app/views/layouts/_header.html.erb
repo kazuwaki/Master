@@ -63,6 +63,11 @@
             <% end %>
           </li>
           <li>
+            <%= link_to about_path, class: "btn btn-outline-light"  do %>
+              <i class="fas fa-cocktail"></i>診断
+            <% end %>
+          </li>
+          <li>
             <%= link_to destroy_customer_session_path, method: :delete , class: "btn btn-outline-light" do %>
               <i class="fas fa-sign-out-alt"></i>ログアウト
             <% end %>
@@ -85,7 +90,7 @@
           </li>
           <li>
             <%= link_to about_path, class: "btn btn-outline-light"  do %>
-              <i class="fas fa-cocktail"></i>About
+              <i class="fas fa-cocktail"></i>診断
             <% end %>
           </li>
         <% end %>
