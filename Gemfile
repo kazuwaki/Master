@@ -64,6 +64,7 @@ gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
+gem "enum_help"
 gem "net-smtp"
 gem "net-pop"
 gem "net-imap"
