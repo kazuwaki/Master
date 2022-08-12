@@ -44,12 +44,7 @@
           <%= render "public/posts/index", posts: @posts %>
         <!--/area--></div>
         <div id="likedposts" class="area">
-          <h2>ドリンク</h2>
-          <ul>
-            <li>ウーロン茶</li>
-            <li>オレンジジュース</li>
-            <li>ジンジャーエール</li>
-          </ul>
+          <%= render "public/posts/index", posts: @like_posts %>
         <!--/area--></div>
       </div>
     </div>

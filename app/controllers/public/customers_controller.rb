@@ -9,6 +9,8 @@ class Public::CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @posts = @customer.posts.all.order(created_at: :desc)
+    like_ids = Like.where(customer_id: @customer.id).pluck(:post_id)
+    @like_posts = Post.where(id: like_ids)
   end
 
   def edit
