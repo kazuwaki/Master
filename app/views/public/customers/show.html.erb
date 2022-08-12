@@ -35,7 +35,23 @@
   </div>
   <div class="row">
     <div class="col-10 offset-1 mt-3">
-      <%= render "public/posts/index", posts: @posts %>
+      <div class="wrapper">
+        <ul class="tab">
+          <li><a href="#indexposts">投稿一覧</a></li>
+          <li><a href="#likedposts">いいね一覧</a></li>
+        </ul>
+        <div id="indexposts" class="area">
+          <%= render "public/posts/index", posts: @posts %>
+        <!--/area--></div>
+        <div id="likedposts" class="area">
+          <h2>ドリンク</h2>
+          <ul>
+            <li>ウーロン茶</li>
+            <li>オレンジジュース</li>
+            <li>ジンジャーエール</li>
+          </ul>
+        <!--/area--></div>
+      </div>
     </div>
   </div>
 </div>
