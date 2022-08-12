@@ -39,6 +39,7 @@
         <ul class="tab">
           <li><a href="#indexposts">投稿一覧</a></li>
           <li><a href="#likedposts">いいね一覧</a></li>
+          <li><a href="#notificationindex">通知一覧</a></li>
         </ul>
         <div id="indexposts" class="area">
           <%= render "public/posts/index", posts: @posts %>
@@ -46,6 +47,11 @@
         <div id="likedposts" class="area">
           <%= render "public/posts/index", posts: @like_posts %>
         <!--/area--></div>
+        <% if @customer == current_customer %>
+        <div id="notificationindex" class="area">
+          <%= render "public/notifications/index", notifications: @notifications %>
+        <!--/area--></div>
+        <% end %>
       </div>
     </div>
   </div>

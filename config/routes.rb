@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       resource :likes, only:[:create, :destroy]
     end
     resources :customers, only: [:show, :index, :edit, :update] do
+      delete :destroy_all, on: :collection
       resource :relationships, only: [:create, :destroy]
         get 'followings' => 'relationships#followings', as: 'followings'
         get 'followers' => 'relationships#followers', as: 'followers'
@@ -38,9 +39,9 @@ Rails.application.routes.draw do
     post 'contacts/back', to: 'contacts#back', as: 'back'
     get 'done', to: 'contacts#done', as: 'done'
 
-    resources :notifications, only: [:index] do
+    resources :notifications do
       delete :destroy_all, on: :collection
-    end 
+    end
   end
 
 
