@@ -3,6 +3,7 @@ class Public::RelationshipsController < ApplicationController
   def create
     following = current_customer.follow(@customer)
     following.save
+    @customer.create_notification_follow!(current_customer)
     @customers = Customer.all
   end
 
