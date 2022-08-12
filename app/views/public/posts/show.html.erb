@@ -2,12 +2,16 @@
     <%= render "layouts/errors", obj: @post_comment %>
     <div class="row">
         <div class="col-2 offset-1 mt-5">
-            <h6>いいねが多いラインキング</h6>
+            <h5>いいねラインキング</h5>
             <% @posts.each do |post| %>
                 <table class="table table-borderless">
                     <tbody>
-                        <th><%= image_tag post.get_image(50,50) %></th>
-                        <th><%= post.name %></th>
+                        <th>
+                            <%= link_to post_path(post) do %>
+                                <%= image_tag post.get_image(50,50), class: "like-posts-image" %>
+                            <% end %>
+                        </th>
+                        <th><%= post.name %><br>いいね数： <%= post.likes.count %></th>
                     </tbody>
                 </table>
             <% end %>

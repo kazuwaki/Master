@@ -22,7 +22,7 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @post_comment = PostComment.new
-    @posts = Post.includes(:liked_customers).sort {|a,b| b.liked_customers.size <=> a.liked_customers.size}
+    @posts = Post.includes(:liked_customers).limit(5).sort {|a,b| b.liked_customers.size <=> a.liked_customers.size}
   end
 
   def new
