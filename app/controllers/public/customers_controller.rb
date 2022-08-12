@@ -11,6 +11,10 @@ class Public::CustomersController < ApplicationController
     @posts = @customer.posts.all.order(created_at: :desc)
     like_ids = Like.where(customer_id: @customer.id).pluck(:post_id)
     @like_posts = Post.where(id: like_ids)
+    @notifications = current_customer.passive_notifications
+    @notifications.where(checked: false).each do |notification|
+      notification.update(checked: true)
+    end
   end
 
   def edit
@@ -24,6 +28,11 @@ class Public::CustomersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy_all
+    @notifications = current_customer.passive_notifications.destroy_all
+    redirect_to customer_path(current_customer)
   end
 
   private
