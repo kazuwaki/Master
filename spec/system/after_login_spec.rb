@@ -109,4 +109,42 @@ describe '[STEP2] ユーザログイン後のテスト' do
       end
     end
   end
+  describe '投稿一覧ページのテスト' do
+    before do
+      visit posts_path
+    end
+    context '表示内容の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/posts'
+      end
+      it '新規投稿ページへのリンクが存在する' do
+        expect(page).to have_link '', href: new_post_path
+      end
+    end
+  end
+  describe '新規投稿ページのテスト' do
+    before do
+      visit new_post_path
+    end
+    context '表示内容の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/posts/new'
+      end
+      it 'nameフォームが表示される' do
+        expect(page).to have_field 'post[name]'
+      end
+      it 'nameフォームに値が入っていない' do
+        expect(find_field('post[name]').text).to be_blank
+      end
+      it 'bodyフォームが表示される' do
+        expect(page).to have_field 'post[body]'
+      end
+      it 'bodyフォームに値が入っていない' do
+        expect(find_field('post[body]').text).to be_blank
+      end
+      it '内容を保存ボタンが表示される' do
+        expect(page).to have_button '内容を保存'
+      end
+    end
+  end
 end
