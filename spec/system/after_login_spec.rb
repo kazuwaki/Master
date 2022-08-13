@@ -15,12 +15,12 @@ describe '[STEP2] ユーザログイン後のテスト' do
     context 'リンクの内容を確認: ※logoutは『ユーザログアウトのテスト』でテスト済みになります。' do
       subject { current_path }
 
-      #it '投稿一覧を押すと、投稿一覧に遷移する' do
-        #post_link = find_all('a')[1].native.inner_text
-        #post_link = post_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
-        #click_link post_link
-        #is_expected.to eq '/posts'
-      #end
+      it '投稿一覧を押すと、投稿一覧に遷移する' do
+        post_link = find_all('a')[1].native.inner_text
+        post_link = post_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
+        click_link post_link, match: :first
+        is_expected.to eq '/posts'
+      end
       it 'ユーザーを押すと、ユーザー一覧画面に遷移する' do
         customer_link = find_all('a')[3].native.inner_text
         customer_link = customer_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
@@ -33,12 +33,18 @@ describe '[STEP2] ユーザログイン後のテスト' do
         click_link customers_link
         is_expected.to eq '/customers/' + customer.id.to_s
       end
-      #it 'タイムラインを押すと、タイムライン一覧画面に遷移する' do
-        #time_line_link = find_all('a')[4].native.inner_text
-        #time_line_link = time_line_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
-        #click_link time_line_link
-        #is_expected.to eq '/time_lines'
-      #end
+      it '診断を押すと診断チャートに遷移する' do
+        about_link = find_all('a')[5].native.inner_text
+        about_link = about_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
+        click_link about_link
+        is_expected.to eq '/about'
+      end
+      it 'タイムラインを押すと、タイムライン一覧画面に遷移する' do
+        time_lines_link = find_all('a')[4].native.inner_text
+        time_lines_link = time_lines_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
+        click_link time_lines_link, match: :first
+        is_expected.to eq '/time_lines'
+      end
     end
   end
   describe 'ユーザ一覧画面のテスト' do
