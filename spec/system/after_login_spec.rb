@@ -147,4 +147,33 @@ describe '[STEP2] ユーザログイン後のテスト' do
       end
     end
   end
+  describe 'タイムライン一覧画面のテスト' do
+    before do
+      visit time_lines_path
+    end
+    context '表示内容の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/time_lines'
+      end
+      it 'タイムライン詳細ページへのリンクが存在する' do
+        expect(page).to have_link 'Show', href: time_line_path(time_line)
+        expect(page).to have_link 'Show', href: time_line_path(other_time_line)
+      end
+      it 'titleフォームが表示される' do
+        expect(page).to have_field 'time_line[title]'
+      end
+      it 'nameフォームに値が入っていない' do
+        expect(find_field('time_line[title]').text).to be_blank
+      end
+      it 'bodyフォームが表示される' do
+        expect(page).to have_field 'time_line[body]'
+      end
+      it 'bodyフォームに値が入っていない' do
+        expect(find_field('time_line[body]').text).to be_blank
+      end
+      it '投稿ボタンが表示される' do
+        expect(page).to have_button '投稿'
+      end
+    end
+  end
 end
