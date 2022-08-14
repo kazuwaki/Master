@@ -37,19 +37,23 @@
     <div class="col-10 offset-1 mt-3">
       <div class="wrapper">
         <ul class="tab">
-          <li><a href="#indexposts">投稿一覧</a></li>
+          <li><a href="#openposts">公開中投稿一覧</a></li>
           <li><a href="#likedposts">いいね一覧</a></li>
           <% if @customer == current_customer %>
+            <li><a href="#closedposts">非公開投稿一覧</a></li>
             <li><a href="#notificationindex">通知一覧</a></li>
           <% end %>
         </ul>
-        <div id="indexposts" class="area">
+        <div id="openposts" class="area">
           <%= render "public/posts/index", posts: @posts %>
         <!--/area--></div>
         <div id="likedposts" class="area">
           <%= render "public/posts/index", posts: @like_posts %>
         <!--/area--></div>
         <% if @customer == current_customer %>
+        <div id="closedposts" class="area">
+          <%= render "public/posts/index", posts: @posted %>
+        <!--/area--></div>
         <div id="notificationindex" class="area">
           <%= render "public/notifications/index", notifications: @notifications %>
         <!--/area--></div>
