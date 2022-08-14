@@ -4,7 +4,7 @@ class Public::PostsController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
 
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.open.order(created_at: :desc)
     @types = Type.all
     @alcohols = Alcohol.all
   end
@@ -22,7 +22,7 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @post_comment = PostComment.new
-    @posts = Post.includes(:liked_customers).limit(5).sort {|a,b| b.liked_customers.size <=> a.liked_customers.size}
+    @posts = Post.open.includes(:liked_customers).limit(5).sort {|a,b| b.liked_customers.size <=> a.liked_customers.size}
   end
 
   def new
