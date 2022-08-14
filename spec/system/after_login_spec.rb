@@ -175,5 +175,15 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect(page).to have_button '投稿'
       end
     end
+    context '投稿成功のテスト' do
+      before do
+        fill_in 'time_line[title]', with: Faker::Lorem.characters(number: 5)
+        fill_in 'time_line[body]', with: Faker::Lorem.characters(number: 20)
+      end
+
+      it '自分の新しい投稿が正しく保存される' do
+        expect { click_button '投稿' }.to change(customer.time_lines, :count).by(1)
+      end
+    end
   end
 end
