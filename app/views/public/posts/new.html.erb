@@ -28,7 +28,7 @@
               </tr>
               <tr>
                 <th><%= f.label "公開・非公開の選択" %></th>
-                <td><%= f.select :status, Post.statuses.keys.to_a, {}, { class:'post-open' } %></td>
+                <td><%= f.select :status, options_for_select(Post.statuses_i18n.keys.map { |k| [Post.statuses_i18n[k], k]}, selected: @post.status) %></td>
               </tr>
               <tr>
                 <th></th>

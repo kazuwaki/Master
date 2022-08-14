@@ -6,6 +6,10 @@ ja:
         work: '仕事について'
         recruit: '採用について'
         method: '方法について'
+    post:
+      status:
+          open: "公開"
+          closed: "非公開"
   activerecord:
     models:
       customer: "ユーザー"
@@ -26,6 +30,7 @@ ja:
         body: "材料名・作り方"
         type: "タイプ"
         alcohol: "アルコールの強度"
+        status: "公開・非公開"
       post_comment:
         comment: "投稿コメント"
       time_line:
