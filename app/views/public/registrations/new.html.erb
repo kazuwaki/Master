@@ -20,15 +20,15 @@
             </tr>
             <tr>
               <th><%= f.label "パスワード(確認用)" %></th>
-              <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %><%= f.submit "新規登録", class: "ml-5 btn btn-success" %></td>
+              <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %><%= f.submit "新規登録", class: "ml-5 btn btn-outline-success" %></td>
             </tr>
             <tr>
               <th>登録済の方はこちらからログイン</th>
-              <td><%= link_to "ログイン", new_customer_session_path, class: "btn btn-secondary" %></td>
+              <td><%= link_to "ログイン", new_customer_session_path, class: "btn btn-outline-secondary" %></td>
             </tr>
             <tr>
               <th>ゲストログイン(閲覧用)</th>
-              <td><%= link_to "ゲストログイン", customers_guest_sign_in_path, class: "btn btn-secondary", method: :post %></td>
+              <td><%= link_to "ゲストログイン", customers_guest_sign_in_path, class: "btn btn-outline-secondary", method: :post %></td>
             </tr>
           </table>
         <% end %>
