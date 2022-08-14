@@ -8,11 +8,11 @@ class Public::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @posts = @customer.posts.open.order(created_at: :desc)
-    @posted = @customer.posts.closed.order(created_at: :desc)
+    @posts = @customer.posts.open.order(created_at: :desc).page(params[:page])
+    @posted = @customer.posts.closed.order(created_at: :desc).page(params[:page])
     like_ids = Like.where(customer_id: @customer.id).pluck(:post_id)
-    @like_posts = Post.where(id: like_ids)
-    @notifications = current_customer.passive_notifications
+    @like_posts = Post.where(id: like_ids).page(params[:page])
+    @notifications = current_customer.passive_notifications.page(params[:page]).per(5)
     @notifications.where(checked: false).each do |notification|
       notification.update(checked: true)
     end
