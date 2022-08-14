@@ -15,12 +15,12 @@ describe '[STEP2] ユーザログイン後のテスト' do
     context 'リンクの内容を確認: ※logoutは『ユーザログアウトのテスト』でテスト済みになります。' do
       subject { current_path }
 
-      #it '投稿一覧を押すと、投稿一覧に遷移する' do
-        #post_link = find_all('a')[1].native.inner_text
-        #post_link = post_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
-        #click_link post_link
-        #is_expected.to eq '/posts'
-      #end
+      it '投稿一覧を押すと、投稿一覧に遷移する' do
+        post_link = find_all('a')[1].native.inner_text
+        post_link = post_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
+        click_link post_link, match: :first
+        is_expected.to eq '/posts'
+      end
       it 'ユーザーを押すと、ユーザー一覧画面に遷移する' do
         customer_link = find_all('a')[3].native.inner_text
         customer_link = customer_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
@@ -33,12 +33,18 @@ describe '[STEP2] ユーザログイン後のテスト' do
         click_link customers_link
         is_expected.to eq '/customers/' + customer.id.to_s
       end
-      #it 'タイムラインを押すと、タイムライン一覧画面に遷移する' do
-        #time_line_link = find_all('a')[4].native.inner_text
-        #time_line_link = time_line_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
-        #click_link time_line_link
-        #is_expected.to eq '/time_lines'
-      #end
+      it '診断を押すと診断チャートに遷移する' do
+        about_link = find_all('a')[5].native.inner_text
+        about_link = about_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
+        click_link about_link
+        is_expected.to eq '/about'
+      end
+      it 'タイムラインを押すと、タイムライン一覧画面に遷移する' do
+        time_lines_link = find_all('a')[4].native.inner_text
+        time_lines_link = time_lines_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
+        click_link time_lines_link, match: :first
+        is_expected.to eq '/time_lines'
+      end
     end
   end
   describe 'ユーザ一覧画面のテスト' do
@@ -100,6 +106,73 @@ describe '[STEP2] ユーザログイン後のテスト' do
           click_button '内容を保存'
           expect(page).to have_current_path customer_path(customer)
         end
+      end
+    end
+  end
+  describe '投稿一覧ページのテスト' do
+    before do
+      visit posts_path
+    end
+    context '表示内容の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/posts'
+      end
+      it '新規投稿ページへのリンクが存在する' do
+        expect(page).to have_link '', href: new_post_path
+      end
+    end
+  end
+  describe '新規投稿ページのテスト' do
+    before do
+      visit new_post_path
+    end
+    context '表示内容の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/posts/new'
+      end
+      it 'nameフォームが表示される' do
+        expect(page).to have_field 'post[name]'
+      end
+      it 'nameフォームに値が入っていない' do
+        expect(find_field('post[name]').text).to be_blank
+      end
+      it 'bodyフォームが表示される' do
+        expect(page).to have_field 'post[body]'
+      end
+      it 'bodyフォームに値が入っていない' do
+        expect(find_field('post[body]').text).to be_blank
+      end
+      it '内容を保存ボタンが表示される' do
+        expect(page).to have_button '内容を保存'
+      end
+    end
+  end
+  describe 'タイムライン一覧画面のテスト' do
+    before do
+      visit time_lines_path
+    end
+    context '表示内容の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/time_lines'
+      end
+      it 'タイムライン詳細ページへのリンクが存在する' do
+        expect(page).to have_link 'Show', href: time_line_path(time_line)
+        expect(page).to have_link 'Show', href: time_line_path(other_time_line)
+      end
+      it 'titleフォームが表示される' do
+        expect(page).to have_field 'time_line[title]'
+      end
+      it 'nameフォームに値が入っていない' do
+        expect(find_field('time_line[title]').text).to be_blank
+      end
+      it 'bodyフォームが表示される' do
+        expect(page).to have_field 'time_line[body]'
+      end
+      it 'bodyフォームに値が入っていない' do
+        expect(find_field('time_line[body]').text).to be_blank
+      end
+      it '投稿ボタンが表示される' do
+        expect(page).to have_button '投稿'
       end
     end
   end
