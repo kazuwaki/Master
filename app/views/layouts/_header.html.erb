@@ -14,86 +14,92 @@
     <span class="ml-auto col-3 d-none d-sm-block">
       <%= render "public/posts/form" %>
     </span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav ml-auto">
         <% if admin_signed_in? %>
-          <li>
+          <li class="nav-item">
             <%= link_to  admin_posts_path, class: "btn btn-outline-light" do %>
               <i class="fas fa-glass-cheers"></i>投稿一覧
             <% end %>
           </li>
-          <li>
+          <li class="nav-item">
             <%= link_to admin_time_lines_path, class: "btn btn-outline-light" do %>
               <i class="fas fa-mail-bulk"></i>タイムライン
             <% end %>
           </li>
-          <li>
+          <li class="nav-item">
             <%= link_to admin_types_path, class: "btn btn-outline-light" do %>
               <i class="fas fa-stream"></i>タイプ
             <% end %>
           </li>
-          <li>
+          <li class="nav-item">
             <%= link_to admin_alcohols_path, class: "btn btn-outline-light" do %>
               <i class="fas fa-wine-bottle"></i>アルコール
             <% end %>
           </li>
-          <li>
+          <li class="nav-item">
             <%= link_to destroy_admin_session_path, method: :delete, class: "btn btn-outline-light" do %>
               <i class="fas fa-sign-out-alt"></i>ログアウト
             <% end %>
           </li>
         <% elsif customer_signed_in? %>
-          <li>
+          <li class="nav-item">
             <%= link_to posts_path, class: "btn btn-outline-light" do %>
               <i class="fas fa-glass-cheers"></i>投稿一覧
             <% end %>
           </li>
-          <li>
+          <li class="nav-item">
             <%= link_to customer_path(current_customer), class: "btn btn-outline-light" do %>
               <i class="fas fa-user"></i>マイページ
             <% end %>
           </li>
-          <li>
+          <li class="nav-item">
             <%= link_to customers_path, class: "btn btn-outline-light" do %>
               <i class="fas fa-users"></i>ユーザー
             <% end %>
           </li>
-          <li>
+          <li class="nav-item">
             <%= link_to time_lines_path, class: "btn btn-outline-light" do %>
               <i class="fas fa-mail-bulk"></i>タイムライン
             <% end %>
           </li>
-          <li>
+          <li class="nav-item">
             <%= link_to about_path, class: "btn btn-outline-light"  do %>
               <i class="fas fa-cocktail"></i>診断
             <% end %>
           </li>
-          <li>
+          <li class="nav-item">
             <%= link_to destroy_customer_session_path, method: :delete , class: "btn btn-outline-light" do %>
               <i class="fas fa-sign-out-alt"></i>ログアウト
             <% end %>
-          </li>
+          </li class="nav-item">
         <% else %>
-          <li>
+          <li class="nav-item">
             <%= link_to new_customer_registration_path, class: "btn btn-outline-light"  do %>
               <i class="fas fa-user-plus"></i>新規登録
             <% end %>
           </li>
-          <li>
+          <li class="nav-item">
             <%= link_to new_customer_session_path, class: "btn btn-outline-light"  do %>
               <i class="fas fa-sign-in-alt"></i>ログイン
             <% end %>
           </li>
-          <li>
+          <li class="nav-item">
             <%= link_to root_path, class: "btn btn-outline-light"  do %>
               <i class="fas fa-home"></i>Top
             <% end %>
           </li>
-          <li>
+          <li class="nav-item">
             <%= link_to about_path, class: "btn btn-outline-light"  do %>
               <i class="fas fa-cocktail"></i>診断
             <% end %>
           </li>
         <% end %>
       </ul>
+      </dvi>
+
   </nav>
 </header>
