@@ -11,15 +11,15 @@
             </tr>
             <tr>
               <th><%= f.label :password %></th>
-              <td><%= f.password_field :password, autocomplete: "current-password" %><%= f.submit "ログイン", class: "ml-5 btn btn-success" %></td>
+              <td><%= f.password_field :password, autocomplete: "current-password" %><%= f.submit "ログイン", class: "ml-5 btn btn-outline-success" %></td>
             </tr>
             <tr>
               <th>登録していない方はこちらから</th>
-              <td><%= link_to "新規登録", new_customer_registration_path, class: "btn btn-secondary" %></td>
+              <td><%= link_to "新規登録", new_customer_registration_path, class: "btn btn-outline-success" %></td>
             </tr>
             <tr>
               <th>ゲストログイン(閲覧用)</th>
-              <td><%= link_to "ゲストログイン", customers_guest_sign_in_path, class: "btn btn-secondary", method: :post %></td>
+              <td><%= link_to "ゲストログイン", customers_guest_sign_in_path, class: "btn btn-outline-secondary", method: :post %></td>
             </tr>
           </table>
         <% end %>
