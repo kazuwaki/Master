@@ -14,6 +14,9 @@ class Post < ApplicationRecord
   validates :body, presence: true
   validates :type, presence: true
   validates :alcohol, presence: true
+  
+  #投稿の公開非公開機能
+  enum status: { closed: 0, open: 1 }
 
   def liked_by?(customer)
     likes.exists?(customer_id: customer.id)

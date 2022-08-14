@@ -27,6 +27,10 @@
                 <td><%= f.collection_select(:alcohol_id, Alcohol.all, :id, :name, prompt: "選択してください" ) %></td>
               </tr>
               <tr>
+                <th><%= f.label "公開・非公開の選択" %></th>
+                <td><%= f.select :status, Post.statuses.keys.to_a, {}, { class:'post-open' } %></td>
+              </tr>
+              <tr>
                 <th></th>
                 <td><%= f.submit "内容を保存", class: "btn btn-outline-success" %></td>
               </tr>
