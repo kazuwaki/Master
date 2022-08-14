@@ -50,18 +50,18 @@ class Public::PostsController < ApplicationController
       if @word == ""
         redirect_to posts_path
       else
-        @posts = Post.search_for(@model, @word)
+        @posts = Post.open.search_for(@model, @word)
       end
     else
       if  @model == "type"
         @types = Type.all
         @type_name = params[:type_id]
-        @posts = Post.search_for(@model, @type_name)
+        @posts = Post.open.search_for(@model, @type_name)
         @word = Type.find(@type_name).name
       else
         @alcohols = Alcohol.all
         @alcohol_name = params[:alcohol_id]
-        @posts = Post.search_for(@model, @alcohol_name)
+        @posts = Post.open.search_for(@model, @alcohol_name)
         @word = Alcohol.find(@alcohol_name).name
       end
     end
