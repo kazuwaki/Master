@@ -1,7 +1,7 @@
 <% visiter = notification.visiter %>
 <% post = notification.post %>
 
-<div class="user-view clearfix ">
+<div class="user-view clearfix mb-2">
   <%= link_to customer_path(notification.visiter) do %>
     <%= image_tag visiter.get_profile_image(100,100), class:"customer-images mr-5" %>
   <% end %>
