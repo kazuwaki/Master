@@ -156,8 +156,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect(current_path).to eq '/time_lines'
       end
       it 'タイムライン詳細ページへのリンクが存在する' do
-        expect(page).to have_link 'Show', href: time_line_path(time_line)
-        expect(page).to have_link 'Show', href: time_line_path(other_time_line)
+        expect(page).to have_link '詳細',href: "/time_lines/#{time_line.id}"
       end
       it 'titleフォームが表示される' do
         expect(page).to have_field 'time_line[title]'
