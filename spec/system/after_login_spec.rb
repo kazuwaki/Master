@@ -3,6 +3,10 @@ require 'rails_helper'
 describe '[STEP2] ユーザログイン後のテスト' do
   let(:customer) { create(:customer) }
   let!(:other_customer) { create(:customer) }
+  let!(:time_line) { create(:time_line, customer: customer) }
+  let!(:other_time_line) { create(:time_line, customer: other_customer) }
+  #let!(:time_line_comment) { create(:time_line_comment, customer: customer) }
+  #let!(:other_time_line_comment) { create(:time_line_comment, customer: other_customer) }
 
   before do
     visit new_customer_session_path
@@ -99,7 +103,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
       it '更新内容を内容を保存が表示される' do
         expect(page).to have_button '内容を保存'
       end
-    end 
+    end
     context '更新処理に関するテスト' do
       it '更新後のリダイレクト先は正しいか' do
         fill_in 'customer[name]', with: Faker::Lorem.characters(number:5)
@@ -155,6 +159,18 @@ describe '[STEP2] ユーザログイン後のテスト' do
       it 'URLが正しい' do
         expect(current_path).to eq '/time_lines'
       end
+      it 'タイムラインの投稿者の名前が表示されている' do
+        expect(page).to have_content time_line.customer.name
+      end
+      it 'タイムラインのtitleが表示されている' do
+        expect(page).to have_content time_line.title
+      end
+      it 'タイムラインのbodyが表示されている' do
+        expect(page).to have_content time_line.body
+      end
+      it 'タイムラインの投稿時間が表示されている' do
+        expect(page).to have_content time_line.created_at.strftime('%Y/%m/%d %H:%M:%S')
+      end
       it 'タイムライン詳細ページへのリンクが存在する' do
         expect(page).to have_link '詳細',href: "/time_lines/#{time_line.id}"
       end
@@ -179,9 +195,34 @@ describe '[STEP2] ユーザログイン後のテスト' do
         fill_in 'time_line[title]', with: Faker::Lorem.characters(number: 5)
         fill_in 'time_line[body]', with: Faker::Lorem.characters(number: 20)
       end
-
       it '自分の新しい投稿が正しく保存される' do
         expect { click_button '投稿' }.to change(customer.time_lines, :count).by(1)
+      end
+      it 'リダイレクト先が、遷移元画面になっている' do
+        click_button '投稿'
+        expect(current_path).to eq '/time_lines'
+      end
+    end
+  end
+  describe 'タイムライン詳細画面のテスト' do
+    before do
+      visit time_line_path(time_line)
+    end
+    context '表示確認' do
+      it 'URLが正しいか' do
+        expect(current_path).to eq '/time_lines/' + time_line.id.to_s
+      end
+      it 'タイムライン投稿者の名前が表示されている' do
+        expect(page).to have_content time_line.customer.name
+      end
+      it 'タイムラインのtitleが表示されているか' do
+        expect(page).to have_content time_line.title
+      end
+      it 'タイムラインのbodyが表示されているか' do
+        expect(page).to have_content time_line.body
+      end
+      it 'タイムラインの削除リンクが表示されている' do
+        expect(page).to have_link "削除", href: time_line_path(time_line)
       end
     end
   end
