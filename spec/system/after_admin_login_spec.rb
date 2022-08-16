@@ -7,6 +7,7 @@ describe '[STEP2] 管理者ログイン後のテスト' do
   let!(:time_line) { create(:time_line, customer: customer) }
   let!(:other_time_line) { create(:time_line, customer: other_customer) }
   let!(:type) { create(:type) }
+  let!(:alcohol) { create(:alcohol) }
 
   before do
     visit new_admin_session_path
@@ -148,6 +149,43 @@ describe '[STEP2] 管理者ログイン後のテスト' do
       end
       it '保存したら一覧画面にリダイレクトされる' do
         expect(current_path).to eq '/admin/types'
+      end
+    end
+  end
+  describe 'アルコールの一覧画面のテスト' do
+    before do
+      visit admin_alcohols_path
+    end
+    context '表示内容の確認' do
+      it 'URLの確認' do
+        expect(current_path).to eq '/admin/alcohols'
+      end
+      it 'アルコールのidが表示されている' do
+        expect(page).to have_content alcohol.id
+      end
+      it 'アルコールの名前が表示されている' do
+        expect(page).to have_content alcohol.name
+      end
+      it '編集が表示されている' do
+        expect(page).to have_link '編集', href: edit_admin_alcohol_path(alcohol)
+      end
+      it 'nameフォームが表示されている' do
+        expect(page).to have_field 'alcohol[name]'
+      end
+      it 'nameフォームに値が入っていない' do
+        expect(find_field('alcohol[name]').text).to be_blank
+      end
+      it '登録ボタンが表示されている' do
+        expect(page).to have_button "登録"
+      end
+    end
+    context 'alcohol登録成功のテスト' do
+      before do
+        fill_in 'alcohol[name]', with: Faker::Lorem.characters(number: 10)
+      end
+      it 'リダイレクト先が、遷移元画面になっている' do
+        click_button '登録'
+        expect(current_path).to eq '/admin/alcohols'
       end
     end
   end
