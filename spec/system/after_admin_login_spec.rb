@@ -106,8 +106,8 @@ describe '[STEP2] 管理者ログイン後のテスト' do
       it 'nameフォームに値が入っていない' do
         expect(find_field('type[name]').text).to be_blank
       end
-      it '登録ボタンが表示されている' do
-        expect(page).to have_button "登録"
+      it '新規登録ボタンが表示されている' do
+        expect(page).to have_button "新規登録"
       end
     end
     context 'type登録成功のテスト' do
@@ -175,8 +175,8 @@ describe '[STEP2] 管理者ログイン後のテスト' do
       it 'nameフォームに値が入っていない' do
         expect(find_field('alcohol[name]').text).to be_blank
       end
-      it '登録ボタンが表示されている' do
-        expect(page).to have_button "登録"
+      it '新規登録ボタンが表示されている' do
+        expect(page).to have_button "新規登録"
       end
     end
     context 'alcohol登録成功のテスト' do
@@ -185,6 +185,35 @@ describe '[STEP2] 管理者ログイン後のテスト' do
       end
       it 'リダイレクト先が、遷移元画面になっている' do
         click_button '登録'
+        expect(current_path).to eq '/admin/alcohols'
+      end
+    end
+  end
+  describe 'アルコールの変更画面のテスト' do
+    before do
+      visit edit_admin_alcohol_path(alcohol)
+    end
+    context '表示内容の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/admin/alcohols/' + alcohol.id.to_s + '/edit'
+      end
+      it '編集前のタイプ名が表示されている' do
+        expect(page).to have_field 'alcohol[name]', with: alcohol.name
+      end
+      it '変更内容を保存が表示されている' do
+        expect(page).to have_button '更新内容を保存'
+      end
+    end
+    context '変更処理に関するテスト' do
+      before do
+        @alcohol_old_name = alcohol.name
+        fill_in 'alcohol[name]', with: Faker::Lorem.characters(number:5)
+        click_button '更新内容を保存'
+      end
+      it 'nameが正しく更新できている' do
+        expect(alcohol.reload.name).not_to eq @alcohol_old_name
+      end
+      it '保存したら一覧画面にリダイレクトされる' do
         expect(current_path).to eq '/admin/alcohols'
       end
     end
