@@ -99,13 +99,13 @@ describe '[STEP2] ユーザログイン後のテスト' do
       it '更新内容を内容を保存が表示される' do
         expect(page).to have_button '内容を保存'
       end
-      context '更新処理に関するテスト' do
-        it '更新後のリダイレクト先は正しいか' do
-          fill_in 'customer[name]', with: Faker::Lorem.characters(number:5)
-          fill_in 'customer[introduction]', with: Faker::Lorem.characters(number:20)
-          click_button '内容を保存'
-          expect(page).to have_current_path customer_path(customer)
-        end
+    end 
+    context '更新処理に関するテスト' do
+      it '更新後のリダイレクト先は正しいか' do
+        fill_in 'customer[name]', with: Faker::Lorem.characters(number:5)
+        fill_in 'customer[introduction]', with: Faker::Lorem.characters(number:20)
+        click_button '内容を保存'
+        expect(page).to have_current_path customer_path(customer)
       end
     end
   end

@@ -122,4 +122,33 @@ describe '[STEP2] 管理者ログイン後のテスト' do
       end
     end
   end
+  describe 'タイプの変更画面のテスト' do
+    before do
+      visit edit_admin_type_path(type)
+    end
+    context '表示内容の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/admin/types/' + type.id.to_s + '/edit'
+      end
+      it '編集前のタイプ名が表示されている' do
+        expect(page).to have_field 'type[name]', with: type.name
+      end
+      it '変更内容を保存が表示されている' do
+        expect(page).to have_button '更新内容を保存'
+      end
+    end
+    context '変更処理に関するテスト' do
+      before do
+        @type_old_name = type.name
+        fill_in 'type[name]', with: Faker::Lorem.characters(number:5)
+        click_button '更新内容を保存'
+      end
+      it 'nameが正しく更新できている' do
+        expect(type.reload.name).not_to eq @type_old_name
+      end
+      it '保存したら一覧画面にリダイレクトされる' do
+        expect(current_path).to eq '/admin/types'
+      end
+    end
+  end
 end
