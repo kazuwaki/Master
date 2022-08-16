@@ -1,0 +1,249 @@
+
+Alcoholモデルのテスト
+[32m  有効な投稿内容の場合は保存されるか[0m
+  バリデーションのテスト
+    nameカラム
+[32m      空欄でないこと[0m
+
+customerモデルのテスト
+  バリデーションのテスト
+    nameカラム
+[32m      空欄でないこと[0m
+    introductionカラム
+[32m      50文字以下であること: 50文字は〇[0m
+  アソシエーションのテスト
+    Postモデルとの関係
+[32m      1:Nとなっている[0m
+
+postモデルのテスト
+  バリデーションのテスト
+    nameカラム
+[31m      空欄でないこと (FAILED - 1)[0m
+    bodyカラム
+[31m      空欄でないこと (FAILED - 2)[0m
+  アソシエーションのテスト
+    Customerモデルとの関係
+[32m      N:1となっている[0m
+
+TimeLineモデルのテスト
+[32m  有効な投稿内容の場合は保存されるか[0m
+  バリデーションのテスト
+    titleカラム
+[32m      空欄でないこと[0m
+    bodyカラム
+[32m      空欄でないこと[0m
+
+Typeモデルのテスト
+[32m  有効な投稿内容の場合は保存されるか[0m
+  バリデーションのテスト
+    nameカラム
+[32m      空欄でないこと[0m
+
+[STEP2] 管理者ログイン後のテスト
+  ヘッダーのテスト: ログインしている場合
+    リンクの内容を確認: ※logoutは『ユーザログアウトのテスト』でテスト済みになります。
+[31m      投稿一覧を押すと、投稿一覧に遷移する (FAILED - 3)[0m
+[31m      タイムラインを押すと、タイムライン一覧画面に遷移する (FAILED - 4)[0m
+[31m      Typeを押すと、Type画面に遷移する (FAILED - 5)[0m
+[31m      Alcoholを押すと、Alcohol画面に遷移する (FAILED - 6)[0m
+
+[STEP2] ユーザログイン後のテスト
+  ヘッダーのテスト: ログインしている場合
+    リンクの内容を確認: ※logoutは『ユーザログアウトのテスト』でテスト済みになります。
+[32m      投稿一覧を押すと、投稿一覧に遷移する[0m
+[32m      ユーザーを押すと、ユーザー一覧画面に遷移する[0m
+[32m      マイページを押すと、ログインユーザー詳細画面に遷移する[0m
+[32m      診断を押すと診断チャートに遷移する[0m
+[32m      タイムラインを押すと、タイムライン一覧画面に遷移する[0m
+  ユーザ一覧画面のテスト
+    表示内容の確認
+[32m      URLが正しい[0m
+[32m      自分と他人の名前がそれぞれ表示される[0m
+[32m      自分と他人の名前がそれぞれ表示される[0m
+  ユーザー詳細ページのテスト
+    表示内容の確認
+[32m      URLが正しい[0m
+[32m      自分の名前と自己紹介がそれぞれ表示される[0m
+[32m      「編集」が表示されている[0m
+  ユーザー編集ページのテスト
+    表示内容の確認
+[32m      URLが正しい[0m
+[32m      編集前のnameとintroductionが表示(セット)されている[0m
+[32m      更新内容を内容を保存が表示される[0m
+      更新処理に関するテスト
+[32m        更新後のリダイレクト先は正しいか[0m
+  投稿一覧ページのテスト
+    表示内容の確認
+[32m      URLが正しい[0m
+[32m      新規投稿ページへのリンクが存在する[0m
+  新規投稿ページのテスト
+    表示内容の確認
+[32m      URLが正しい[0m
+[32m      nameフォームが表示される[0m
+[32m      nameフォームに値が入っていない[0m
+[32m      bodyフォームが表示される[0m
+[32m      bodyフォームに値が入っていない[0m
+[32m      内容を保存ボタンが表示される[0m
+  タイムライン一覧画面のテスト
+    表示内容の確認
+[32m      URLが正しい[0m
+[31m      タイムライン詳細ページへのリンクが存在する (FAILED - 7)[0m
+[32m      titleフォームが表示される[0m
+[32m      nameフォームに値が入っていない[0m
+[32m      bodyフォームが表示される[0m
+[32m      bodyフォームに値が入っていない[0m
+[32m      投稿ボタンが表示される[0m
+    投稿成功のテスト
+[32m      自分の新しい投稿が正しく保存される[0m
+
+alcohol投稿のテスト
+  アルコール画面(admin_alcohols_path)のテスト
+    表示の確認
+[32m      アルコール画面(admin_alcohols_path)に「アルコール濃度」が表示されているか[0m
+[32m      admin_alcohols_pathが"/admin/alcohols"であるか[0m
+[32m      「編集」が表示されている[0m
+[32m      「新規登録」が表示されている[0m
+    編集画面のテスト
+      表示の確認
+[32m        編集前のnameが表示(セット)されている[0m
+[32m        更新内容を保存ボタンが表示される[0m
+      更新処理に関するテスト
+[32m        更新後のリダイレクト先は正しいか[0m
+
+[STEP1] ユーザログイン前のテスト
+  トップ画面のテスト
+    ヘッダーのテスト: ログインしていない場合
+[32m      新規登録を押すと、新規登録画面に遷移する[0m
+[32m      ログインを押すと、ログイン画面に遷移する[0m
+[32m      Topを押すと、ホーム画面に遷移する[0m
+[32m      診断を押すと診断チャートに遷移する[0m
+    新規登録画面のテスト
+      表示内容の確認
+[32m        URLが正しい[0m
+[32m        「新規登録」と表示される[0m
+[32m        nameフォームが表示される[0m
+[32m        emailフォームが表示される[0m
+[32m        passwordフォームが表示される[0m
+[32m        password_confirmationフォームが表示される[0m
+[32m        新規登録ボタンが表示される[0m
+[32m        ログインリンクが表示される[0m
+[32m        ゲストユーザーリンクが表示される[0m
+      新規登録成功のテスト
+[32m        正しく新規登録される[0m
+[32m        新規登録後のリダイレクト先が、Top画面になっている[0m
+    ログイン画面のテスト
+      表示内容の確認
+[32m        URLが正しい[0m
+[32m        「ログイン」と表示される[0m
+[32m        emailフォームが表示される[0m
+[32m        passwordフォームが表示される[0m
+[32m        ログインボタンが表示される[0m
+[32m        新規登録リンクが表示される[0m
+[32m        ゲストユーザーリンクが表示される[0m
+      ログイン成功のテスト
+[32m        ログイン後のリダイレクト先が、Top画面になっている[0m
+      ログイン失敗のテスト
+[32m        ログインに失敗し、ログイン画面にリダイレクトされる[0m
+
+Type投稿のテスト
+  タイプ画面(admin_types_path)のテスト
+    表示の確認
+[32m      タイプ画面(admin_types_path)に「タイプ種類を作成」が表示されているか[0m
+[32m      admin_types_pathが"/admin/types"であるか[0m
+[32m      「編集」が表示されている[0m
+[32m      「新規登録」が表示されている[0m
+    編集画面のテスト
+      表示の確認
+[32m        編集前のnameが表示(セット)されている[0m
+[32m        更新内容を保存ボタンが表示される[0m
+      更新処理に関するテスト
+[32m        更新後のリダイレクト先は正しいか[0m
+
+Failures:
+
+  1) postモデルのテスト バリデーションのテスト nameカラム 空欄でないこと
+     [31mFailure/Error: [0mlet!([33m:other_post[0m) { create([33m:post[0m) }[0m
+     [31m[0m
+     [31mActiveRecord::RecordInvalid:[0m
+     [31m  バリデーションに失敗しました: タイプを入力してください, アルコールの強度を入力してください, タイプを入力してください, アルコールの強度を入力してください[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/factory_bot-6.2.1/lib/factory_bot/evaluation.rb:18:in `create'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/factory_bot-6.2.1/lib/factory_bot/strategy/create.rb:12:in `block in result'[0m
+     [36m# <internal:kernel>:90:in `tap'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/factory_bot-6.2.1/lib/factory_bot/strategy/create.rb:9:in `result'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/factory_bot-6.2.1/lib/factory_bot/factory.rb:43:in `run'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/factory_bot-6.2.1/lib/factory_bot/factory_runner.rb:29:in `block in run'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/factory_bot-6.2.1/lib/factory_bot/factory_runner.rb:28:in `run'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/factory_bot-6.2.1/lib/factory_bot/strategy_syntax_method_registrar.rb:28:in `block in define_singular_strategy_method'[0m
+     [36m# ./spec/models/post_spec.rb:9:in `block (3 levels) in <main>'[0m
+
+  2) postモデルのテスト バリデーションのテスト bodyカラム 空欄でないこと
+     [31mFailure/Error: [0mlet!([33m:other_post[0m) { create([33m:post[0m) }[0m
+     [31m[0m
+     [31mActiveRecord::RecordInvalid:[0m
+     [31m  バリデーションに失敗しました: タイプを入力してください, アルコールの強度を入力してください, タイプを入力してください, アルコールの強度を入力してください[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/factory_bot-6.2.1/lib/factory_bot/evaluation.rb:18:in `create'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/factory_bot-6.2.1/lib/factory_bot/strategy/create.rb:12:in `block in result'[0m
+     [36m# <internal:kernel>:90:in `tap'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/factory_bot-6.2.1/lib/factory_bot/strategy/create.rb:9:in `result'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/factory_bot-6.2.1/lib/factory_bot/factory.rb:43:in `run'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/factory_bot-6.2.1/lib/factory_bot/factory_runner.rb:29:in `block in run'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/factory_bot-6.2.1/lib/factory_bot/factory_runner.rb:28:in `run'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/factory_bot-6.2.1/lib/factory_bot/strategy_syntax_method_registrar.rb:28:in `block in define_singular_strategy_method'[0m
+     [36m# ./spec/models/post_spec.rb:9:in `block (3 levels) in <main>'[0m
+
+  3) [STEP2] 管理者ログイン後のテスト ヘッダーのテスト: ログインしている場合 リンクの内容を確認: ※logoutは『ユーザログアウトのテスト』でテスト済みになります。 投稿一覧を押すと、投稿一覧に遷移する
+     [31mFailure/Error: [0mis_expected.to eq [31m[1;31m'[0m[31m/admin/posts[1;31m'[0m[31m[0m[0m
+     [31m[0m
+     [31m  expected: "/admin/posts"[0m
+     [31m       got: "/customers/sign_up"[0m
+     [31m[0m
+     [31m  (compared using ==)[0m
+     [36m# ./spec/system/after_admin_login_spec.rb:21:in `block (4 levels) in <main>'[0m
+
+  4) [STEP2] 管理者ログイン後のテスト ヘッダーのテスト: ログインしている場合 リンクの内容を確認: ※logoutは『ユーザログアウトのテスト』でテスト済みになります。 タイムラインを押すと、タイムライン一覧画面に遷移する
+     [31mFailure/Error: [0mis_expected.to eq [31m[1;31m'[0m[31m/admin/time_lines[1;31m'[0m[31m[0m[0m
+     [31m[0m
+     [31m  expected: "/admin/time_lines"[0m
+     [31m       got: "/customers/sign_in"[0m
+     [31m[0m
+     [31m  (compared using ==)[0m
+     [36m# ./spec/system/after_admin_login_spec.rb:27:in `block (4 levels) in <main>'[0m
+
+  5) [STEP2] 管理者ログイン後のテスト ヘッダーのテスト: ログインしている場合 リンクの内容を確認: ※logoutは『ユーザログアウトのテスト』でテスト済みになります。 Typeを押すと、Type画面に遷移する
+     [31mFailure/Error: [0mis_expected.to eq [31m[1;31m'[0m[31m/admin/types[1;31m'[0m[31m[0m[0m
+     [31m[0m
+     [31m  expected: "/admin/types"[0m
+     [31m       got: "/"[0m
+     [31m[0m
+     [31m  (compared using ==)[0m
+     [36m# ./spec/system/after_admin_login_spec.rb:33:in `block (4 levels) in <main>'[0m
+
+  6) [STEP2] 管理者ログイン後のテスト ヘッダーのテスト: ログインしている場合 リンクの内容を確認: ※logoutは『ユーザログアウトのテスト』でテスト済みになります。 Alcoholを押すと、Alcohol画面に遷移する
+     [31mFailure/Error: [0mis_expected.to eq [31m[1;31m'[0m[31m/admin/alcohols[1;31m'[0m[31m[0m[0m
+     [31m[0m
+     [31m  expected: "/admin/alcohols"[0m
+     [31m       got: "/about"[0m
+     [31m[0m
+     [31m  (compared using ==)[0m
+     [36m# ./spec/system/after_admin_login_spec.rb:39:in `block (4 levels) in <main>'[0m
+
+  7) [STEP2] ユーザログイン後のテスト タイムライン一覧画面のテスト 表示内容の確認 タイムライン詳細ページへのリンクが存在する
+     [31mFailure/Error: [0m[32mexpect[0m(page).to have_link [31m[1;31m'[0m[31m詳細[1;31m'[0m[31m[0m,[35mhref[0m: [31m[1;31m"[0m[31m/time_lines/#{time_line.id}[0m[31m[1;31m"[0m[31m[0m[0m
+     [31m[0m
+     [31mNameError:[0m
+     [31m  undefined local variable or method `time_line' for #<RSpec::ExampleGroups::STEP2_2::Nested_7::Nested "タイムライン詳細ページへのリンクが存在する" (./spec/system/after_login_spec.rb:158)>[0m
+     [36m# ./spec/system/after_login_spec.rb:159:in `block (4 levels) in <main>'[0m
+
+Finished in 10.09 seconds (files took 2.23 seconds to load)
+[31m86 examples, 7 failures[0m
+
+Failed examples:
+
+[31mrspec ./spec/models/post_spec.rb:13[0m [36m# postモデルのテスト バリデーションのテスト nameカラム 空欄でないこと[0m
+[31mrspec ./spec/models/post_spec.rb:19[0m [36m# postモデルのテスト バリデーションのテスト bodyカラム 空欄でないこと[0m
+[31mrspec ./spec/system/after_admin_login_spec.rb:17[0m [36m# [STEP2] 管理者ログイン後のテスト ヘッダーのテスト: ログインしている場合 リンクの内容を確認: ※logoutは『ユーザログアウトのテスト』でテスト済みになります。 投稿一覧を押すと、投稿一覧に遷移する[0m
+[31mrspec ./spec/system/after_admin_login_spec.rb:23[0m [36m# [STEP2] 管理者ログイン後のテスト ヘッダーのテスト: ログインしている場合 リンクの内容を確認: ※logoutは『ユーザログアウトのテスト』でテスト済みになります。 タイムラインを押すと、タイムライン一覧画面に遷移する[0m
+[31mrspec ./spec/system/after_admin_login_spec.rb:29[0m [36m# [STEP2] 管理者ログイン後のテスト ヘッダーのテスト: ログインしている場合 リンクの内容を確認: ※logoutは『ユーザログアウトのテスト』でテスト済みになります。 Typeを押すと、Type画面に遷移する[0m
+[31mrspec ./spec/system/after_admin_login_spec.rb:35[0m [36m# [STEP2] 管理者ログイン後のテスト ヘッダーのテスト: ログインしている場合 リンクの内容を確認: ※logoutは『ユーザログアウトのテスト』でテスト済みになります。 Alcoholを押すと、Alcohol画面に遷移する[0m
+[31mrspec ./spec/system/after_login_spec.rb:158[0m [36m# [STEP2] ユーザログイン後のテスト タイムライン一覧画面のテスト 表示内容の確認 タイムライン詳細ページへのリンクが存在する[0m
+
