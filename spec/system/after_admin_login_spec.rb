@@ -6,6 +6,7 @@ describe '[STEP2] 管理者ログイン後のテスト' do
   let!(:other_customer) { create(:customer) }
   let!(:time_line) { create(:time_line, customer: customer) }
   let!(:other_time_line) { create(:time_line, customer: other_customer) }
+  let!(:type) { create(:type) }
 
   before do
     visit new_admin_session_path
@@ -78,6 +79,46 @@ describe '[STEP2] 管理者ログイン後のテスト' do
       it 'タイムラインのdeleteが表示されているか' do
         expect(page).to have_link 'delete', href: admin_time_lines_path
         expect(page).to have_link 'delete', href: admin_time_lines_path
+      end
+    end
+  end
+  describe 'タイプの一覧画面のテスト' do
+    before do
+      visit admin_types_path
+    end
+    context '表示内容の確認' do
+      it 'URLが正しく表示される' do
+        expect(current_path).to eq '/admin/types'
+      end
+      it 'typeのidが表示されているか' do
+        expect(page).to have_content type.id
+      end
+      it 'typeのnameが表示されているか' do
+        expect(page).to have_content type.name
+      end
+      it 'typeの編集が表示されているか' do
+        expect(page).to have_link '編集', href: edit_admin_type_path(type)
+      end
+      it 'nameフォームが表示されている' do
+        expect(page).to have_field 'type[name]'
+      end
+      it 'nameフォームに値が入っていない' do
+        expect(find_field('type[name]').text).to be_blank
+      end
+      it '登録ボタンが表示されている' do
+        expect(page).to have_button "登録"
+      end
+    end
+    context 'type登録成功のテスト' do
+      before do
+        fill_in 'type[name]', with: Faker::Lorem.characters(number: 10)
+      end
+      #it 'typeの新規登録が正しく保存される' do
+       # expect { click_button '登録' }.to change(admin.types, :count).by(1)
+      #end
+      it 'リダイレクト先が、遷移元画面になっている' do
+        click_button '登録'
+        expect(current_path).to eq '/admin/types'
       end
     end
   end
