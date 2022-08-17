@@ -5,6 +5,7 @@ class Public::LikesController < ApplicationController
     @post = Post.find(params[:post_id])
     like = current_customer.likes.new(post_id: @post.id)
     like.save
+    # 通知機能
     @post.create_notification_by(current_customer)
     respond_to do |format|
       format.html {redirect_to request.referrer}

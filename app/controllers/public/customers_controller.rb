@@ -9,11 +9,16 @@ class Public::CustomersController < ApplicationController
   end
 
   def show
+    #ユーザーの詳細
     @customer = Customer.find(params[:id])
+    #公開している投稿一覧の表示（新着順）
     @posts = @customer.posts.open.order(created_at: :desc).page(params[:page])
+    #非公開の投稿一覧の表示（新着順）
     @posted = @customer.posts.closed.order(created_at: :desc).page(params[:page])
+    #ユーザーがいいねした投稿の一覧表示
     like_ids = Like.where(customer_id: @customer.id).pluck(:post_id)
     @like_posts = Post.where(id: like_ids).page(params[:page])
+    #通知機能の一覧表示
     @notifications = current_customer.passive_notifications.page(params[:page]).per(5)
     @notifications.where(checked: false).each do |notification|
       notification.update(checked: true)
@@ -31,11 +36,6 @@ class Public::CustomersController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def destroy_all
-    @notifications = current_customer.passive_notifications.destroy_all
-    redirect_to customer_path(current_customer)
   end
 
   private
