@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Customer < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -26,7 +28,7 @@ class Customer < ApplicationRecord
   validates :name, presence: true
 
   def self.guest
-    find_or_create_by!(name: 'guestuser' ,email: 'guest@example.com') do |customer|
+    find_or_create_by!(name: "guestuser" ,email: "guest@example.com") do |customer|
       customer.password = SecureRandom.urlsafe_base64
       customer.name = "guestuser"
     end
@@ -50,18 +52,18 @@ class Customer < ApplicationRecord
 
   def get_profile_image(width, height)
     unless profile_image.attached?
-      file_path = Rails.root.join('app/assets/images/no_image.jpg')
-      profile_image.attach(io: File.open(file_path), filename: 'no_image.jpg', content_type: 'image/jpeg')
+      file_path = Rails.root.join("app/assets/images/no_image.jpg")
+      profile_image.attach(io: File.open(file_path), filename: "no_image.jpg", content_type: "image/jpeg")
     end
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
   
   def create_notification_follow!(current_customer)
-    temp = Notification.where(["visiter_id = ? and visited_id = ? and action = ? ",current_customer.id, id, 'follow'])
+    temp = Notification.where(["visiter_id = ? and visited_id = ? and action = ? ",current_customer.id, id, "follow"])
     if temp.blank?
       notification = current_customer.active_notifications.new(
         visited_id: id,
-        action: 'follow'
+        action: "follow"
       )
       notification.save if notification.valid?
     end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Public::ChatsController < ApplicationController
   before_action :reject_non_related, only: [:show]
   def show
@@ -24,14 +26,14 @@ class Public::ChatsController < ApplicationController
   end
 
   private
-  def chat_params
-    params.require(:chat).permit(:message, :room_id)
-  end
-
-  def reject_non_related
-    customer = Customer.find(params[:id])
-    unless current_customer.following?(customer) && customer.following?(current_customer)
-      redirect_to books_path
+    def chat_params
+      params.require(:chat).permit(:message, :room_id)
     end
-  end
+
+    def reject_non_related
+      customer = Customer.find(params[:id])
+      unless current_customer.following?(customer) && customer.following?(current_customer)
+        redirect_to books_path
+      end
+    end
 end

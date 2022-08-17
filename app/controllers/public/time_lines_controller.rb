@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Public::TimeLinesController < ApplicationController
   before_action :authenticate_customer!, only: [:create, :destrouy, :show]
   before_action :ensure_guest_user, only: [:create, :destroy]
@@ -29,21 +31,20 @@ class Public::TimeLinesController < ApplicationController
   end
 
   private
-
-  def time_line_params
-    params.require(:time_line).permit(:title, :body)
-  end
-
-  def ensure_guest_user
-    @customer = current_customer
-    if @customer.name == "guestuser"
-      redirect_to posts_path
+    def time_line_params
+      params.require(:time_line).permit(:title, :body)
     end
-  end
 
-  def correct_user
-    @time_line = TimeLine.find(params[:id])
-    @customer = @time_line.customer
-    redirect_to(posts_path) unless @customer == current_customer
-  end
+    def ensure_guest_user
+      @customer = current_customer
+      if @customer.name == "guestuser"
+        redirect_to posts_path
+      end
+    end
+
+    def correct_user
+      @time_line = TimeLine.find(params[:id])
+      @customer = @time_line.customer
+      redirect_to(posts_path) unless @customer == current_customer
+    end
 end

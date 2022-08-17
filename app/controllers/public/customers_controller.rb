@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Public::CustomersController < ApplicationController
   before_action :authenticate_customer!, only: [:edit, :update]
   before_action :ensure_guest_user, only: [:edit, :update]
@@ -37,20 +39,20 @@ class Public::CustomersController < ApplicationController
   end
 
   private
-  def customer_params
-    params.require(:customer).permit(:name, :introduction, :profile_image)
-  end
-
-  def ensure_guest_user
-    @customer = Customer.find(params[:id])
-    if @customer.name == "guestuser"
-      redirect_to customer_path(current_customer)
+    def customer_params
+      params.require(:customer).permit(:name, :introduction, :profile_image)
     end
-  end
 
-  def correct_user
-    @customer = Customer.find(params[:id])
-    @posts = @customer.posts
-    redirect_to(customers_path) unless @customer == current_customer
-  end
+    def ensure_guest_user
+      @customer = Customer.find(params[:id])
+      if @customer.name == "guestuser"
+        redirect_to customer_path(current_customer)
+      end
+    end
+
+    def correct_user
+      @customer = Customer.find(params[:id])
+      @posts = @customer.posts
+      redirect_to(customers_path) unless @customer == current_customer
+    end
 end

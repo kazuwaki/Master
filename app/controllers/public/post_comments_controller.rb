@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Public::PostCommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
@@ -7,7 +9,7 @@ class Public::PostCommentsController < ApplicationController
     if @comment.save
       @comment_post.create_notification_post_comment!(current_customer, @comment.id)
     else
-      render 'error'
+      render "error"
     end
     @comment_new = PostComment.new
   end
@@ -18,8 +20,7 @@ class Public::PostCommentsController < ApplicationController
   end
 
   private
-
-  def post_comment_params
-    params.require(:post_comment).permit(:comment)
-  end
+    def post_comment_params
+      params.require(:post_comment).permit(:comment)
+    end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin::TypesController < ApplicationController
   def index
     @type = Type.new
@@ -28,7 +30,7 @@ class Admin::TypesController < ApplicationController
   end
 
   private
-  def type_params
-    params.require(:type).permit(:name)
-  end
+    def type_params
+      params.require(:type).permit(:name)
+    end
 end

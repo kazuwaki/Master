@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Public::PostsController < ApplicationController
   before_action :authenticate_customer!, only: [:new, :edit, :update, :show]
   before_action :ensure_guest_user, only: [:edit, :new, :update]
@@ -68,21 +70,20 @@ class Public::PostsController < ApplicationController
   end
 
   private
-
-  def post_params
-    params.require(:post).permit(:name, :body, :image, :type_id, :alcohol_id, :customer_id, :status)
-  end
-
-  def ensure_guest_user
-    @customer = current_customer
-    if @customer.name == "guestuser"
-      redirect_to posts_path
+    def post_params
+      params.require(:post).permit(:name, :body, :image, :type_id, :alcohol_id, :customer_id, :status)
     end
-  end
 
-  def correct_user
-    @post = Post.find(params[:id])
-    @customer = @post.customer
-    redirect_to(posts_path) unless @customer == current_customer
-  end
+    def ensure_guest_user
+      @customer = current_customer
+      if @customer.name == "guestuser"
+        redirect_to posts_path
+      end
+    end
+
+    def correct_user
+      @post = Post.find(params[:id])
+      @customer = @post.customer
+      redirect_to(posts_path) unless @customer == current_customer
+    end
 end

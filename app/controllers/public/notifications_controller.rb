@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Public::NotificationsController < ApplicationController
   def destroy_all
     @notifications = current_customer.passive_notifications.destroy_all
