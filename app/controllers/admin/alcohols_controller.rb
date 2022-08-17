@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin::AlcoholsController < ApplicationController
   def index
     @alcohols = Alcohol.all
@@ -28,7 +30,7 @@ class Admin::AlcoholsController < ApplicationController
   end
 
   private
-  def alcohol_params
-    params.require(:alcohol).permit(:name)
-  end
+    def alcohol_params
+      params.require(:alcohol).permit(:name)
+    end
 end

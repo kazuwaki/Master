@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin::TimeLinesController < ApplicationController
   def index
     @time_lines = TimeLine.all

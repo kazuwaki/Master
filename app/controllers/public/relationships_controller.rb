@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Public::RelationshipsController < ApplicationController
   before_action :ensure_customer, only: [:create, :destroy, :followings, :followers]
   def create
@@ -22,7 +24,7 @@ class Public::RelationshipsController < ApplicationController
   end
 
   private
-  def ensure_customer
-    @customer = Customer.find(params[:customer_id])
-  end
+    def ensure_customer
+      @customer = Customer.find(params[:customer_id])
+    end
 end

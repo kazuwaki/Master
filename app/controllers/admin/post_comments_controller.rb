@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin::PostCommentsController < ApplicationController
   def destroy
     @comment = PostComment.find(params[:id])

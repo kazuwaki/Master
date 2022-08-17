@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateTimeLineComments < ActiveRecord::Migration[6.1]
   def change
     create_table :time_line_comments do |t|
