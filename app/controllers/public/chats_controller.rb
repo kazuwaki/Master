@@ -7,9 +7,11 @@ class Public::ChatsController < ApplicationController
     rooms = current_customer.customer_rooms.pluck(:room_id)
     customer_rooms = CustomerRoom.find_by(customer_id: @customer.id, room_id: rooms)
 
+    # ルームが存在しているかどうか
     unless customer_rooms.nil?
       @room = customer_rooms.room
     else
+      #存在していない場合は新しくroomを作成する
       @room = Room.new
       @room.save
       CustomerRoom.create(customer_id: current_customer.id, room_id: @room.id)
@@ -21,7 +23,7 @@ class Public::ChatsController < ApplicationController
 
   def create
     @chat = current_customer.chats.new(chat_params)
-    render :validater unless @chat.save
+    @chat.save
     redirect_to request.referer
   end
 
@@ -33,7 +35,7 @@ class Public::ChatsController < ApplicationController
     def reject_non_related
       customer = Customer.find(params[:id])
       unless current_customer.following?(customer) && customer.following?(current_customer)
-        redirect_to books_path
+        redirect_to customer_path(customer)
       end
     end
 end

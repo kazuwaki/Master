@@ -24,6 +24,7 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @post_comment = PostComment.new
+    # いいねが多いtop5を表示する
     @posts = Post.open.includes(:liked_customers).limit(5).sort {|a,b| b.liked_customers.size <=> a.liked_customers.size}
   end
 
@@ -46,16 +47,17 @@ class Public::PostsController < ApplicationController
   end
 
   def post_search
+    # 検索機能
     @model = params[:model]
-    if @model == "post"
+    if @model == "post" #モデルがpostの場合
       @word = params[:word]
-      if @word == ""
+      if @word == "" #検索ワードが空の場合は一覧画面に遷移する
         redirect_to posts_path
       else
         @posts = Post.open.search_for(@model, @word)
       end
     else
-      if  @model == "type"
+      if  @model == "type" #モデルがTypeの場合
         @types = Type.all
         @type_name = params[:type_id]
         @posts = Post.open.search_for(@model, @type_name)

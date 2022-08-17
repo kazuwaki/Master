@@ -9,9 +9,11 @@
           <div class="customer-info d-flex flex-column ml-5">
             <div class="d-flex flex-row mt-4">
               <p class="info-name"><%= @customer.name %></p>
-              <% if @customer.name != "guestuser" %>
+              <!--  ユーザーの名前が"guestuser"ではないとき、またログインユーザーが@custoemrの時にeditを表示する -->
+              <% if @customer.name != "guestuser" && current_customer == @customer %>
                 <p><%= link_to "編集", edit_customer_path(@customer), class: "ml-5 btn btn-outline-secondary" %></p>
               <% end %>
+              <!-- ログインユーザーとユーザーが相互フォローしている場合chatを表示することができる-->
               <% if current_customer != @customer && current_customer.following?(@customer) && @customer.following?(current_customer) %>
                 <p><%= link_to 'chatを始める', chat_path(@customer.id), class: "ml-5 btn btn-outline-success" %></p>
               <% end %>
@@ -46,17 +48,17 @@
         </ul>
         <div id="openposts" class="area">
           <%= render "public/posts/index", posts: @posts %>
-        <!--/area--></div>
+        </div>
         <div id="likedposts" class="area">
           <%= render "public/posts/index", posts: @like_posts %>
-        <!--/area--></div>
+        </div>
         <% if @customer == current_customer %>
         <div id="closedposts" class="area">
           <%= render "public/posts/index", posts: @posted %>
-        <!--/area--></div>
+        </div>
         <div id="notificationindex" class="area">
           <%= render "public/notifications/index", notifications: @notifications %>
-        <!--/area--></div>
+        </div>
         <% end %>
       </div>
     </div>
