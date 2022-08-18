@@ -13,7 +13,8 @@ class Customer < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
-  has_many :relationships
+
+  has_many :relationships, class_name: "Relationship", foreign_key: "customer_id"
   has_many :followings, through: :relationships, source: :follow
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "follow_id"
   has_many :followers, through: :reverse_of_relationships, source: :customer
@@ -24,7 +25,7 @@ class Customer < ApplicationRecord
 
   has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
-   
+
   validates :name, presence: true
 
   def self.guest
@@ -36,7 +37,7 @@ class Customer < ApplicationRecord
 
 
   def follow(other_customer)
-    unless self == other_customer
+    if self != other_customer
       relationships.find_or_create_by(follow_id: other_customer.id)
     end
   end
@@ -57,7 +58,7 @@ class Customer < ApplicationRecord
     end
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
-  
+
   def create_notification_follow!(current_customer)
     temp = Notification.where(["visiter_id = ? and visited_id = ? and action = ? ",current_customer.id, id, "follow"])
     if temp.blank?

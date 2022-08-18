@@ -7,7 +7,7 @@
         <% else %>
           <h2 class="text-center">「<%= @word %>」の検索結果はありません</h2>
         <% end %>
-
+        <%= paginate @posts %>
     </div>
   </div>
 </div>
