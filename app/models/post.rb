@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Post < ApplicationRecord
-  belongs_to :customer,optional: true
+  belongs_to :customer
   belongs_to :type
   belongs_to :alcohol
   has_many :post_comments, dependent: :destroy
