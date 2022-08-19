@@ -3,13 +3,16 @@
 class Public::RelationshipsController < ApplicationController
   before_action :ensure_customer, only: [:create, :destroy, :followings, :followers]
   def create
+    # ログインユーザーがフォローする
     following = current_customer.follow(@customer)
     following.save
+    # フォローした時の通知機能
     @customer.create_notification_follow!(current_customer)
     @customers = Customer.all
   end
 
   def destroy
+    # ログインユーザーがフォローを外す
     following = current_customer.unfollow(@customer)
     #following.destroy
     @customers = Customer.all
