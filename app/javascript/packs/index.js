@@ -59,3 +59,12 @@ $(document).on('turbolinks:load', function() {
     GethashID (hashName);//設定したタブの読み込み
   });
 });
+
+document.addEventListener("turbolinks:load", () => {
+    function scrollToEnd() {
+        const messageDetails = document.getElementById('chat-area');
+        messageDetails.scrollTop = messageDetails.scrollHeight;
+    }
+    scrollToEnd()
+})
+

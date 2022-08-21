@@ -3,7 +3,7 @@
     <div class="col-8 offset-2 mt-5">
       <h1 id="room" data-room="<%= @room.id %>" data-customer="<%= current_customer.id %>"><%= @customer.name %> さんとのチャット</h1>
 
-      <div class="message">
+      <div class="overflow-auto" id="chat-area">
         <% @chats.each do |chat| %>
           <% if chat.customer_id == current_customer.id %>
             <p class="balloon1-right", style="text-align: right;"><%= chat.message %></p>
@@ -12,7 +12,7 @@
             <div class="d-flex flex-row">
               <p class="customers-images mt-5"><%= image_tag chat.customer.get_profile_image(50,50) %></p>
               <div class="chat-group">
-                <p class="balloon1-left", style="text-align: left;"><%= chat.message %></p>
+                <p class="balloon1-left w-70", style="text-align: left;"><%= chat.message %></p>
                 <p class="balloon-left", style="text-align: left;"><%= chat.created_at.strftime('%m/%d %H:%M') %></p>
               </div>
             </div>
@@ -22,8 +22,9 @@
 
       <%= form_with model: @chat, data: {remote: true} do |f| %>
         <div class="field">
-          <%= f.text_field :message, class: "w-100" %>
+          <%= f.text_field :message, class: "col-10" %>
           <%= f.hidden_field :room_id %>
+          <%= f.submit "送信", class: "btn btn-outline-success" %>
         </div>
       <% end %>
     </div>
