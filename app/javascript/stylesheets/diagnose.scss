@@ -1,0 +1,96 @@
+//診断機能のscss
+.choose_box {
+  position: relative;
+  height: 60vw;
+  width: 100%;
+
+  p {
+    font-size: 24px;
+    display: block;
+    font-weight: 600;
+  }
+
+  ul {
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      width: calc(100% / 2 - 20px);
+      margin-right: 20px;
+      margin-bottom: 20px;
+      list-style: none;
+      border: solid;
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+
+      a {
+        color: #fff;
+        display: block;
+        padding: 20px 60px;
+        text-align: center;
+        background-color: #2791d4;
+        font-weight: 600;
+        font-size: 18px;
+        border: 2px solid #2791d4;
+        text-decoration: none;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+
+        &:hover {
+          background-color: #fff;
+          color: #2791d4;
+          -webkit-transition: 0.7s;
+          -moz-transition: 0.7s;
+          -o-transition: 0.7s;
+          transition: 0.7s;
+        }
+      }
+    }
+  }
+}
+
+h4 {
+  width: 50%;
+  clear: both;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  background-color: #C00003;
+}
+
+.fit {
+  position: absolute;
+  left: 0px;
+  top: 20px;
+  width: 100%;
+}
+
+#q_06 span, #q_07 span, #q_08 span, #q_09 span, #q_10 span, #q_11 span, #q_12 span, #q_13 span, #q_14 span, #q_15 span, #q_16 span, #q_17 span {
+  width: 30%;
+  clear: both;
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  background-color: #C00003;
+  display: block;
+}
+
+.check-image {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+}

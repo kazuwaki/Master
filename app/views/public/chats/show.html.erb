@@ -10,7 +10,7 @@
             <p class="balloon-right", style="text-align: right;"><%= chat.created_at.strftime('%m/%d %H:%M') %></p>
           <% else %>
             <div class="d-flex flex-row">
-              <p class="customers-images mt-5"><%= image_tag chat.customer.get_profile_image(50,50) %></p>
+              <p class="customers-images mt-5"><%= image_tag chat.customer.get_profile_image(50,50), class: "customer-show-images"  %></p>
               <div class="chat-group">
                 <p class="balloon1-left w-70", style="text-align: left;"><%= chat.message %></p>
                 <p class="balloon-left", style="text-align: left;"><%= chat.created_at.strftime('%m/%d %H:%M') %></p>

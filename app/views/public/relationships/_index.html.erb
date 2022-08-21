@@ -1,7 +1,7 @@
   <% customers.each do |customer| %>
     <tr>
       <td><%= link_to customer_path(customer.id) do %>
-        <%= image_tag customer.get_profile_image(100,100) %><% end %>
+        <%= image_tag customer.get_profile_image(100,100), class: "customers-show-images" %><% end %>
       </td>
       <td><%= customer.name %></td>
       <td><%= customer.introduction %></td>
