@@ -3,7 +3,7 @@
     <div class="timeline-customer d-flex flex-row card p-2">
       <div class="customer-info">
         <div class="customer-images">
-          <%= image_tag time_line.customer.get_profile_image(100,100) %>
+          <%= image_tag time_line.customer.get_profile_image(100,100), class: "customers-show-images" %>
         </div>
         <div class="post-name text-center">
           <%= time_line.customer.name %>

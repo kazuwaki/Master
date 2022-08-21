@@ -4,7 +4,7 @@
       <div class="timeline-show d-flex flex-row border mt-5 p-2">
         <div class="customer-info">
           <div class="customer-image">
-            <%= image_tag @time_line.customer.get_profile_image(200,200) %>
+            <%= image_tag @time_line.customer.get_profile_image(200,200), class: "customer-show-image" %>
           </div>
           <div class="customer-name text-center">
             <%= @time_line.customer.name %>
