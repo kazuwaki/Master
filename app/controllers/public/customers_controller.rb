@@ -12,14 +12,14 @@ class Public::CustomersController < ApplicationController
     #ユーザーの詳細
     @customer = Customer.find(params[:id])
     #公開している投稿一覧の表示（新着順）
-    @posts = @customer.posts.open.order(created_at: :desc).page(params[:page])
+    @posts = @customer.posts.open.order(created_at: :desc).page(params[:posts_page]).per(8)
     #非公開の投稿一覧の表示（新着順）
-    @posted = @customer.posts.closed.order(created_at: :desc).page(params[:page])
+    @posted = @customer.posts.closed.order(created_at: :desc).page(params[:posted_page]).per(8)
     #ユーザーがいいねした投稿の一覧表示
     like_ids = Like.where(customer_id: @customer.id).pluck(:post_id)
-    @like_posts = Post.where(id: like_ids).page(params[:page])
+    @like_posts = Post.where(id: like_ids).page(params[:like_page]).per(8)
     #通知機能の一覧表示
-    @notifications = current_customer.passive_notifications.page(params[:page]).per(5)
+    @notifications = current_customer.passive_notifications.page(params[:notice_page]).per(5)
     @notifications.where(checked: false).each do |notification|
       notification.update(checked: true)
     end

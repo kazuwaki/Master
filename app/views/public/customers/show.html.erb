@@ -39,7 +39,7 @@
     <div class="col-10 offset-1 mt-3">
       <div class="wrapper">
         <ul class="tab">
-          <li><a href="#openposts">公開中投稿一覧</a></li>
+          <li><a href="#openposts" class="active">公開中投稿一覧</a></li>
           <li><a href="#likedposts">いいね一覧</a></li>
           <% if @customer == current_customer %>
             <li><a href="#closedposts">非公開投稿一覧</a></li>
@@ -48,16 +48,20 @@
         </ul>
         <div id="openposts" class="area">
           <%= render "public/posts/index", posts: @posts %>
+          <%= paginate @posts, param_name: 'posts_page' %>
         </div>
         <div id="likedposts" class="area">
           <%= render "public/posts/index", posts: @like_posts %>
+          <%= paginate @like_posts, param_name: 'like_page' %>
         </div>
         <% if @customer == current_customer %>
         <div id="closedposts" class="area">
-          <%= render "public/posts/index", posts: @posted %>
+          <%= render "public/posts/index", posts: @posted, param_name: 'topics_page' %>
+          <%= paginate @posted, param_name: 'posted_page' %>
         </div>
         <div id="notificationindex" class="area">
           <%= render "public/notifications/index", notifications: @notifications %>
+          <%= paginate @notifications, param_name: 'notice_page' %>
         </div>
         <% end %>
       </div>
