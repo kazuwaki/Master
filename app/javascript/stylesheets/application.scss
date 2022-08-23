@@ -262,3 +262,76 @@ a:hover {
   height: 50px;
   width: 50px;
 }
+
+@media screen and (max-width: 425px) {
+  header {
+    width: 100%;
+  }
+
+  .main-top {
+    position: relative;
+    width: 100%;
+    height: 600px;
+  }
+
+  .item-image{
+    width: 100%;
+    height: 300px;
+  }
+
+  .main-top-text {
+    position: absolute;
+    transform: translate(-75%,-25%);
+    top: 25%;
+    left: 40%;
+    text-align: center;
+    color: white;
+    font-family: 'Kaiti SC',sans-serif;
+    font-size: 25px;
+  }
+
+  .page {
+    height: 65vh;
+    text-align: center;
+  }
+
+  .box {
+    display: flex;
+  }
+
+  .post-image {
+    width: 80%;
+    height: 200px;
+  }
+
+  .home-image {
+    width: 80%;
+    height: 200px;
+  }
+
+  .post-title {
+    position: absolute;
+    top: 220px;
+    right: -5px;
+    font-size: 28px;
+  }
+
+  .post-body {
+    position: absolute;
+    top: 260px;
+    right: -5px;
+  }
+
+  .home-title {
+    position: absolute;
+    top: 220px;
+    left: -5px;
+    font-size: 30px;
+  }
+
+  .home-body {
+    position: absolute;
+    top: 260px;
+    left: -5px;
+  }
+}
