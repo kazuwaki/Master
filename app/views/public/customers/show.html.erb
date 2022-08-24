@@ -1,14 +1,14 @@
 <div class="container">
   <div class="row">
-    <div class="col-8 offset-2 mt-5">
-      <div class="customer-show  d-flex flex-row ">
+    <div class="col-md-10 col-lg-10 mx-auto text-center">
+      <div class="customer-show justify-content-center d-flex flex-row ">
         <div class="customer-image">
           <%= image_tag @customer.get_profile_image(200,200), class: "customer-show-image" %>
         </div>
         <div class="customer-top">
-          <div class="customer-info d-flex flex-column ml-5">
-            <div class="d-flex flex-row mt-4">
-              <p class="info-name"><%= @customer.name %></p>
+          <div class="customer-info d-flex flex-column">
+            <div class="info-name d-flex flex-row mt-4">
+              <p><%= @customer.name %></p>
               <!--  ユーザーの名前が"guestuser"ではないとき、またログインユーザーが@custoemrの時にeditを表示する -->
               <% if @customer.name != "guestuser" && current_customer == @customer %>
                 <p><%= link_to "編集", edit_customer_path(@customer), class: "ml-5 btn btn-outline-secondary" %></p>
@@ -18,32 +18,31 @@
                 <p><%= link_to 'chatを始める', chat_path(@customer.id), class: "ml-5 btn btn-outline-success" %></p>
               <% end %>
             </div>
-            <div class="mt-4 d-flex flex-row">
-              <p class="mr-5">投稿数： <%= @customer.posts.count %></p>
-              <p class="mr-5">
+            <ul class="info-count">
+              <li>投稿数： <%= @customer.posts.count %></li>
+              <li>
                 <%= link_to customer_followings_path(@customer.id), class: "follow-count" do %>フォロー： <%= @customer.followings.count %>人<% end %>
-              </p>
-              <p class="mr-5">
+              </li>
+              <li>
                 <%= link_to customer_followers_path(@customer.id), class: "follow-count" do %>フォロワー： <%=@customer.followers.count %>人<% end %>
-              </p>
+              </li>
             </div>
-            <div class="mt-4">
+            <div class="info-introduction">
               <%= @customer.introduction %>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
   <div class="row">
-    <div class="col-10 offset-1 mt-3">
-      <div class="wrapper">
-        <ul class="tab">
-          <li><a href="#openposts" class="active">公開中投稿一覧</a></li>
-          <li><a href="#likedposts">いいね一覧</a></li>
+    <div class="col-md-12 col-lg-10 wrapper mx-auto text-center">
+
+        <ul class="tab d-flex justify-content-center">
+          <li><a href="#openposts">公開中</a></li>
+          <li><a href="#likedposts">いいね</a></li>
           <% if @customer == current_customer %>
-            <li><a href="#closedposts">非公開投稿一覧</a></li>
-            <li><a href="#notificationindex">通知一覧</a></li>
+            <li><a href="#closedposts">非公開</a></li>
+            <li><a href="#notificationindex">通知</a></li>
           <% end %>
         </ul>
         <div id="openposts" class="area">
@@ -64,7 +63,7 @@
           <%= paginate @notifications, param_name: 'notice_page' %>
         </div>
         <% end %>
-      </div>
+        </div>
     </div>
   </div>
 </div>
