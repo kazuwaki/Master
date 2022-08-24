@@ -15,7 +15,16 @@ main {
   height: 500px;
   width: 500px;
   }
-
+.customer-show {
+  margin: 2%;
+}
+.info-name {
+  padding-left: 100px;
+}
+.info-count {
+  display: flex;
+  text-align: left;
+}
 
 
 .customer-show-image {
@@ -197,6 +206,7 @@ ul, li {
   flex-wrap: wrap;
 
   li {
+    width: 25%;
     a {
       display: block;
       background: #ddd;
@@ -291,7 +301,7 @@ a:hover {
   }
 
   .page {
-    height: 65vh;
+    height: 100vh;
     text-align: center;
   }
 
@@ -333,5 +343,39 @@ a:hover {
     position: absolute;
     top: 260px;
     left: -5px;
+  }
+  //ユーザー詳細ページ
+  .customer-image {
+    clip-path: circle(50px at 50px 50px);
+  }
+  .customer-show-image {
+    width: 100px;
+    height: 100px;
+  }
+  .tab {
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      width: 25%;
+      a {
+        display: block;
+        background: #ddd;
+        padding: 1px 1x;
+        font-size: 2px;
+      }
+
+      &.active a {
+        background: #fff;
+      }
+    }
+  }
+  //ユーザー詳細画面
+  .info-count {
+    display: flex;
+    flex-flow: column;
+  }
+  .info-name {
+    padding-left: 50px;
   }
 }
