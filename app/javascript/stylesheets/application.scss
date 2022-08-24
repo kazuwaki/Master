@@ -54,6 +54,22 @@ main {
 .comment {
   padding: 5%;
 }
+//table
+.tb01 {
+  width: 100%;
+}
+table.tb01 th {
+   width: 50%;
+}
+.text-form {
+  height: 100px;
+  width: 80%;
+}
+table.tb01 td {
+  text-align: left;
+  width: 100%;
+  border-bottom:none;
+}
 
 .customer-show-image {
   height: 200px;
@@ -425,5 +441,14 @@ a:hover {
       line-height: 70px;
     }
   }
-
+  .tb01 {
+    width: 100%;
+  }
+  table.tb01 th,
+  table.tb01 td {
+    text-align: left;
+    display: block;
+    width: 100%;
+    border-bottom:none;
+  }
 }

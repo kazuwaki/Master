@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-8 offset-2">
-      <div class="card mt-5">
-        <div class="card-title border-bottom mb-3"><h2 class="mt-2 ml-5">登録変更</h2></div>
+    <div class="col-md-10 col-lg-8 mx-auto text-center">
+      <div class="card">
+        <div class="card-title border-bottom"><h2>登録変更</h2></div>
         <%= render "layouts/errors", obj: @customer %>
         <%= form_with model: @customer do |f| %>
-          <table class="table table-borderless">
+          <table class="tb01 table table-borderless">
            <tr>
              <th><%= f.label "プロフィール画像" %></th>
              <td><%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %></td>
