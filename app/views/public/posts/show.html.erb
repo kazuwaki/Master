@@ -1,65 +1,40 @@
-<div classs="container">
+<div class="container">
     <%= render "layouts/errors", obj: @post_comment %>
     <div class="row">
-        <div class="col-2 offset-1 mt-5">
-            <h5>いいねラインキング</h5>
-            <% @posts.each do |post| %>
-                <table class="table table-borderless">
-                    <tbody>
-                        <th>
-                            <%= link_to post_path(post) do %>
-                                <%= image_tag post.get_image(50,50), class: "like-posts-image" %>
-                            <% end %>
-                        </th>
-                        <th><%= post.name %><br>いいね数： <%= post.likes.count %></th>
-                    </tbody>
-                </table>
-            <% end %>
+        <div class="col-lg-6">
+            <%= image_tag @post.get_image(500,500), class: "item-image" %>
         </div>
-        <div class="col-5">
-            <%= image_tag @post.get_image(500,500), class: "item-image  ml-5 mt-5" %>
-        </div>
-        <div class="col-4">
-            <div class="col-10">
-                <div class="post-show mt-5 pl-2 card">
-                    <div class="post-customer border-bottom p-2 d-flex flex-row">
-                        <p><%= image_tag @post.customer.get_profile_image(100,100), class: "customer-images mr-3" %></p>
-                        <div class="post-info d-flex flex-row mt-5 ml-3">
-                            <p><%= @post.customer.name %></p>
-                            <% if @post.customer.id == current_customer.id %>
-                                <p><%= link_to "編集", edit_post_path(@post.id), class: "btn btn-outline-secondary ml-5" %></p>
-                            <% end %>
-                        </div>
-                    </div>
-                    <div class="post-show mt-2">
-                        <div class="card-name">
-                            <p>お酒の名前:　<%= @post.name %></p>
-                        </div>
-                        <div class="card-text">
-                            <p>材料・作り方:　<%= @post.body %></p>
-                        </div>
-                        <div class="post-genre">
-                            <p>Type:　<%= link_to @post.type.name, post_search_posts_path(type_id: @post.type.id, model: "type" ), class: "btn btn-outline-secondary col-4" %></p>
-                            <p>Alcohol:　<%= link_to @post.alcohol.name, post_search_posts_path(alcohol_id: @post.alcohol.id, model: "alcohol" ), class: "btn btn-outline-secondary col-4" %></p>
-                        </div>
-                        <div class="like-btn">
-                            <% if current_customer.name != 'guestuser' %>
-                                <%= render 'public/likes/like', post: @post %>
-                            <% end %>
-                        </div>
-                    </div>
-                </div>
-                <div class="comment-index">
-                    <%= render 'public/post_comments/index', post: @post %>
-                </div>
-                <div class="error-comment">
-                    <%= render 'layouts/errors', obj: @post_comment %>
-                </div>
-                <div class="comment-form mt-2">
-                    <% if current_customer.name != "guestuser" %>
-                        <%= render "public/post_comments/form", post: @post, post_comment: @post_comment %>
+        <div class="col-lg-6">
+            <div class="post-show card">
+                <div class="post-customer border-bottom  d-flex flex-row">
+                    <p><%= image_tag @post.customer.get_profile_image(100,100), class: "customers-show-images" %></p>
+                    <p><%= @post.customer.name %></p>
+                    <% if @post.customer.id == current_customer.id %>
+                        <p><%= link_to "編集", edit_post_path(@post.id), class: "btn btn-outline-secondary" %></p>
                     <% end %>
                 </div>
+                <div class="post-show">
+                    <p>お酒の名前:　<%= @post.name %></p>
+                    <p>材料・作り方:　<%= @post.body %></p>
+                    <p>Type:　<%= link_to @post.type.name, post_search_posts_path(type_id: @post.type.id, model: "type" ), class: "btn btn-outline-secondary" %></p>
+                    <p>Alcohol:　<%= link_to @post.alcohol.name, post_search_posts_path(alcohol_id: @post.alcohol.id, model: "alcohol" ), class: "btn btn-outline-secondary" %></p>
+                    <div class="like-btn">
+                        <% if current_customer.name != 'guestuser' %>
+                            <%= render 'public/likes/like', post: @post %>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+            <div class="comment-index">
+                <%= render 'public/post_comments/index', post: @post %>
+            </div>
+            <div class="error-comment">
+                <%= render 'layouts/errors', obj: @post_comment %>
+            </div>
+            <div class="comment-form">
+                <% if current_customer.name != "guestuser" %>
+                    <%= render "public/post_comments/form", post: @post, post_comment: @post_comment %>
+                <% end %>
             </div>
         </div>
     </div>

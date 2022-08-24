@@ -1,9 +1,9 @@
 <% post.post_comments.each do |post_comment| %>
   <div class="card">
     <div class="comment-info d-flex flex-row border">
-      <p class="customers-images mt-2 ml-2 mr-2"><%= image_tag post_comment.customer.get_profile_image(50,50), class: "customer-show-images" %></p>
-      <p class="mr-5 mt-4"><%= post_comment.customer.name %></p>
-      <p class="mt-4"><%= post_comment.created_at.strftime('%Y/%m/%d' )%>
+      <p class="customers-images"><%= image_tag post_comment.customer.get_profile_image(50,50), class: "customer-show-images" %></p>
+      <p class="d"><%= post_comment.customer.name %></p>
+      <p class=""><%= post_comment.created_at.strftime('%Y/%m/%d' )%>
         <% if post_comment.customer.id == current_customer.id %>
           <%= link_to post_post_comment_path(post_comment.post,post_comment), method: :delete, remote: true do %>
             <i class="fas fa-trash-alt"></i>
@@ -11,7 +11,7 @@
         <% end %>
       </p>
     </div>
-    <div class="comment ml-3 p-2">
+    <div class="comment">
       <%= post_comment.comment %>
     </div>
   </div>

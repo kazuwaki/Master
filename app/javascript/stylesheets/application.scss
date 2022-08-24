@@ -25,7 +25,20 @@ main {
   display: flex;
   text-align: left;
 }
-
+//投稿詳細
+.post-customer {
+  height: 120px;
+  p {
+    line-height: 120px;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+.post-show {
+  p{
+    padding-left: 5%;
+  }
+}
 
 .customer-show-image {
   height: 200px;
@@ -387,4 +400,15 @@ a:hover {
   .genre-search {
     display: none;
   }
+  //投稿詳細画面
+  .post-show {
+    margin-top: 5px;
+  }
+  .post-customer {
+    height: 70px;
+    p {
+      line-height: 70px;
+    }
+  }
+
 }
