@@ -26,7 +26,7 @@
               <li>
                 <%= link_to customer_followers_path(@customer.id), class: "follow-count" do %>フォロワー： <%=@customer.followers.count %>人<% end %>
               </li>
-            </div>
+            </ul>
             <div class="info-introduction">
               <%= @customer.introduction %>
             </div>
@@ -34,36 +34,35 @@
         </div>
       </div>
     </div>
-  <div class="row">
-    <div class="col-md-12 col-lg-10 wrapper mx-auto text-center">
-
-        <ul class="tab d-flex justify-content-center">
-          <li><a href="#openposts">公開中</a></li>
-          <li><a href="#likedposts">いいね</a></li>
-          <% if @customer == current_customer %>
-            <li><a href="#closedposts">非公開</a></li>
-            <li><a href="#notificationindex">通知</a></li>
-          <% end %>
-        </ul>
-        <div id="openposts" class="area">
-          <%= render "public/posts/index", posts: @posts %>
-          <%= paginate @posts, param_name: 'posts_page' %>
-        </div>
-        <div id="likedposts" class="area">
-          <%= render "public/posts/index", posts: @like_posts %>
-          <%= paginate @like_posts, param_name: 'like_page' %>
-        </div>
+  </div>
+  <div class="row mt-5">
+    <div class="custoemr-tag col-md-12 col-lg-10 wrapper mx-auto">
+      <ul class="tab d-flex justify-content-center text-center">
+        <li><a href="#openposts">公開中</a></li>
+        <li><a href="#likedposts">いいね</a></li>
         <% if @customer == current_customer %>
-        <div id="closedposts" class="area">
-          <%= render "public/posts/index", posts: @posted, param_name: 'topics_page' %>
-          <%= paginate @posted, param_name: 'posted_page' %>
-        </div>
-        <div id="notificationindex" class="area">
-          <%= render "public/notifications/index", notifications: @notifications %>
-          <%= paginate @notifications, param_name: 'notice_page' %>
-        </div>
+          <li><a href="#closedposts">非公開</a></li>
+          <li><a href="#notificationindex">通知</a></li>
         <% end %>
-        </div>
+      </ul>
+      <div id="openposts" class="area">
+        <%= render "public/posts/index", posts: @posts %>
+        <%= paginate @posts, param_name: 'posts_page' %>
+      </div>
+      <div id="likedposts" class="area">
+        <%= render "public/posts/index", posts: @like_posts %>
+        <%= paginate @like_posts, param_name: 'like_page' %>
+      </div>
+      <% if @customer == current_customer %>
+      <div id="closedposts" class="area">
+        <%= render "public/posts/index", posts: @posted, param_name: 'topics_page' %>
+        <%= paginate @posted, param_name: 'posted_page' %>
+      </div>
+      <div id="notificationindex" class="area">
+        <%= render "public/notifications/index", notifications: @notifications %>
+        <%= paginate @notifications, param_name: 'notice_page' %>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>
