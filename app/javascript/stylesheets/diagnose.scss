@@ -94,3 +94,72 @@ h4 {
   height: 400px;
   object-fit: cover;
 }
+.answer-box {
+  display: flex;
+  margin-top: 20px;
+}
+.make-check {
+  padding: 2%;
+}
+.introduction-check {
+  padding: 2%;
+  text-align: left;
+}
+
+@media screen and (max-width: 425px) {
+  .choose_box {
+    height: 250vw;
+    ul {
+      display: flex;
+      flex-flow: column;
+      li {
+        width: 100%;
+      }
+    }
+    p {
+      font-size: 10px;
+    }
+    h4 {
+      width: 80%;
+      font-size: 10px;
+      margin-bottom: 5px;
+    }
+    .tb02 {
+      width: 100%;
+    }
+    table.tb02 th {
+      font-size: 10px;
+      width: 60%;
+    }
+    table.tb02 td {
+      font-size: 10px;
+      width: 30%;
+    }
+    .make-title {
+      padding-top: 5px;
+      font-size: 16px;
+    }
+  }
+  .check-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+  }
+  .answer-box {
+    display: flex;
+    flex-flow: column;
+  }
+  #q_06 span, #q_07 span, #q_08 span, #q_09 span, #q_10 span, #q_11 span, #q_12 span, #q_13 span, #q_14 span, #q_15 span, #q_16 span, #q_17 span {
+    width: 30%;
+    clear: both;
+    margin: auto;
+    padding: 5px;
+    text-align: center;
+    font-size: 8px;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    background-color: #C00003;
+    display: block;
+  }
+}
