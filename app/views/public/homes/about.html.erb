@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-10 offset-1 mt-5">
+    <div class="col-md-10 col-lg-10 mx-auto text-center">
       <h1 class="text-center bg-light text-dark">お酒診断機能</h1>
       <div class="choose_box">
           <div id="q_01" class="fit">
             <p class="text-center">一つ選んでください</p>
-            <ul class="flexbox fw">
+            <ul class="flexbox">
               <li class="even"><span class="btn" href="#q_02">ガンガン酔いたい！</span></li>
               <li class="odd"><span class="btn" href="#q_03">ほどよい弱さで！</span></li>
               <li class="odd"><span class="btn" href="#q_04">定番！</span></li>
@@ -16,7 +16,7 @@
 
           <div id="q_02" style="display: none;">
             <p class="text-center">一つ選んでください！</p>
-              <ul class="flexbox fw">
+            <ul class="flexbox fw">
               <li class="even"><span class="btn" href="#q_06">最強ロング！</span></li>
               <li class="odd"><span class="btn" href="#q_07">最強ショート！</span></li>
             </ul>
@@ -25,7 +25,7 @@
 
           <div id="q_03" style="display: none;">
             <p class="text-center">一つ選んでください！</p>
-              <ul class="flexbox fw">
+            <ul class="flexbox fw">
               <li class="even"><span class="btn" href="#q_08">ピーチ</span></li>
               <li class="odd"><span class="btn" href="#q_09">グレープフルーツ</span></li>
               <li class="odd"><span class="btn" href="#q_10">オレンジ</span></li>
@@ -58,14 +58,14 @@
           <div id="q_06" style="display: none;">
             <p class="text-center">あなたにおすすめなのは…</p>
             <h4>『ゴットファーザー』です！！</h4>
-            <dvi class="d-flex flex-row mt-5 mb-5">
+            <div class="answer-box">
               <div class="sindan-image">
                 <%= image_tag "q06.jpg", class: "check-image" %>
               </div>
-              <div class="sindan-image ml-5">
+              <div class="sindan-image">
                 <div class="make-check">
-                  <p>作り方</p>
-                  <table class="table">
+                  <p class="make-title">作り方</p>
+                  <table class="tb02 table">
                     <thead>
                       <tr>
                         <th>材料名</th>
@@ -93,21 +93,21 @@
                   </p>
                 </div>
               </div>
-            </dvi>
+            </div>
             <span class="btn text-center" href="#q_01">もどる</span>
           </div>
 
           <div id="q_07" style="display: none;">
             <p class="text-center">あなたにおすすめなのは…</p>
             <h4>『ギムレット』です！！</h4>
-            <dvi class="d-flex flex-row mt-5 mb-5">
+            <div class="answer-box">
               <div class="sindan-image">
                 <%= image_tag "q07.jpg", class: "check-image" %>
               </div>
-              <div class="sindan-image ml-5">
+              <div class="sindan-image">
                 <div class="make-check">
-                  <p>作り方</p>
-                  <table class="table">
+                  <p class="make-title">作り方</p>
+                  <table class="tb02 table">
                     <thead>
                       <tr>
                         <th>材料名</th>
@@ -139,20 +139,20 @@
                   </p>
                 </div>
               </div>
-            </dvi>
+            </div>
             <span class="btn" href="#q_01">もどる</span>
           </div>
 
           <div id="q_08" style="display: none;">
             <p class="text-center">あなたにおすすめなのは…</p>
             <h4>『ベリーニ』です！！</h4>
-            <dvi class="d-flex flex-row mt-5 mb-5">
+            <div class="answer-box">
               <div class="sindan-image">
                 <%= image_tag "q08.jpg", class: "check-image" %>
               </div>
-              <div class="sindan-image ml-5">
+              <div class="sindan-image">
                 <div class="make-check">
-                  <p>作り方</p>
+                  <p class="make-title">作り方</p>
                   <table class="table">
                     <thead>
                       <tr>
@@ -187,21 +187,21 @@
                   </p>
                 </div>
               </div>
-            </dvi>
+            </div>
             <span class="btn" href="#q_01">もどる</span>
           </div>
 
           <div id="q_09" style="display: none;">
             <p class="text-center">あなたにおすすめなのは…</p>
             <h4>『チャイナブルー』です！！</h4>
-            <dvi class="d-flex flex-row mt-5 mb-5">
+            <div class="answer-box">
               <div class="sindan-image">
                 <%= image_tag "q09.jpg", class: "check-image" %>
               </div>
-              <div class="sindan-image ml-5">
+              <div class="sindan-image">
                 <div class="make-check">
-                  <p>作り方</p>
-                  <table class="table">
+                  <p class="make-title">作り方</p>
+                  <table class="tb02 table">
                     <thead>
                       <tr>
                         <th>材料名</th>
@@ -232,21 +232,21 @@
                   </p>
                 </div>
               </div>
-            </dvi>
+            </div>
             <span class="btn" href="#q_01">もどる</span>
           </div>
 
           <div id="q_10" style="display: none;">
             <p class="text-center">あなたにおすすめなのは…</p>
             <h4>『ファジーネーブル』です！！</h4>
-            <dvi class="d-flex flex-row mt-5 mb-5">
+            <div class="answer-box">
               <div class="sindan-image">
                 <%= image_tag "q10.jpg", class: "check-image" %>
               </div>
-              <div class="sindan-image ml-5">
+              <div class="sindan-image">
                 <div class="make-check">
-                  <p>作り方</p>
-                  <table class="table">
+                  <p class="make-title">作り方</p>
+                  <table class="tb02 table">
                     <thead>
                       <tr>
                         <th>材料名</th>
@@ -273,21 +273,21 @@
                   </p>
                 </div>
               </div>
-            </dvi>
+            </div>
             <span class="btn" href="#q_01">もどる</span>
           </div>
 
           <div id="q_11" style="display: none;">
             <p class="text-center">あなたにおすすめなのは…</p>
             <h4>『カルアミルク』です！！</h4>
-            <dvi class="d-flex flex-row mt-5 mb-5">
+            <div class="answer-box">
               <div class="sindan-image">
                 <%= image_tag "q11.jpg", class: "check-image" %>
               </div>
-              <div class="sindan-image ml-5">
+              <div class="sindan-image">
                 <div class="make-check">
-                  <p>作り方</p>
-                  <table class="table">
+                  <p class="make-title">作り方</p>
+                  <table class="tb02 table">
                     <thead>
                       <tr>
                         <th>材料名</th>
@@ -314,21 +314,21 @@
                   </p>
                 </div>
               </div>
-            </dvi>
+            </div>
             <span class="btn" href="#q_01">もどる</span>
           </div>
 
           <div id="q_12" style="display: none;">
             <p class="text-center">あなたにおすすめなのは…</p>
             <h4>『ジントニック』です！！</h4>
-            <dvi class="d-flex flex-row mt-5 mb-5">
+            <div class="answer-box">
               <div class="sindan-image">
                 <%= image_tag "q12.jpg", class: "check-image" %>
               </div>
-              <div class="sindan-image ml-5">
+              <div class="sindan-image">
                 <div class="make-check">
-                  <p>作り方</p>
-                  <table class="table">
+                  <p class="make-title">作り方</p>
+                  <table class="tb02 table">
                     <thead>
                       <tr>
                         <th>材料名</th>
@@ -354,21 +354,21 @@
                   </p>
                 </div>
               </div>
-            </dvi>
+            </div>
             <span class="btn" href="#q_01">もどる</span>
           </div>
 
           <div id="q_13" style="display: none;">
             <p class="text-center">あなたにおすすめなのは…</p>
             <h4>『モヒート』です！！</h4>
-            <dvi class="d-flex flex-row mt-5 mb-5">
+            <div class="answer-box">
               <div class="sindan-image">
                 <%= image_tag "q13.jpg", class: "check-image" %>
               </div>
-              <div class="sindan-image ml-5">
+              <div class="sindan-image">
                 <div class="make-check">
-                  <p>作り方</p>
-                  <table class="table">
+                  <p class="make-title">作り方</p>
+                  <table class="tb02 table">
                     <thead>
                       <tr>
                         <th>材料名</th>
@@ -402,21 +402,21 @@
                   </p>
                 </div>
               </div>
-            </dvi>
+            </div>
             <span class="btn" href="#q_01">もどる</span>
           </div>
 
           <div id="q_14" style="display: none;">
             <p class="text-center">あなたにおすすめなのは…</p>
             <h4>『モスコミュール』です！！</h4>
-            <dvi class="d-flex flex-row mt-5 mb-5">
+            <div class="answer-box">
               <div class="sindan-image">
                 <%= image_tag "q14.jpg", class: "check-image" %>
               </div>
-              <div class="sindan-image ml-5">
+              <div class="sindan-image">
                 <div class="make-check">
-                  <p>作り方</p>
-                  <table class="table">
+                  <p class="make-title">作り方</p>
+                  <table class="tb02 table">
                     <thead>
                       <tr>
                         <th>材料名</th>
@@ -447,21 +447,21 @@
                   </p>
                 </div>
               </div>
-            </dvi>
+            </div>
             <span class="btn" href="#q_01">もどる</span>
           </div>
 
           <div id="q_15" style="display: none;">
             <p class="text-center">あなたにおすすめなのは…</p>
             <h4>『マルガリータ』です！！</h4>
-            <dvi class="d-flex flex-row mt-5 mb-5">
+            <div class="answer-box">
               <div class="sindan-image">
                 <%= image_tag "q15.jpg", class: "check-image" %>
               </div>
-              <div class="sindan-image ml-5">
+              <div class="sindan-image">
                 <div class="make-check">
-                  <p>作り方</p>
-                  <table class="table">
+                  <p class="make-title">作り方</p>
+                  <table class="tb02 table">
                     <thead>
                       <tr>
                         <th>材料名</th>
@@ -491,21 +491,21 @@
                   </p>
                 </div>
               </div>
-            </dvi>
+            </div>
             <span class="btn" href="#q_01">もどる</span>
           </div>
 
           <div id="q_16" style="display: none;">
             <p class="text-center">あなたにおすすめなのは…</p>
             <h4>『チチ』です！！</h4>
-            <dvi class="d-flex flex-row mt-5 mb-5">
+            <div class="answer-box">
               <div class="sindan-image">
                 <%= image_tag "q15.jpg", class: "check-image" %>
               </div>
-              <div class="sindan-image ml-5">
+              <div class="sindan-image">
                 <div class="make-check">
-                  <p>作り方</p>
-                  <table class="table">
+                  <p class="make-title">作り方</p>
+                  <table class="tb02 table">
                     <thead>
                       <tr>
                         <th>材料名</th>
@@ -536,21 +536,21 @@
                   </p>
                 </div>
               </div>
-            </dvi>
+            </div>
             <span class="btn" href="#q_01">もどる</span>
           </div>
 
           <div id="q_17" style="display: none;">
             <p class="text-center">あなたにおすすめなのは…</p>
             <h4>『セックスオンザビーチ』です！！</h4>
-            <dvi class="d-flex flex-row mt-5 mb-5">
+            <div class="answer-box d-flex flex-row mt-5 mb-5">
               <div class="sindan-image">
                 <%= image_tag "q15.jpg", class: "check-image" %>
               </div>
-              <div class="sindan-image ml-5">
+              <div class="sindan-image">
                 <div class="make-check">
-                  <p>作り方</p>
-                  <table class="table">
+                  <p class="make-title">作り方</p>
+                  <table class="tb02 table">
                     <thead>
                       <tr>
                         <th>材料名</th>
@@ -584,7 +584,7 @@
                   </p>
                 </div>
               </div>
-            </dvi>
+            </div>
             <span class="btn" href="#q_01">もどる</span>
           </div>
       </div>

@@ -312,6 +312,9 @@ a:hover {
 }
 
 @media screen and (max-width: 425px) {
+  .container {
+    padding-top: 2rem;
+  }
   header {
     width: 100%;
   }
