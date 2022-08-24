@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row">
-    <div class="col-8 offset-2">
-      <div class="time-line-index mt-5">
+    <div class="col-md-10 col-lg-10 mx-auto text-center">
+      <div class="time-line-index">
         <%= render 'public/time_lines/index', time_lines: @time_lines %>
       </div>
       <div class="time-line-form">
         <% if customer_signed_in? %>
           <% if current_customer.name != 'guestuser' %>
-            <%= render 'public/time_lines/form', time_line: @time_line %>
+            <%= render 'public/time_lines/form', time_line: @time_line, class: "text-left" %>
           <% else %>
             <p>新規登録かログイン後に投稿できます。</p>
           <% end %>

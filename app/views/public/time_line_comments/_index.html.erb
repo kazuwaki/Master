@@ -1,15 +1,11 @@
 <% time_line.time_line_comments.each do |time_line_comment| %>
   <div class="index d-flex flex-row border p-2">
-    <div class="comment-show">
-      <div class="customer-images">
-        <%= image_tag time_line_comment.customer.get_profile_image(100,100), class: "customers-show-images" %>
-      </div>
-      <div class="customer-name text-center">
-        <%= time_line_comment.customer.name %>
-      </div>
+    <div class="comment-show ">
+      <p><%= image_tag time_line_comment.customer.get_profile_image(100,100), class: "customers-show-images" %></p>
+      <p class="customer-name text-center"><%= time_line_comment.customer.name %></p>
     </div>
-    <div class="comment-show mt-5 ml-5">
-      <p><%= time_line_comment.comment %></p>
+    <div class="comment-show ml-5">
+      <p class="text-left pt-2"><%= time_line_comment.comment %></p>
       <p><%= time_line_comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
         <% if time_line_comment.customer.id == current_customer.id %>
           <%= link_to "削除", time_line_time_line_comment_path(time_line_comment.time_line, time_line_comment), method: :delete, remote: true, class: "btn btn-outline-danger ml-5" %>
