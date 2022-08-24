@@ -10,14 +10,14 @@ body {
 main {
   min-height: 85vh;
 }
-
+.container {
+  padding-top: 5rem;
+}
 .item-image{
   height: 500px;
   width: 500px;
-  }
-.customer-show {
-  margin: 2%;
 }
+
 .info-name {
   padding-left: 100px;
 }
@@ -30,31 +30,20 @@ main {
 .customer-show-image {
   height: 200px;
   width: 200px;
+  clip-path: circle(100px at 100px 100px);
 }
 
 .customer-show-images {
   height: 50px;
   width: 50px;
+  clip-path: circle(25px at 25px 25px);
 }
 
 .customers-show-images {
   height: 100px;
   width: 100px;
-}
-
-.customer-image{
-  clip-path: circle(100px at 100px 100px);
-}
-
-.customer-images{
   clip-path: circle(50px at 50px 50px);
 }
-
-.customers-images{
-  clip-path: circle(25px at 25px 25px);
-}
-
-
 
 .main-top {
   position: relative;
@@ -345,12 +334,10 @@ a:hover {
     left: -5px;
   }
   //ユーザー詳細ページ
-  .customer-image {
-    clip-path: circle(50px at 50px 50px);
-  }
   .customer-show-image {
     width: 100px;
     height: 100px;
+    clip-path: circle(50px at 50px 50px);
   }
   .tab {
     display: flex;
@@ -378,4 +365,14 @@ a:hover {
   .info-name {
     padding-left: 50px;
   }
+  //ユーザー一覧
+  .customer-index {
+    display: none;
+  }
+  .customers-show-images {
+    width: 50px;
+    height: 50px;
+    clip-path: circle(25px at 25px 25px);
+  }
+
 }
