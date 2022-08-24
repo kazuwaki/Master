@@ -374,5 +374,17 @@ a:hover {
     height: 50px;
     clip-path: circle(25px at 25px 25px);
   }
-
+   //投稿一覧
+  .card-img-top {
+    height: 140px;
+    width: auto;
+  }
+  .post-card {
+    width: 130px;
+    height: 200px;
+    box-shadow: 0 4px 0 #999999;
+  }
+  .genre-search {
+    display: none;
+  }
 }
