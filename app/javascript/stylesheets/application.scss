@@ -39,6 +39,18 @@ main {
     padding-left: 5%;
   }
 }
+//投稿のコメント一覧
+.comment-info {
+  height: 80px;
+  p {
+    line-height: 80px;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+.comment {
+  padding: 5%;
+}
 
 .customer-show-image {
   height: 200px;
