@@ -1,17 +1,17 @@
 <div class="container">
   <div class="row">
-    <div class="col-8 offset-2">
-      <div class="card mt-5">
-        <div class="card-title border-bottom mb-3"><h2 class="mt-2 ml-5">ログイン</h2></div>
+    <div class="col-md-10 col-lg-8 mx-auto text-center">
+      <div class="card">
+        <div class="card-title border-bottom"><h2 class="text-center">ログイン</h2></div>
         <%= form_with model: @customer, url: customer_session_path do |f| %>
-          <table class="table table-borderless">
+          <table class="tb01 table table-borderless">
             <tr>
               <th><%= f.label :email %></th>
               <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
             </tr>
             <tr>
               <th><%= f.label :password %></th>
-              <td><%= f.password_field :password, autocomplete: "current-password" %><%= f.submit "ログイン", class: "ml-5 btn btn-outline-success" %></td>
+              <td><%= f.password_field :password, autocomplete: "current-password" %><%= f.submit "ログイン", class: "ml-3 btn btn-outline-success" %></td>
             </tr>
             <tr>
               <th>登録していない方はこちらから</th>
