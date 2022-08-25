@@ -1,4 +1,4 @@
-<header class="top-header">
+<header class="top-header sticky-top">
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="navbar-brand col-1">
       <% if admin_signed_in? %>
@@ -11,9 +11,7 @@
         <% end %>
       <% end %>
     </div>
-    <span class="ml-auto col-3 d-none d-sm-block">
-      <%= render "public/posts/form" %>
-    </span>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -47,6 +45,9 @@
           </li>
         <% elsif customer_signed_in? %>
           <li class="nav-item">
+            <%= render "public/posts/form" %>
+          </li>
+          <li class="nav-item">
             <%= link_to posts_path, class: "btn btn-outline-light" do %>
               <i class="fas fa-glass-cheers"></i>投稿一覧
             <% end %>
@@ -77,6 +78,9 @@
             <% end %>
           </li class="nav-item">
         <% else %>
+          <li class="nav-item">
+            <%= render "public/posts/form" %>
+          </li>
           <li class="nav-item">
             <%= link_to new_customer_registration_path, class: "btn btn-outline-light"  do %>
               <i class="fas fa-user-plus"></i>新規登録

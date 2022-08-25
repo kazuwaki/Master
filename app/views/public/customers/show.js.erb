@@ -1,0 +1,4 @@
+$('#openposts').html("<%= escape_javascript(render 'public/posts/index1_page', posts: @posts) %>");
+$('#likedposts').html("<%= escape_javascript(render 'public/posts/index2_page', posts: @like_posts) %>");
+$('#closedposts').html("<%= escape_javascript(render 'public/posts/index3_page', posts: @posted) %>");
+$('#notificationindex').html("<%= escape_javascript(render 'public/notifications/index_page', notifications: @notifications) %>");

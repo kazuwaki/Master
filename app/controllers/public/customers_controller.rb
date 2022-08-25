@@ -23,6 +23,10 @@ class Public::CustomersController < ApplicationController
     @notifications.where(checked: false).each do |notification|
       notification.update(checked: true)
     end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def edit

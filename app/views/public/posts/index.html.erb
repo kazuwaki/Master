@@ -21,7 +21,9 @@
     <div class="col-md-12 col-lg-10">
       <h2 class="text-center">投稿一覧</h2>
       <p><%= link_to "投稿作成", new_post_path, class: "btn btn-outline-success" %></p>
-      <%= render "public/posts/index", posts: @posts %>
+      <div id="postindex">
+        <%= render "public/posts/index1_page", posts: @posts %>
+      </div>
       </div>
     </div>
   </div>

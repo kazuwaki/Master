@@ -6,9 +6,13 @@ class Public::PostsController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
 
   def index
-    @posts = Post.open.order(created_at: :desc).page(params[:page])
+    @posts = Post.open.order(created_at: :desc).page(params[:posts_page]).per(8)
     @types = Type.all
     @alcohols = Alcohol.all
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
