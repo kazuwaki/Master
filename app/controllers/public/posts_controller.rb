@@ -58,20 +58,24 @@ class Public::PostsController < ApplicationController
       if @word == "" #検索ワードが空の場合は一覧画面に遷移する
         redirect_to posts_path
       else
-        @posts = Post.open.search_for(@model, @word).page(params[:page])
+        @posts = Post.open.search_for(@model, @word).page(params[:posts_page]).per(8)
       end
     else
       if  @model == "type" #モデルがTypeの場合
         @types = Type.all
         @type_name = params[:type_id]
-        @posts = Post.open.search_for(@model, @type_name).page(params[:page])
+        @posts = Post.open.search_for(@model, @type_name).page(params[:posts_page]).per(8)
         @word = Type.find(@type_name).name
       else
         @alcohols = Alcohol.all
         @alcohol_name = params[:alcohol_id]
-        @posts = Post.open.search_for(@model, @alcohol_name).page(params[:page])
+        @posts = Post.open.search_for(@model, @alcohol_name).page(params[:posts_page]).per(8)
         @word = Alcohol.find(@alcohol_name).name
       end
+    end
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 

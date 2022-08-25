@@ -5,7 +5,11 @@ class Public::CustomersController < ApplicationController
   before_action :ensure_guest_user, only: [:edit, :update]
   before_action :correct_user, only: [:edit, :update]
   def index
-    @customers = Customer.all
+    @customers = Customer.all.order(created_at: :desc).page(params[:customer_page]).per(8)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
