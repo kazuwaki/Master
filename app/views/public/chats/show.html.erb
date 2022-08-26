@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-8 offset-2 mt-5">
+    <div class="col-md-10 col-lg-10 mx-auto">
       <h1 id="room" data-room="<%= @room.id %>" data-customer="<%= current_customer.id %>"><%= @customer.name %> さんとのチャット</h1>
 
       <div class="overflow-auto" id="chat-area">
@@ -22,7 +22,7 @@
 
       <%= form_with model: @chat, data: {remote: true} do |f| %>
         <div class="field">
-          <%= f.text_field :message, class: "col-10" %>
+          <%= f.text_field :message, class: "chat-field" %>
           <%= f.hidden_field :room_id %>
           <%= f.submit "送信", class: "btn btn-outline-success" %>
         </div>
