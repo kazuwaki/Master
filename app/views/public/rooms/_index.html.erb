@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-md-10 col-lg-10 mx-auto">
+    <div class="dm_list">
+      <% rooms.each do |room| %>
+        <div class="dm_list__content">
+          <%= link_to chat_path(room), class: "dm_list__content__link" do %>
+            <div class="dm_list__content__link__box d-flex flex-row">
+              <h3 class="dm_list__content__link__box__name">
+                <%= opponent_customer(room) %>
+              </h3>
+              <p class="dm_list__content__link__box__message">
+                <%= most_new_message_preview(room) %>
+              </p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+      <%= paginate rooms, param_name: 'room_page', remote: true %>
+    </div>
+  </div>
+</div>

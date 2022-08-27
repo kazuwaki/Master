@@ -35,6 +35,7 @@ Rails.application.routes.draw do
       resources :time_line_comments, only: [:create, :destroy]
     end
     resources :chats, only: [:create, :show]
+    resources :rooms, only: [:index]
 
     resources :contacts, only: [:new, :create]
     post "contacts/confirm", to: "contacts#confirm", as: "confirm"
