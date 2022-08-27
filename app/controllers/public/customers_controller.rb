@@ -27,6 +27,8 @@ class Public::CustomersController < ApplicationController
     @notifications.where(checked: false).each do |notification|
       notification.update(checked: true)
     end
+    #DM機能の一覧表示
+    @rooms = current_customer.rooms.page(params[:room_page]).per(8)
     respond_to do |format|
       format.html
       format.js
