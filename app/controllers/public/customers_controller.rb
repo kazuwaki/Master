@@ -21,7 +21,7 @@ class Public::CustomersController < ApplicationController
     @posted = @customer.posts.closed.order(created_at: :desc).page(params[:posted_page]).per(8)
     #ユーザーがいいねした投稿の一覧表示
     like_ids = Like.where(customer_id: @customer.id).pluck(:post_id)
-    @like_posts = Post.where(id: like_ids).page(params[:like_page]).per(8)
+    @like_posts = @customer.posts.open.where(id: like_ids).page(params[:like_page]).per(8)
     #通知機能の一覧表示
     @notifications = current_customer.passive_notifications.page(params[:notice_page]).per(5)
     @notifications.where(checked: false).each do |notification|
