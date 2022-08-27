@@ -1,8 +1,11 @@
 //DM機能のレイアウト
+.chat-name {
+  text-align: center;
+}
 .overflow-auto {
-  background-color: #EEEEEE;
+  background-color: #7494C0;
   width: 100%;
-  height: 500px;
+  height: 75vh;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -12,7 +15,7 @@
   position: relative;
   margin: 2em 0 2em 40px;
   padding: 15px;
-  background: #fff0c6;
+  background: #8DE055;
   border-radius: 30px;
 
   &:before {
@@ -22,7 +25,7 @@
     width: 13px;
     height: 12px;
     bottom: 0;
-    background: #fff0c6;
+    background: #8DE055;
     border-radius: 50%;
   }
 
@@ -33,7 +36,7 @@
     width: 20px;
     height: 18px;
     bottom: 3px;
-    background: #fff0c6;
+    background: #8DE055;
     border-radius: 50%;
   }
 
@@ -42,13 +45,23 @@
     padding: 0;
   }
 }
-
+.chat-group-right {
+  text-align: right;
+  margin-right: 50px;
+}
+.chat-group-left {
+  width: 40%;
+  white-space: normal;
+}
 .balloon1-right {
   position: relative;
   margin: 2em 0 2em 40px;
+  width: auto;
   padding: 15px;
-  background: #fff0c6;
+  background: #8DE055;
   border-radius: 30px;
+  width: 40%;
+  white-space: normal;
 
   &:before {
     content: "";
@@ -57,7 +70,7 @@
     width: 13px;
     height: 12px;
     bottom: 0;
-    background: #fff0c6;
+    background: #8DE055;
     border-radius: 50%;
   }
 
@@ -68,7 +81,7 @@
     width: 20px;
     height: 18px;
     bottom: 3px;
-    background: #fff0c6;
+    background: #8DE055;
     border-radius: 50%;
   }
 
@@ -80,4 +93,8 @@
 .chat-field {
   width: 80%;
   margin-bottom: 5%;
+}
+.chat-image {
+  margin-top: 35px;
+  margin-left: 10px;
 }

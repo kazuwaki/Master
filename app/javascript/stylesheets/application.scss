@@ -311,6 +311,18 @@ a:hover {
   width: 50px;
 }
 
+.dm_list__content {
+  height: 80px;
+  p {
+    line-height: 80px;
+  }
+}
+.dm_list__content__link {
+  &:hover {
+    color: #DDDDDD;
+  }
+}
+
 @media screen and (max-width: 993px) {
   .container {
     padding-top: 2rem;

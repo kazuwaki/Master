@@ -1,13 +1,15 @@
 <div class="row">
   <div class="col-md-10 col-lg-10 mx-auto">
+    <h3 class="text-center">DM一覧</h3><hr>
     <div class="dm_list">
       <% rooms.each do |room| %>
         <div class="dm_list__content">
-          <%= link_to chat_path(room), class: "dm_list__content__link" do %>
+          <%= link_to chat_path(room.customer_rooms.where.not(customer_id: current_customer)[0].customer.id), class: "dm_list__content__link" do %>
             <div class="dm_list__content__link__box d-flex flex-row">
-              <h3 class="dm_list__content__link__box__name">
+              <p><%= image_tag (room.customer_rooms.where.not(customer_id: current_customer)[0].customer).get_profile_image(200,200), class: "customer-show-images mr-5" %></p>
+              <h5 class="dm_list__content__link__box__name mr-5">
                 <%= opponent_customer(room) %>
-              </h3>
+              </h5>
               <p class="dm_list__content__link__box__message">
                 <%= most_new_message_preview(room) %>
               </p>
