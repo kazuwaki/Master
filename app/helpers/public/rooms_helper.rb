@@ -21,6 +21,6 @@ module Public::RoomsHelper
     # 相手ユーザーの名前を取得
     name = customer_room[0].customer.name
     # 名前を表示
-    tag.p "#{name}", class: "dm_list__content__link__box__name"
+    tag.p "#{name}さん", class: "dm_list__content__link__box__name"
   end
 end

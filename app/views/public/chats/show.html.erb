@@ -1,18 +1,22 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10 col-lg-10 mx-auto">
-      <h1 id="room" data-room="<%= @room.id %>" data-customer="<%= current_customer.id %>"><%= @customer.name %> さんとのチャット</h1>
+      <h1 id="room" data-room="<%= @room.id %>" data-customer="<%= current_customer.id %>", class="chat-name"><%= @customer.name %> さんとのチャット</h1>
 
       <div class="overflow-auto" id="chat-area">
         <% @chats.each do |chat| %>
           <% if chat.customer_id == current_customer.id %>
-            <p class="balloon1-right", style="text-align: right;"><%= chat.message %></p>
-            <p class="balloon-right", style="text-align: right;"><%= chat.created_at.strftime('%m/%d %H:%M') %></p>
+            <div class="chat-group-right">
+              <div class="chat-message d-flex flex-row-reverse">
+                <p class="balloon1-right", style="text-align: right;"><%= chat.message %></p>
+              </div>
+              <p class="balloon-right", style="text-align: right;"><%= chat.created_at.strftime('%m/%d %H:%M') %></p>
+            </div>
           <% else %>
             <div class="d-flex flex-row">
-              <p class="customers-images mt-5"><%= image_tag chat.customer.get_profile_image(50,50), class: "customer-show-images"  %></p>
-              <div class="chat-group">
-                <p class="balloon1-left w-70", style="text-align: left;"><%= chat.message %></p>
+              <p class="chat-image"><%= image_tag chat.customer.get_profile_image(50,50), class: "customer-show-images"  %></p>
+              <div class="chat-group-left">
+                <p class="balloon1-left", style="text-align: left;"><%= chat.message %></p>
                 <p class="balloon-left", style="text-align: left;"><%= chat.created_at.strftime('%m/%d %H:%M') %></p>
               </div>
             </div>
