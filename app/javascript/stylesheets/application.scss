@@ -412,8 +412,9 @@ a:hover {
       a {
         display: block;
         background: #ddd;
-        padding: 1px 1x;
+        padding: 5px 2px;
         font-size: 2px;
+        //margin: auto;
       }
 
       &.active a {
@@ -454,6 +455,9 @@ a:hover {
   //投稿詳細画面
   .post-show {
     margin-top: 5px;
+  }
+  .info-name {
+    font-size: 20px;
   }
   .post-customer {
     height: 70px;
