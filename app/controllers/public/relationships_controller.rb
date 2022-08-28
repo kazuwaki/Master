@@ -9,10 +9,6 @@ class Public::RelationshipsController < ApplicationController
     # フォローした時の通知機能
     @customer.create_notification_follow!(current_customer)
     @customers = Customer.all.order(created_at: :desc).page(params[:customer_page]).per(8)
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def destroy
@@ -20,10 +16,6 @@ class Public::RelationshipsController < ApplicationController
     following = current_customer.unfollow(@customer)
     #following.destroy
     @customers = Customer.all.order(created_at: :desc).page(params[:customer_page]).per(8)
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def followings
