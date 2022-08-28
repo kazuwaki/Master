@@ -1,7 +1,22 @@
 <div class="container">
   <div class="row">
-    <div class="follow col-md-10 col-lg-10 mx-auto text-center">
-      <%= render 'public/relationships/index', customers: @customers %>
+    <div class="col-md-10 col-lg-10 mx-auto text-center">
+      <table class="table">
+        <thead class="table-secondary">
+          <tr>
+            <th>image</th>
+            <th>name</th>
+            <th class="customer-index">introduction</th>
+            <th>follow</th>
+            <th class="customer-index"></th>
+            <th class="customer-index"></th>
+          </tr>
+        </thead>
+        <tbody class="follow">
+          <%= render 'public/relationships/index', customers: @customers %>
+        </tbody>
+      </table>
+      <%= paginate @customers %>
     </div>
   </div>
 </div>

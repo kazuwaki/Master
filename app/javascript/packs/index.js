@@ -55,6 +55,7 @@ document.addEventListener("turbolinks:load", () => {
     function scrollToEnd() {
         const messageDetails = document.getElementById('chat-area');
         messageDetails.scrollTop = messageDetails.scrollHeight;
+        //console.log("ここ通過");
     }
     scrollToEnd()
 })
