@@ -31,7 +31,7 @@
             <div class="error-comment">
                 <%= render 'layouts/errors', obj: @post_comment %>
             </div>
-            <div class="comment-form">
+            <div class="comment-form mb-5">
                 <% if current_customer.name != "guestuser" %>
                     <%= render "public/post_comments/form", post: @post, post_comment: @post_comment %>
                 <% end %>
