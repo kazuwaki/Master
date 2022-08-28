@@ -4,6 +4,9 @@
       <div class="time-line-index">
         <%= render 'public/time_lines/index', time_lines: @time_lines %>
       </div>
+      <div class="error-comment col-md-10 col-lg-10 mx-auto text-center">
+        <%= render "layouts/errors", obj: @time_line %>
+      </div>
       <div class="time-line-form">
         <% if customer_signed_in? %>
           <% if current_customer.name != 'guestuser' %>
