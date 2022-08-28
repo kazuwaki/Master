@@ -1,32 +1,19 @@
-<table class="table">
-  <thead class="table-secondary">
-    <tr>
-      <th>image</th>
-      <th>name</th>
-      <th class="customer-index">introduction</th>
-      <th>follow</th>
-      <th class="customer-index"></th>
-      <th class="customer-index"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% customers.each do |customer| %>
-      <tr>
-        <td class="customer-images"><%= link_to customer_path(customer.id) do %>
-          <%= image_tag customer.get_profile_image(100,100), class: "customers-show-images" %><% end %>
-        </td>
-        <td><%= customer.name %></td>
-        <td class="customer-index"><%= customer.introduction %></td>
-        <td><%= render 'public/relationships/follow_button', customer: customer %></td>
-        <% if customer.name != "guestuser" %>
-          <td class="customer-index"><%= link_to customer_followings_path(customer.id), class: "follow-count" do %>フォロー： <%= customer.followings.count %>人<% end %></td>
-          <td class="customer-index"><%= link_to customer_followers_path(customer.id), class: "follow-count" do %>フォロワー： <%= customer.followers.count %>人<% end %></td>
-        <% else %>
-          <td class="customer-index"></td>
-          <td class="customer-index"></td>
-        <% end %>
-      </tr>
+<% customers.each do |customer| %>
+  <tr>
+    <td class="customer-images"><%= link_to customer_path(customer.id) do %>
+      <%= image_tag customer.get_profile_image(100,100), class: "customers-show-images" %><% end %>
+    </td>
+    <td><%= customer.name %></td>
+    <td class="customer-index"><%= customer.introduction %></td>
+    <td><%= render 'public/relationships/follow_button', customer: customer %></td>
+    <% if customer.name != "guestuser" %>
+      <td class="customer-index　follow-count"><%= link_to customer_followings_path(customer.id) do %>フォロー： <%= customer.followings.count %>人<% end %></td>
+      <td class="customer-index　follow-count"><%= link_to customer_followers_path(customer.id) do %>フォロワー： <%= customer.followers.count %>人<% end %></td>
+    <% else %>
+      <td class="customer-index"></td>
+      <td class="customer-index"></td>
     <% end %>
-  </tbody>
-</table>
-<%= paginate customers, param_name: 'customer_page', remote: true %>
+  </tr>
+<% end %>
+
+
