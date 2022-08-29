@@ -1,0 +1,16 @@
+<% post.post_comments.each do |post_comment| %>
+  <div class="card">
+    <div class="comment-info d-flex flex-row border">
+      <p><%= image_tag post_comment.customer.get_profile_image(50,50), class: "customer-show-images" %></p>
+      <p><%= post_comment.customer.name %></p>
+      <p><%= post_comment.created_at.strftime('%Y/%m/%d' )%>
+        <%= link_to admin_post_post_comment_path(post_comment.post,post_comment), method: :delete do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </p>
+    </div>
+    <div class="comment">
+      <%= post_comment.comment %>
+    </div>
+  </div>
+<% end %>
