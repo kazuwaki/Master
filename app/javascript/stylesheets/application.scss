@@ -337,6 +337,13 @@ a:hover {
     color: #DDDDDD;
   }
 }
+//タイムライン詳細
+.timeline-main {
+  margin-top: 20px;
+}
+.time-line-big {
+  display: none;
+}
 
 @media screen and (max-width: 993px) {
   .container {
@@ -498,5 +505,11 @@ a:hover {
   .customer-info {
     width: 200px;
     padding-left: 5px;
+  }
+  .comment-show, .timeline-main {
+    display:flex;
+    flex-flow: column;
+    text-align: left;
+    margin-left: 5%;
   }
 }
