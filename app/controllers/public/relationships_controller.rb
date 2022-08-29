@@ -8,14 +8,14 @@ class Public::RelationshipsController < ApplicationController
     following.save
     # フォローした時の通知機能
     @customer.create_notification_follow!(current_customer)
-    @customers = Customer.all.order(created_at: :desc).page(params[:page])
+    @customers = Customer.all.order(created_at: :desc)
   end
 
   def destroy
     # ログインユーザーがフォローを外す
     following = current_customer.unfollow(@customer)
     #following.destroy
-    @customers = Customer.all.order(created_at: :desc).page(params[:page])
+    @customers = Customer.all.order(created_at: :desc)
   end
 
   def followings
