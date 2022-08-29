@@ -43,6 +43,10 @@ main {
   text-align: left;
   padding-left: 40px;
 }
+.customer-introduction-index {
+  text-align: left;
+  width: 30%;
+}
 //投稿詳細
 .post-customer {
   height: 120px;
@@ -254,6 +258,13 @@ ul, li {
 .customer-info {
   padding-left: 5%;
 }
+.comment-show {
+  padding-left: 5%;
+}
+.timeline-main {
+  padding-left: 5%;
+  margin-top: 5%;
+}
 .tab {
   display: flex;
   flex-wrap: wrap;
@@ -336,13 +347,6 @@ a:hover {
   &:hover {
     color: #DDDDDD;
   }
-}
-//タイムライン詳細
-.timeline-main {
-  margin-top: 20px;
-}
-.time-line-big {
-  display: none;
 }
 
 @media screen and (max-width: 993px) {

@@ -4,11 +4,11 @@
       <%= image_tag customer.get_profile_image(100,100), class: "customers-show-images" %><% end %>
     </td>
     <td><%= customer.name %></td>
-    <td class="customer-index"><%= customer.introduction %></td>
+    <td class="customer-index customer-introduction-index"><%= customer.introduction %></td>
     <td><%= render 'public/relationships/follow_button', customer: customer %></td>
     <% if customer.name != "guestuser" %>
-      <td class="customer-index　follow-count"><%= link_to customer_followings_path(customer.id) do %>フォロー： <%= customer.followings.count %>人<% end %></td>
-      <td class="customer-index　follow-count"><%= link_to customer_followers_path(customer.id) do %>フォロワー： <%= customer.followers.count %>人<% end %></td>
+      <td class="customer-index follow-count"><%= link_to customer_followings_path(customer.id) do %>フォロー： <%= customer.followings.count %>人<% end %></td>
+      <td class="customer-index follow-count"><%= link_to customer_followers_path(customer.id) do %>フォロワー： <%= customer.followers.count %>人<% end %></td>
     <% else %>
       <td class="customer-index"></td>
       <td class="customer-index"></td>
