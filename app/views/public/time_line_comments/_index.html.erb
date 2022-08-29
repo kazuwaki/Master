@@ -1,12 +1,14 @@
 <% time_line.time_line_comments.each do |time_line_comment| %>
-  <div class="time_line_comment-index d-flex flex-row border p-3">
+  <div class="time_line-index d-flex flex-row border p-3">
     <div class="comment-show ">
       <p><%= link_to customer_path(time_line_comment.customer) do %><%= image_tag time_line_comment.customer.get_profile_image(100,100), class: "customers-show-images" %><% end %></p>
       <p class="customer-name text-center"><%= time_line_comment.customer.name %></p>
     </div>
-    <div class="comment-show d-flex align-items-center">
-      <p><%= time_line_comment.comment %></p>
-      <p><%= time_line_comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %></p>
+    <div class="comment-show">
+      <div class="d-flex">
+        <p class="text-left"><%= time_line_comment.comment %></p>
+      </div>
+      <p class="text-left"><%= time_line_comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %></p>
     </div>
   </div>
 <% end %>

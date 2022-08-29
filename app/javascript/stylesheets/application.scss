@@ -252,6 +252,13 @@ ul, li {
   height: 450px;
   overflow-y: scroll;
 }
+.time_line-text {
+  width: 70%;
+  margin-left: 5%;
+}
+.time_line_comment-text {
+  width: 50%;
+}
 
 .timeline {
   padding-left: 20%;
@@ -261,6 +268,7 @@ ul, li {
 }
 .comment-show {
   padding-left: 5%;
+  padding-top: 5%;
 }
 .timeline-main {
   padding-left: 5%;

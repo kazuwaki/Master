@@ -14,7 +14,7 @@
               <p>
                 <%= time_line.title %>
                 <%= link_to "show", admin_time_line_path(time_line), class: "btn btn-outline-secondary ml-5" %>
-                <%= link_to "delete", @time_line, method: :delete, class: "btn btn-outline-danger" %>
+                <%= link_to "delete", admin_time_line_path(time_line), method: :delete, class: "btn btn-outline-danger" %>
               </p>
               <p><%= time_line.body %></p>
             </div>
