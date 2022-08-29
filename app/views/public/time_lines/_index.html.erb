@@ -2,7 +2,7 @@
   <div class="col-md-10 col-lg-10 mx-auto text-center">
     <div class="timeline-customer d-flex flex-row card p-3">
       <div class="customer-info">
-        <p><%= image_tag time_line.customer.get_profile_image(100,100), class: "customers-show-images" %></p>
+        <p><%= link_to customer_path(time_line.customer) do %><%= image_tag time_line.customer.get_profile_image(100,100), class: "customers-show-images" %><% end %></p>
         <p class="post-name text-center"><%= time_line.customer.name %></p>
       </div>
       <div class="timeline">

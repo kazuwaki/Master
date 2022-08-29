@@ -24,12 +24,6 @@ class Public::TimeLinesController < ApplicationController
     @time_line_comment = TimeLineComment.new
   end
 
-  def destroy
-    @time_line = TimeLine.find(params[:id])
-    @time_line.destroy
-    redirect_to time_lines_path
-  end
-
   private
     def time_line_params
       params.require(:time_line).permit(:title, :body)

@@ -11,11 +11,6 @@ class Public::TimeLineCommentsController < ApplicationController
     @comment_new = TimeLineComment.new
   end
 
-  def destroy
-    @comment = TimeLineComment.find(params[:id])
-    @comment.destroy
-  end
-
   private
     def time_line_comment_params
       params.require(:time_line_comment).permit(:comment)
