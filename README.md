@@ -29,9 +29,10 @@
 - 機能一覧
 <img width="649" alt="スクリーンショット 2022-08-30 14 03 58" src="https://user-images.githubusercontent.com/104773179/187353471-c47df432-d2f5-4239-adea-03e3b3b5c95b.png">
 - テーブル定義書
-[ポートフォリオ テーブル定義書 (1).pdf]
+[ポートフォリオ テーブル定義書.pdf](https://github.com/kazuwaki/Master/files/9450795/default.pdf)
 - テスト仕様書
-[テスト仕様書.pdf]
+[テスト仕様書.pdf](https://github.com/kazuwaki/Master/files/9450777/default.pdf)
+
 
 
 
