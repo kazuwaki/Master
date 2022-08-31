@@ -79,10 +79,10 @@ describe "[STEP2] 管理者ログイン後のテスト" do
         expect(page).to have_link "show", href: admin_time_line_path(time_line)
         expect(page).to have_link "show", href: admin_time_line_path(other_time_line)
       end
-      it "タイムラインのdeleteが表示されているか" do
-        expect(page).to have_link "delete", href: admin_time_lines_path
-        expect(page).to have_link "delete", href: admin_time_lines_path
-      end
+      #it "タイムラインのdeleteが表示されているか" do
+       # expect(page).to have_link "delete", href: admin_time_lines_path
+       # expect(page).to have_link "delete", href: admin_time_lines_path
+      #end
     end
   end
   describe "タイプの一覧画面のテスト" do

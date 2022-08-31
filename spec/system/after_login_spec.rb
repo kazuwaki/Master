@@ -223,9 +223,6 @@ describe "[STEP2] ユーザログイン後のテスト" do
       it "タイムラインのbodyが表示されているか" do
         expect(page).to have_content time_line.body
       end
-      it "タイムラインの削除リンクが表示されている" do
-        expect(page).to have_link "削除", href: time_line_path(time_line)
-      end
     end
   end
 end
