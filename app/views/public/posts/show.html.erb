@@ -23,6 +23,11 @@
                             <%= render 'public/likes/like', post: @post %>
                         <% end %>
                     </div>
+                    <div class="tags-index m-3">
+                        <% @post.tags.each do |tag| %>
+                          <span class="btn btn-info"><%= tag.name %></span>
+                        <% end %>
+                    </div>
                 </div>
             </div>
             <div class="comment-index">
