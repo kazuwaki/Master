@@ -12,6 +12,7 @@ module Master
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+    config.paths.add 'lib', eager_load: true # 追加
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
 
     # Configuration for the application, engines, and railties goes here.
