@@ -27,6 +27,7 @@ class Customer < ApplicationRecord
   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 
   validates :name, presence: true
+  validates :name, uniqueness: true
 
   def self.guest
     find_or_create_by!(name: "guestuser" ,email: "guest@example.com") do |customer|
