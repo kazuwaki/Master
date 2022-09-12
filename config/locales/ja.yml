@@ -42,3 +42,9 @@ ja:
         name: "タイプ名"
       alcohol:
         name: "アルコール強度"
+      contact:
+        name: "名前"
+        email: "メールアドレス"
+        subject: "お問合せ件名"
+        message: "メッセージ"
+        phone_number: "電話番号"
