@@ -35,9 +35,6 @@
 ### テスト仕様書
 - [テスト仕様書.pdf](https://github.com/kazuwaki/Master/files/9450777/default.pdf)
 
-
-
-
 ### 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
@@ -47,3 +44,4 @@
 
 ### 使用素材
 - [写真のフリー素材サイト](https://www.photo-ac.com)
+
