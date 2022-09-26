@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Admin::TimeLinesController < ApplicationController
+  before_action :authenticate_admin!
   def index
     @time_lines = TimeLine.all
   end

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Admin::AlcoholsController < ApplicationController
+  before_action :authenticate_admin!
   def index
     @alcohols = Alcohol.all
     @alcohol = Alcohol.new

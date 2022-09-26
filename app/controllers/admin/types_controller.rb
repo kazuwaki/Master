@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Admin::TypesController < ApplicationController
+  before_action :authenticate_admin!
   def index
     @type = Type.new
     @types = Type.all
