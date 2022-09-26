@@ -33,6 +33,7 @@ ja:
         password: "パスワード"
         name: "名前"
       post:
+        image:  "投稿画像"
         name: "お酒の名前"
         body: "材料名・作り方"
         type: "タイプ"
